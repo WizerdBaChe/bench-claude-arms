@@ -1,6 +1,6 @@
 DATA AND WRITTEN WORK: Creative Commons Attribution 4.0 International (CC BY 4.0)
 
-Copyright (c) 2026 WizerdBaChe
+Copyright (c) 2026 NathanBaChe (github.com/WizerdBaChe)
 
 SPDX-License-Identifier: CC-BY-4.0
 
@@ -55,7 +55,7 @@ ATTRIBUTION
 
 Suggested form:
 
-    WizerdBaChe (2026). bench-claude-arms: a controlled measurement of LLM
+    NathanBaChe (2026). bench-claude-arms: a controlled measurement of LLM
     coding-agent execution cost. CC BY 4.0.
     https://github.com/WizerdBaChe/bench-claude-arms
 

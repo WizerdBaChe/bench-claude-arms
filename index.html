@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>bench-claude-arms</title>
+<meta name="description" content="在一台真實 Windows 開發機上量測 LLM 編碼代理的執行成本：22 筆任務執行 + 2 筆儀器探針，附完整原始紀錄。">
+<style>
+  :root{
+    --bg:#fbfbfa; --panel:#ffffff; --ink:#1c1b19; --muted:#6b6862;
+    --line:#e2e0dc; --accent:#8a5a2b; --accent-ink:#6d4620;
+    --warn-bg:#fdf6ec; --warn-line:#e8d4b0;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC","PingFang TC",
+           "Microsoft JhengHei",Roboto,Helvetica,Arial,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#17181a; --panel:#1f2124; --ink:#e8e6e3; --muted:#9a968f;
+      --line:#31343a; --accent:#d8a66a; --accent-ink:#e8c191;
+      --warn-bg:#241f18; --warn-line:#4a3c28;
+    }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:var(--sans); line-height:1.7;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:60rem; margin:0 auto; padding:3.5rem 1.5rem 5rem}
+  header{border-bottom:1px solid var(--line); padding-bottom:2rem; margin-bottom:2.5rem}
+  h1{
+    font-family:var(--mono); font-size:clamp(1.6rem,4.5vw,2.3rem);
+    font-weight:600; letter-spacing:-.02em; margin:0 0 .6rem;
+  }
+  .lede{font-size:clamp(1rem,2.4vw,1.15rem); color:var(--muted); margin:0 0 1.5rem; max-width:44rem}
+  .facts{display:flex; flex-wrap:wrap; gap:.5rem 1.75rem; margin:0; padding:0; list-style:none}
+  .facts li{font-size:.9rem; color:var(--muted)}
+  .facts b{
+    display:block; font-family:var(--mono); font-size:1.35rem;
+    font-weight:600; color:var(--ink); letter-spacing:-.01em;
+  }
+  h2{
+    font-size:.8rem; text-transform:uppercase; letter-spacing:.12em;
+    color:var(--muted); font-weight:600; margin:3rem 0 1rem;
+  }
+  .cards{display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(17rem,1fr))}
+  .card{
+    display:block; background:var(--panel); border:1px solid var(--line);
+    border-radius:.6rem; padding:1.4rem 1.5rem; text-decoration:none; color:inherit;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .card:hover,.card:focus-visible{border-color:var(--accent); transform:translateY(-2px)}
+  .card h3{margin:0 0 .4rem; font-size:1.05rem; font-weight:600; color:var(--accent-ink)}
+  .card p{margin:0; font-size:.92rem; color:var(--muted)}
+  .links{list-style:none; margin:0; padding:0; display:grid; gap:.1rem}
+  .links li{border-bottom:1px solid var(--line)}
+  .links a{
+    display:flex; flex-wrap:wrap; gap:.2rem .9rem; align-items:baseline;
+    padding:.7rem .2rem; text-decoration:none; color:inherit;
+  }
+  .links a:hover span:first-child,.links a:focus-visible span:first-child{color:var(--accent-ink)}
+  .links code{font-family:var(--mono); font-size:.88rem; font-weight:600}
+  .links span:last-child{font-size:.88rem; color:var(--muted)}
+  .note{
+    background:var(--warn-bg); border:1px solid var(--warn-line);
+    border-radius:.6rem; padding:1.2rem 1.4rem; font-size:.93rem;
+  }
+  .note ol{margin:.7rem 0 0; padding-left:1.2rem}
+  .note li{margin:.35rem 0}
+  .note p:first-child{margin-top:0}
+  .note p:last-child{margin-bottom:0}
+  footer{
+    margin-top:3.5rem; padding-top:1.5rem; border-top:1px solid var(--line);
+    font-size:.85rem; color:var(--muted);
+  }
+  footer a{color:var(--accent-ink)}
+  code{font-family:var(--mono)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>bench-claude-arms</h1>
+  <p class="lede">
+    在一台真實的 Windows 開發機上，量測 LLM 編碼代理 (coding agent) 的<strong>執行成本</strong>：
+    執行通道、委派架構、推理強度，以及一個兩點的任務規模劑量反應 (dose-response)。
+    原始執行紀錄與逐字 transcript 全部隨論文一起公開，每個數字都可以自行重新推導。
+  </p>
+  <ul class="facts">
+    <li><b>22 + 2</b>任務執行 ＋ 儀器探針</li>
+    <li><b>$254.22</b>全部實付成本</li>
+    <li><b>24</b>完整執行紀錄目錄</li>
+  </ul>
+</header>
+
+<h2>兩份報告</h2>
+<div class="cards">
+  <a class="card" href="COST_BRIEF_2026-08-21.html">
+    <h3>成本帳 →</h3>
+    <p>絕對金額、每一組的消耗、以及實際上可以動哪幾顆旋鈕。想知道「這樣跑要花多少」看這份。</p>
+  </a>
+  <a class="card" href="SUMMARY_2026-08-21.html">
+    <h3>過程頁 →</h3>
+    <p>研究做了什麼、儀器怎麼被證明可信、以及刻意不宣稱什麼。只談比值，不談絕對金額。</p>
+  </a>
+</div>
+
+<h2>原始材料</h2>
+<ul class="links">
+  <li><a href="https://github.com/WizerdBaChe/bench-claude-arms/blob/main/PAPER_2026-08-20.md">
+    <span><code>PAPER_2026-08-20.md</code></span><span>論文本體，9 章 ＋ 4 附錄</span></a></li>
+  <li><a href="https://github.com/WizerdBaChe/bench-claude-arms/tree/main/results">
+    <span><code>results/</code></span><span>24 個執行紀錄目錄：逐筆 record／meta／score／CLI 自報／transcript</span></a></li>
+  <li><a href="https://github.com/WizerdBaChe/bench-claude-arms/blob/main/RECONCILIATION_2026-08-21.md">
+    <span><code>RECONCILIATION_2026-08-21.md</code></span><span>全論文數字對帳：13 筆更正、3 個追不到檔案的數字</span></a></li>
+  <li><a href="https://github.com/WizerdBaChe/bench-claude-arms/blob/main/DATA_NOTICE.md">
+    <span><code>DATA_NOTICE.md</code></span><span>發布前移除了什麼，以及「沒動到任何數字」的三項實測證明</span></a></li>
+  <li><a href="https://github.com/WizerdBaChe/bench-claude-arms">
+    <span><code>原始碼庫</code></span><span>GitHub 倉庫，含量測與分析工具</span></a></li>
+</ul>
+
+<h2>這份研究不宣稱什麼</h2>
+<div class="note">
+  <p>成本結論成立的前提是<strong>品質被固定住</strong>。以下五條限定在任何摘要裡都不得被壓縮掉，
+     完整版在倉庫的 <code>CLAUDE.md</code> 規則 1–5：</p>
+  <ol>
+    <li>「等品質」只在<strong>契約層</strong>成立 —— 有一次執行拿滿分，卻交出載不進資料夾的 GUI。</li>
+    <li>GUI 篩檢的 2/3 對 0/3 是 <strong>Fisher p=0.4，描述性</strong>，不得與 n=4 的成本結論並排。</li>
+    <li>GUI 那項發現量到的是<strong>組內離散度</strong>，不是「委派讓 GUI 變差」。</li>
+    <li>推理強度的 thinking −33% <strong>不是節省</strong>：總成本只降 5%，統計上無法區分。</li>
+    <li>每個數字都要追得到檔案；工具能掃形狀，但<strong>不能證明論文引用了它印出來的值</strong>。</li>
+  </ol>
+</div>
+
+<footer>
+  <p>
+    程式採 <a href="https://github.com/WizerdBaChe/bench-claude-arms/blob/main/LICENSE">MIT</a>；
+    數據與文件採 <a href="https://github.com/WizerdBaChe/bench-claude-arms/blob/main/DATA-LICENSE.txt">CC BY 4.0</a>
+    —— GitHub 側欄只顯示得了其中一個。
+    引用資訊見 <a href="https://github.com/WizerdBaChe/bench-claude-arms/blob/main/CITATION.cff">CITATION.cff</a>。
+  </p>
+  <p>NathanBaChe（<a href="https://github.com/WizerdBaChe">@WizerdBaChe</a>），2026</p>
+</footer>
+
+</div>
+</body>
+</html>

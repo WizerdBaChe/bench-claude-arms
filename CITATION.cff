@@ -15,7 +15,10 @@ abstract: >-
   transcripts alongside the paper, so every figure can be re-derived.
 type: dataset
 authors:
-  - name: "WizerdBaChe"
+  # Rendered verbatim on purpose. Splitting this into given-names/family-names
+  # would let citation styles reorder or abbreviate it, and the correct split is
+  # not something this file should guess.
+  - name: "NathanBaChe"
     alias: "WizerdBaChe"
 version: "2026.08.21"
 date-released: "2026-08-21"

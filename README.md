@@ -99,8 +99,13 @@
 
 | 檔案 | 是什麼 |
 |---|---|
+| `index.html` | **GitHub Pages 的著陸頁**。只做導覽與「不宣稱什麼」，不自行持有任何可漂移的數值 |
 | `COST_BRIEF_2026-08-21.html` | 成本帳：絕對金額、每組消耗、可以動哪顆旋鈕 |
 | `SUMMARY_2026-08-21.html` | 過程頁：研究做了什麼、儀器怎麼被證明可信、不宣稱什麼（僅比值）|
+
+線上版：<https://wizerdbache.github.io/bench-claude-arms/>
+（GitHub Pages 由 `main` 分支根目錄提供；`.nojekyll` 關閉 Jekyll 處理，
+所以站台送出的就是倉庫裡的那幾份檔案本身，沒有第二份會漂移的副本。）
 
 > 兩份是**刻意分開的兩份 artifact**，職責不同，不要合併也不要互相覆蓋。
 > 更新方式：以各自的檔案路徑重新發布，並帶上該 artifact 自己的 `url`；

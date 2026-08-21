@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use this dataset or its findings, please cite it as below."
+title: "bench-claude-arms: a controlled measurement of LLM coding-agent execution cost"
+abstract: >-
+  A pre-registered measurement of what it costs to run an LLM coding agent on a
+  real Windows development machine. Four factors were varied: execution channel
+  (CLI vs desktop application), delegation architecture (solo vs subagent
+  delegation), reasoning effort (high vs medium), and task scale (a two-point
+  dose-response). 22 task runs plus 2 instrument probes, USD 254.22, every run
+  passing a pre-registered exclusion audit. Quality was held at a fixed contract
+  and scored by a sealed held-out suite, so cost differences are read at equal
+  contract-layer quality -- a qualifier the repository's rule file forbids
+  dropping, because one arm scored full marks while shipping an unusable GUI.
+  The repository publishes the raw run records and de-identified agent
+  transcripts alongside the paper, so every figure can be re-derived.
+type: dataset
+authors:
+  - name: "WizerdBaChe"
+    alias: "WizerdBaChe"
+version: "2026.08.21"
+date-released: "2026-08-21"
+license: CC-BY-4.0
+license-url: "https://creativecommons.org/licenses/by/4.0/"
+repository-code: "https://github.com/WizerdBaChe/bench-claude-arms"
+keywords:
+  - llm-agents
+  - coding-agents
+  - benchmark
+  - cost-measurement
+  - reproducibility
+  - claude-code
+references:
+  - type: generic
+    title: "Code in this repository is licensed separately under the MIT License; see LICENSE and LICENSE-DATA for the split."
+    authors:
+      - name: "WizerdBaChe"

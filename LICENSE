@@ -19,17 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
---------------------------------------------------------------------------------
-SCOPE
-
-This MIT license covers the CODE in this repository:
-
-    tools/**            measurement, analysis and index-control scripts
-    holdout/**.py       oracle, scorer, differential fuzzer, mutation harness
-    holdout/refimpl/    reference implementations
-    holdout/refimpl_xl/
-    holdout/g4_anchor_probe/
-
-The DATA and the WRITTEN WORK are licensed separately, under CC BY 4.0.
-See LICENSE-DATA.

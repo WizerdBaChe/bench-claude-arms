@@ -29,8 +29,3 @@ keywords:
   - cost-measurement
   - reproducibility
   - claude-code
-references:
-  - type: generic
-    title: "Code in this repository is licensed separately under the MIT License; see LICENSE and LICENSE-DATA for the split."
-    authors:
-      - name: "WizerdBaChe"

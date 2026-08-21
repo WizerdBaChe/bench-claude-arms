@@ -12,7 +12,9 @@
 > 絕對路徑、130 筆帶有私有代理設定的 transcript 紀錄，以及 31 張內嵌截圖中的 5 張。
 > **沒有任何量測數值被改動**，證明在 `DATA_NOTICE.md` §4；用
 > `python tools\deidentify.py --check` 可以自行驗證。
-> 授權：程式 MIT（`LICENSE`）、數據與文件 CC BY 4.0（`LICENSE-DATA`）。
+> 授權：程式 MIT（`LICENSE`）、數據與文件 CC BY 4.0（`DATA-LICENSE.txt`）。
+> **GitHub 側欄只會顯示 MIT** —— 那是它對 `LICENSE` 的偵測結果，只涵蓋程式，
+> 不涵蓋數據與論文。完整範圍見第 8 節。
 
 ---
 
@@ -179,7 +181,14 @@ git config --global core.longpaths true
 | 範圍 | 授權 | 檔案 |
 |---|---|---|
 | 程式（`tools/`、`holdout/**.py`、參考實作、探針）| MIT | `LICENSE` |
-| 數據與文件（`results/`、`holdout/*.json`、`fixtures/`、論文與各 `.md`／`.html`）| CC BY 4.0 | `LICENSE-DATA` |
+| 數據與文件（`results/`、`holdout/*.json`、`fixtures/`、`archive/`、論文與各 `.md`／`.html`）| CC BY 4.0 | `DATA-LICENSE.txt` |
+
+不在上表 MIT 那一列的檔案，一律適用 CC BY 4.0。
+
+> ⚠️ **GitHub 一個 repo 只認一個授權**，且是從 `LICENSE` 偵測而來，
+> 所以側欄會標成 **MIT**。那個標籤對程式正確、**對數據與論文錯誤**。
+> `LICENSE` 因此保持標準 MIT 全文不加註（否則 GitHub 連 MIT 都認不出來），
+> 兩邊的完整範圍改放在 `DATA-LICENSE.txt` 裡。
 
 引用資訊（機器可讀）在 `CITATION.cff`。
 `results/**/transcript.jsonl` 內含執行當下 Claude 模型的逐字輸出，作為研究證據發布；

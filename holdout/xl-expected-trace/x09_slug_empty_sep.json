@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "original": "  spaced  name  .md",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "  spaced  name  ",
+          "after": "spacedname"
+        }
+      ],
+      "proposed": "spacedname.md",
+      "status": "ok"
+    },
+    {
+      "original": ".gitignore",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": ".gitignore",
+          "after": "gitignore"
+        }
+      ],
+      "proposed": "gitignore",
+      "status": "ok"
+    },
+    {
+      "original": "B.TXT",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "B",
+          "after": "b"
+        }
+      ],
+      "proposed": "b.TXT",
+      "status": "ok"
+    },
+    {
+      "original": "Hello-World_v2.TXT",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "Hello-World_v2",
+          "after": "helloworldv2"
+        }
+      ],
+      "proposed": "helloworldv2.TXT",
+      "status": "ok"
+    },
+    {
+      "original": "IMG_0042.jpeg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "IMG_0042",
+          "after": "img0042"
+        }
+      ],
+      "proposed": "img0042.jpeg",
+      "status": "ok"
+    },
+    {
+      "original": "README",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "README",
+          "after": "readme"
+        }
+      ],
+      "proposed": "readme",
+      "status": "ok"
+    },
+    {
+      "original": "a.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "a",
+          "after": "a"
+        }
+      ],
+      "proposed": "a.txt",
+      "status": "unchanged"
+    },
+    {
+      "original": "aabbcc.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "aabbcc",
+          "after": "aabbcc"
+        }
+      ],
+      "proposed": "aabbcc.txt",
+      "status": "unchanged"
+    },
+    {
+      "original": "console.md",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "console",
+          "after": "console"
+        }
+      ],
+      "proposed": "console.md",
+      "status": "unchanged"
+    },
+    {
+      "original": "data.tar.gz",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "data.tar",
+          "after": "datatar"
+        }
+      ],
+      "proposed": "datatar.gz",
+      "status": "ok"
+    },
+    {
+      "original": "photo (1).jpg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "photo (1)",
+          "after": "photo1"
+        }
+      ],
+      "proposed": "photo1.jpg",
+      "status": "ok"
+    },
+    {
+      "original": "photo (2).jpg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "photo (2)",
+          "after": "photo2"
+        }
+      ],
+      "proposed": "photo2.jpg",
+      "status": "ok"
+    },
+    {
+      "original": "x.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "x",
+          "after": "x"
+        }
+      ],
+      "proposed": "x.txt",
+      "status": "unchanged"
+    },
+    {
+      "original": "報告 2026.docx",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "報告 2026",
+          "after": "2026"
+        }
+      ],
+      "proposed": "2026.docx",
+      "status": "ok"
+    }
+  ]
+}

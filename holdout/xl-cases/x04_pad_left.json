@@ -1,0 +1,12 @@
+{
+  "applyTo": "name",
+  "sort": "name",
+  "steps": [
+    {
+      "op": "pad",
+      "length": 12,
+      "fill": "_",
+      "side": "left"
+    }
+  ]
+}

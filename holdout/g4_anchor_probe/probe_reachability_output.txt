@@ -1,0 +1,583 @@
+﻿########## A  PILOT-C1-01 (C1)   [manual G4: PASS 8/8] ##########
+exe          : D:\BenchRuns\PILOT-C1-01\src\BatchRenameStudio\bin\Release\net8.0-windows\BatchRenameStudio.exe
+window title : Batch Rename Studio
+client area  : 746 x 440  (origin 480,247)
+
+[A] OFF-CLIENT -- visible controls outside the window's client area
+class            text                                     x       y   right  bottom  verdict
+--------------------------------------------------------------------------------------------------------
+Window                                                    0      76     747     408  on-screen
+Window                                                    0      76     293     408  on-screen
+Window                                                    0      76     293     408  on-screen
+SysListView32                                             0     102     293     409  on-screen
+SysHeader32                                               1     103     292     122  on-screen
+Window                                                    0      76     293     101  on-screen
+Window                                                  297      76     746     408  on-screen
+Window                                                  297      76     746     408  on-screen
+SysListView32                                           297      94     746     409  on-screen
+SysHeader32                                             299      95     746     114  on-screen
+Static             預覽（與 --plan 產生的結果完全一致）               297      76     746      93  on-screen
+Window                                                    0     408     747     440  on-screen
+Static           尚未選擇資料夾。可用「瀏覽…」或直接把資料夾拖進視窗。              9     414     557     439  on-screen
+Button           復原上一批 (&U)                             561     416     648     437  on-screen
+Button           套用更名 (&A)                              651     416     738     437  on-screen
+Window                                                    0      24     747      76  on-screen
+Static           資料夾：                                     9      32      66      51  on-screen
+Edit                                                     70      32     618      52  on-screen
+Button           瀏覽…                                    622      32     678      49  on-screen
+Button           重新整理                                   682      32     738      49  on-screen
+Window                                                   70      56     738      77  on-screen
+Static           套用範圍：                                   72      56     140      75  on-screen
+ComboBox                                                144      58     297      79  on-screen
+Static           處理順序：                                  301      56     381      75  on-screen
+ComboBox                                                385      58     512      79  on-screen
+Window                                                    0       0     747      24  on-screen
+
+    visible controls: 26    OFF-CLIENT: 0
+
+[B] OVERLAP -- pairs of same-parent controls whose rectangles intersect
+--------------------------------------------------------------------------------------------------------
+    none
+
+    OVERLAPPING PAIRS: 0 raw, 0 material (both dimensions >= 2 px)
+
+SUMMARY  controls=26  off-client=0  overlaps=0 raw / 0 material
+VERDICT: not refuted by geometry (this is NOT a pass -- see header).
+
+########## B  C2-01 (C2)   [manual G4: PASS 8/8] ##########
+exe          : D:\BenchRuns\C2-01\src\BatchRenameStudio\bin\Release\net8.0-windows\BatchRenameStudio.exe
+window title : Batch Rename Studio
+client area  : 745 x 429  (origin 481,253)
+
+[A] OFF-CLIENT -- visible controls outside the window's client area
+class            text                                     x       y   right  bottom  verdict
+--------------------------------------------------------------------------------------------------------
+Window                                                    0      24     745     429  on-screen
+Window                                                    8      30     736     115  on-screen
+Static           Folder:                                 10      39      55      54  on-screen
+Edit                                                     61      35     588      55  on-screen
+Button           Browse…                                592      32     666      59  on-screen
+Button           Rescan                                 670      32     734      59  on-screen
+Window                                                    8      64     736     113  on-screen
+Static           Steps apply to:                         10      68      99      83  on-screen
+ComboBox                                                104      66     231      87  on-screen
+Static           Processing order:                      245      68     349      83  on-screen
+ComboBox                                                354      66     454      87  on-screen
+Window                                                    8     118     736     381  on-screen
+Window                                                    8     118     288     381  on-screen
+Window                                                    8     118     288     381  on-screen
+Static           Rules — applied top to bottom           10     120     199     135  on-screen
+ListBox                                                  10     141     288     312  on-screen
+Window                                                    8     318     290     381  on-screen
+Button           Add step ▾                              10     320      99     347  on-screen
+Button           Edit                                   104     320     193     347  on-screen
+Button           Remove                                 197     320     288     347  on-screen
+Button           Move up                                 10     352      99     379  on-screen
+Button           Move down                              104     352     193     379  on-screen
+Button           Remove all                             197     352     288     379  on-screen
+Window                                                  291     118     736     381  on-screen
+Window                                                  291     118     736     381  on-screen
+Static           Preview — identical to what --pl       293     120     540     135  on-screen
+Window                                                  293     141     734     379  on-screen
+Window                                                    6     388     738     423  on-screen
+Static           0 file(s)   ·   ok 0   ·   colli         8     388     362     423  on-screen
+Window                                                  366     390     736     421  on-screen
+Button           Export plan.json…                      368     392     492     419  on-screen
+Button           Undo last batch (4)                    496     392     627     419  on-screen
+Button           Apply rename                           632     392     735     419  on-screen
+Window                                                    0       0     745      24  on-screen
+
+    visible controls: 34    OFF-CLIENT: 0
+
+[B] OVERLAP -- pairs of same-parent controls whose rectangles intersect
+--------------------------------------------------------------------------------------------------------
+    none
+
+    OVERLAPPING PAIRS: 0 raw, 0 material (both dimensions >= 2 px)
+
+SUMMARY  controls=34  off-client=0  overlaps=0 raw / 0 material
+VERDICT: not refuted by geometry (this is NOT a pass -- see header).
+
+########## C  C3-01 (C3)   [manual G4: PASS 8/8] ##########
+exe          : D:\BenchRuns\C3-01\src\BatchRenameStudio\bin\Release\net8.0-windows\BatchRenameStudio.exe
+window title : Batch Rename Studio
+client area  : 772 x 469  (origin 467,233)
+
+[A] OFF-CLIENT -- visible controls outside the window's client area
+class            text                                     x       y   right  bottom  verdict
+--------------------------------------------------------------------------------------------------------
+Window                                                    0       0     772     443  on-screen
+Window                                                    2       2     770      25  on-screen
+Static           資料夾:                                     5       8      50      23  on-screen
+Edit                                                     56       6     646      26  on-screen
+Button           瀏覽…                                    651       4     701      26  on-screen
+Button           重新掃描                                   706       4     767      26  on-screen
+Window                                                    2      28     770      48  on-screen
+Static           套用範圍:                                    5      32      62      47  on-screen
+Button           主檔名                                     68      31     127      49  on-screen
+Button           主檔名+副檔名                                132      31     236      49  on-screen
+Static           排序:                                    250      32     283      47  on-screen
+ComboBox                                                288      30     355      51  on-screen
+Window                                                    2      52     770     440  on-screen
+Window                                                    2      52     255     440  on-screen
+Window                                                    2      52     255     440  on-screen
+Static           規則步驟                                     4      54      59      69  on-screen
+ListBox                                                   4      72     253     191  on-screen
+Window                                                    4     195     253     214  on-screen
+Button           新增 ▾                                     6     196      56     218  on-screen
+Button           移除                                      58     196     108     218  on-screen
+Button           ▲                                      111     196     161     218  on-screen
+Button           ▼                                      164     196     214     218  on-screen
+Static           步驟設定                                     4     217      59     232  on-screen
+Window                                                    4     236     253     416  on-screen
+Window                                                    5     236     253     415  on-screen
+Static           選擇或新增一個步驟                                5     236     253     415  on-screen
+Window                                                    4     420     253     439  on-screen
+Button           載入規則…                                    6     421      77     443  on-screen
+Button           儲存規則…                                   79     421     150     443  on-screen
+Window                                                  258      52     770     440  on-screen
+SysListView32                                           258      52     770     440  on-screen
+SysHeader32                                             260      54     769      73  on-screen
+Window                                                    0     442     772     469  on-screen
+Static           尚未選擇資料夾                                  6     446     492     465  on-screen
+Window                                                  492     446     767     465  on-screen
+Button           匯出 plan.json…                          494     449     595     471  on-screen
+Button           復原上一次                                  600     449     673     471  on-screen
+Button           套用重新命名                                 679     449     764     471  on-screen
+
+    visible controls: 38    OFF-CLIENT: 0
+
+[B] OVERLAP -- pairs of same-parent controls whose rectangles intersect
+--------------------------------------------------------------------------------------------------------
+    [adjacency] Window[] (0,0)-(772,443)  X  Window[] (0,442)-(772,469)   overlap 772x1
+
+    OVERLAPPING PAIRS: 1 raw, 0 material (both dimensions >= 2 px)
+
+SUMMARY  controls=38  off-client=0  overlaps=1 raw / 0 material
+VERDICT: not refuted by geometry (this is NOT a pass -- see header).
+
+########## D  M1-01 (M1)   [manual G4: PASS 8/8] ##########
+exe          : D:\BenchRuns\M1-01\src\BatchRenameStudio\bin\Release\net8.0-windows\BatchRenameStudio.exe
+window title : Batch Rename Studio
+client area  : 772 x 442  (origin 467,246)
+
+[A] OFF-CLIENT -- visible controls outside the window's client area
+class            text                                     x       y   right  bottom  verdict
+--------------------------------------------------------------------------------------------------------
+Window                                                    0       0     772     423  on-screen
+Window                                                    7       7     766      33  on-screen
+Static           Folder:                                  7      15      52      30  on-screen
+Edit                                                     58       9     323      29  on-screen
+Button           Choose folder…                         326       9     427      31  on-screen
+Button           Reload                                 432       9     485      31  on-screen
+Static           Apply to:                              497      15     554      30  on-screen
+ComboBox                                                560       9     673      30  on-screen
+ComboBox                                                677       9     764      30  on-screen
+Window                                                    9      40     764     385  on-screen
+Window                                                    9      40      90     385  on-screen
+Window                                                    9      40      90     385  on-screen
+Static           Rule steps (applied top to botto         9      40     211      55  on-screen
+ListBox                                                  11      60     209     301  on-screen
+Window                                                    9     307     211     385  on-screen
+Button           Add step ▾                              11     309      86     331  on-screen
+Button           Edit…                                   90     309     140     331  on-screen
+Button           Delete                                 144     309     195     331  on-screen
+Button           ↑                                       11     335      34     350  on-screen
+Button           ↓                                       38     335      61     350  on-screen
+Button           Load rules…                             64     335     145     357  on-screen
+Button           Save rules…                             11     361      90     383  on-screen
+Window                                                   92      40     763     385  on-screen
+Window                                                   92      40     763     385  on-screen
+Static           Preview                                 92      40     143      55  on-screen
+Window                                                   94      60     761     383  on-screen
+Window                                                    7     392     766     416  on-screen
+Button           Apply rename                           677     394     764     414  on-screen
+Button           Undo last                              600     394     673     414  on-screen
+Button           Export plan.json…                      496     394     596     414  on-screen
+Window                                                    0     423     772     443  on-screen
+
+    visible controls: 31    OFF-CLIENT: 0
+
+[B] OVERLAP -- pairs of same-parent controls whose rectangles intersect
+--------------------------------------------------------------------------------------------------------
+    none
+
+    OVERLAPPING PAIRS: 0 raw, 0 material (both dimensions >= 2 px)
+
+SUMMARY  controls=31  off-client=0  overlaps=0 raw / 0 material
+VERDICT: not refuted by geometry (this is NOT a pass -- see header).
+
+########## E  XL-CAL-01 (XL-A)   [manual G4: PASS 12/12] ##########
+exe          : D:\BenchRuns\XL-CAL-01\src\BatchRenameStudio\bin\Release\net8.0-windows\BatchRenameStudio.exe
+window title : Batch Rename Studio Pro
+client area  : 838 x 522  (origin 434,206)
+
+[A] OFF-CLIENT -- visible controls outside the window's client area
+class            text                                     x       y   right  bottom  verdict
+--------------------------------------------------------------------------------------------------------
+Window                                                    0       0     839     523  on-screen
+Window                                                    7       7     831      70  on-screen
+Window                                                    7       8     831      38  on-screen
+Static           Folder                                   7      13      51      28  on-screen
+Edit                                                     57      11     430      32  on-screen
+Button           Browse…                                435       9     507      36  on-screen
+Button           Refresh                                511       9     575      36  on-screen
+Static              — or drop a folder onto this        579      13     792      30  on-screen
+Window                                                    7      39     831      69  on-screen
+Static           Apply to                                 7      44      61      61  on-screen
+ComboBox                                                 67      41     180      63  on-screen
+Static           Sort by                                189      44     236      61  on-screen
+ComboBox                                                241      41     328      63  on-screen
+Button           Load rules…                            344      41     432      68  on-screen
+Button           Save rules…                            436      41     523      68  on-screen
+Button           Export plan…                           527      41     621      68  on-screen
+Button           Export trace…                          625      41     722      68  on-screen
+Window                                                    7      74     831     479  on-screen
+Window                                                    7      74     831     287  on-screen
+Window                                                    7      74     831     287  on-screen
+Window                                                    7      74     420     287  on-screen
+Window                                                    7      74     420     287  on-screen
+Static           Rules  (applied top to bottom)          11      75     174      87  on-screen
+Window                                                   11      90     416     153  on-screen
+Window                                                   11      91     416     121  on-screen
+ComboBox                                                 11      93     164     115  on-screen
+Button           Add rule                               170      92     241     119  on-screen
+Window                                                   11     122     416     152  on-screen
+Button           Duplicate                               11     123      86     150  on-screen
+Button           Remove                                  90     123     158     150  on-screen
+Button           Up                                     162     123     203     150  on-screen
+Button           Down                                   207     123     264     150  on-screen
+Button           Clear all                              267     123     333     150  on-screen
+SysListView32                                            13     155     414     283  on-screen
+SysHeader32                                              15     156     414     177  on-screen
+Window                                                  423      74     831     287  on-screen
+Window                                                  423      74     831     287  on-screen
+Static           Parameters                             427      75     491      87  on-screen
+Window                                                  429      92     825     283  on-screen
+Static           Select a rule on the left to edi       429      92     676     125  on-screen
+Window                                                    7     290     831     479  on-screen
+Window                                                    7     290     831     479  on-screen
+Window                                                    7     290     474     479  on-screen
+Window                                                    7     290     474     479  on-screen
+Static           Preview                                 11     291      58     303  on-screen
+Window                                                   13     308     468     474  on-screen
+Window                                                  477     290     832     479  on-screen
+Window                                                  477     290     832     479  on-screen
+Static           Step trace                             481     291     540     303  on-screen
+Static           Select a file above to see how e       481     306     828     321  on-screen
+Window                                                  483     325     826     474  on-screen
+Window                                                    5     481     833     516  on-screen
+Button           Apply rename                             5     484     107     514  on-screen
+Button           Undo last                              114     484     193     514  on-screen
+Static           Pick a folder to begin.                209     489     332     506  on-screen
+
+    visible controls: 55    OFF-CLIENT: 0
+
+[B] OVERLAP -- pairs of same-parent controls whose rectangles intersect
+--------------------------------------------------------------------------------------------------------
+    none
+
+    OVERLAPPING PAIRS: 0 raw, 0 material (both dimensions >= 2 px)
+
+SUMMARY  controls=55  off-client=0  overlaps=0 raw / 0 material
+VERDICT: not refuted by geometry (this is NOT a pass -- see header).
+
+##########    XL-A-02   [manual G4: not manually tested] ##########
+exe          : D:\BenchRuns\XL-A-02\src\BatchRenameStudio\bin\Release\net8.0-windows\BatchRenameStudio.exe
+window title : Batch Rename Studio Pro
+client area  : 826 x 546  (origin 440,194)
+
+[A] OFF-CLIENT -- visible controls outside the window's client area
+class            text                                     x       y   right  bottom  verdict
+--------------------------------------------------------------------------------------------------------
+Window                                                    0      49     827     527  on-screen
+Window                                                    0      49     827     269  on-screen
+Window                                                    0      49     827     269  on-screen
+Window                                                    0      49     313     269  on-screen
+SysListView32                                             0      71     313     268  on-screen
+SysHeader32                                               1      73     312      94  on-screen
+Window                                                    0      49     313      72  on-screen
+Button           Add step                                 4      51      67      74  on-screen
+Button           Duplicate                               70      51     138      74  on-screen
+Button           Remove                                 141      51     200      74  on-screen
+Button           Up                                     203      51     253      74  on-screen
+Button           Down                                   255      51     305      74  on-screen
+Button           Clear                                    4      74      54      97  on-screen
+Window                                                  316      49     827     269  on-screen
+Window                                                  316      49     827     269  on-screen
+Window                                                  323      93     820      97  on-screen
+Static           Add a step on the left, or pick        323      70     820      93  on-screen
+Static           No step selected                       323      54     820      70  on-screen
+Window                                                    0     271     827     526  on-screen
+Window                                                    0     295     827     526  on-screen
+Window                                                    0     295     427     526  on-screen
+SysListView32                                             0     310     427     527  on-screen
+SysHeader32                                               1     311     425     332  on-screen
+Static             Preview - exactly what --plan          0     295     427     310  on-screen
+Window                                                  429     295     826     526  on-screen
+SysListView32                                           429     310     826     527  on-screen
+SysHeader32                                             431     311     826     332  on-screen
+Static             Trace - select a file on the l       429     295     826     310  on-screen
+Window                                                    0     271     827     295  on-screen
+Button           Refresh preview (F5)                     4     274     131     297  on-screen
+Button           Apply rename                           134     274     226     297  on-screen
+Button           Undo last rename                       229     274     343     297  on-screen
+Button           Export plan.json                       345     274     449     297  on-screen
+Button           Export trace.json                      452     274     560     297  on-screen
+Window                                                    0     527     827     547  on-screen
+Window                                                    0      21     827      49  on-screen
+Static           Folder                                   7      29      48      46  on-screen
+Edit                                                     55      26     446      47  on-screen
+Button           Browse...                              449      25     511      48  on-screen
+Static           Apply to                               521      29     575      46  on-screen
+ComboBox                                                581      26     700      48  on-screen
+Static           Sort                                   710      29     740      46  on-screen
+ComboBox                                                746      26     819      48  on-screen
+Window                                                    0       0     827      21  on-screen
+
+    visible controls: 44    OFF-CLIENT: 0
+
+[B] OVERLAP -- pairs of same-parent controls whose rectangles intersect
+--------------------------------------------------------------------------------------------------------
+    [adjacency] SysListView32[] (0,71)-(313,268)  X  Window[] (0,49)-(313,72)   overlap 313x1
+
+    OVERLAPPING PAIRS: 1 raw, 0 material (both dimensions >= 2 px)
+
+SUMMARY  controls=44  off-client=0  overlaps=1 raw / 0 material
+VERDICT: not refuted by geometry (this is NOT a pass -- see header).
+
+##########    XL-A-03   [manual G4: not manually tested] ##########
+exe          : D:\BenchRuns\XL-A-03\src\BatchRenameStudio\bin\Release\net8.0-windows\BatchRenameStudio.exe
+window title : Batch Rename Studio Pro
+client area  : 840 x 546  (origin 433,194)
+
+[A] OFF-CLIENT -- visible controls outside the window's client area
+class            text                                     x       y   right  bottom  verdict
+--------------------------------------------------------------------------------------------------------
+Window                                                    0       0     840     547  on-screen
+Window                                                    7       7     834      78  on-screen
+Window                                                   15      13     826      43  on-screen
+Static           資料夾                                     15      23      58      38  on-screen
+Edit                                                     63      18     664      38  on-screen
+Button           瀏覽…                                    670      15     725      41  on-screen
+Button           重新整理 (F5)                              728      15     821      41  on-screen
+Window                                                   15      46     826      71  on-screen
+Static           套用範圍                                    15      53      70      68  on-screen
+ComboBox                                                 75      48     291      69  on-screen
+Static           排序                                     304      53     335      68  on-screen
+ComboBox                                                340      48     497      69  on-screen
+Window                                                    9      85     832     483  on-screen
+Window                                                    9      85     321     483  on-screen
+Window                                                    9      85     321     483  on-screen
+Static           規則鏈（由上而下依序套用）                           16      91     179     106  on-screen
+Window                                                   16     113     315     173  on-screen
+Button           新增規則 ▾                                  16     115      97     141  on-screen
+Button           複製                                     100     115     145     141  on-screen
+Button           移除                                     150     115     195     141  on-screen
+Button           上移                                     199     115     244     141  on-screen
+Button           下移                                     248     115     293     141  on-screen
+Button           清空                                      16     145      61     171  on-screen
+ListBox                                                  16     177     315     297  on-screen
+Window                                                   18     305     313     474  on-screen
+Static           在上方清單選擇一條規則即可編輯它的參數。                    26     313     273     328  on-screen
+Window                                                  326      85     831     483  on-screen
+Window                                                  326      85     831     483  on-screen
+Window                                                  326      85     831     324  on-screen
+Window                                                  326      85     831     324  on-screen
+Static           預覽（不會動到檔案）                             333      91     460     106  on-screen
+ComboBox                                                718      91     825     112  on-screen
+Window                                                  335     118     823     295  on-screen
+Static           —                                      333     301     352     316  on-screen
+Window                                                  326     329     831     483  on-screen
+Window                                                  326     329     831     483  on-screen
+Static           逐步追蹤（選取上方任一列即可查看）                      333     335     544     350  on-screen
+Window                                                  335     357     823     474  on-screen
+Window                                                    7     490     834     517  on-screen
+Button           執行更名                                     7     490      87     517  on-screen
+Button           復原上一批 (Ctrl+Z)                          92     490     227     517  on-screen
+Button           匯出 plan.json                           243     490     348     517  on-screen
+Button           匯出 trace.json                          353     490     462     517  on-screen
+Button           載入規則…                                  467     490     551     517  on-screen
+Button           儲存規則…                                  556     490     640     517  on-screen
+Button           檢視規則 JSON                              646     490     755     517  on-screen
+Static           請先選擇要處理的資料夾。                             7     523     834     540  on-screen
+
+    visible controls: 47    OFF-CLIENT: 0
+
+[B] OVERLAP -- pairs of same-parent controls whose rectangles intersect
+--------------------------------------------------------------------------------------------------------
+    none
+
+    OVERLAPPING PAIRS: 0 raw, 0 material (both dimensions >= 2 px)
+
+SUMMARY  controls=47  off-client=0  overlaps=0 raw / 0 material
+VERDICT: not refuted by geometry (this is NOT a pass -- see header).
+
+########## F  XL-B-01 (XL-B)   [manual G4: FAIL item 2] ##########
+exe          : D:\BenchRuns\XL-B-01\src\BatchRenameStudio\bin\Release\net8.0-windows\BatchRenameStudio.exe
+window title : Batch Rename Studio Pro
+client area  : 786 x 506  (origin 460,214)
+
+[A] OFF-CLIENT -- visible controls outside the window's client area
+class            text                                     x       y   right  bottom  verdict
+--------------------------------------------------------------------------------------------------------
+Window                                                    0      56     787     472  on-screen
+Window                                                    0      56     267     472  on-screen
+SysListView32                                             0      79     267     276  on-screen
+SysHeader32                                               1      80     265      99  on-screen
+Window                                                    0     276     267     472  on-screen
+Window                                                    0     299     267     472  on-screen
+Window           描述                                       0     413     267     472  on-screen
+Static                                                    3     416     264     433  on-screen
+Static                                                    3     433     264     468  on-screen
+Window           PropertyGridView                         0     299     267     412  on-screen
+Window                                                    0     276     267     299  on-screen
+Button           ↑                                        3     278      30     295  on-screen
+Button           ↓                                       32     278      59     295  on-screen
+Button           複製                                      61     278     101     295  on-screen
+Button           刪除                                     104     278     144     295  on-screen
+Button           全部清除                                   147     278     200     295  on-screen
+Window                                                    0      56     267      79  on-screen
+ComboBox                                                  3      59     150      80  on-screen
+Button           新增步驟                                   153      58     213      75  on-screen
+Window                                                  269      56     786     472  on-screen
+Window                                                  269      56     786     472  on-screen
+Window                                                  269      56     786     343  on-screen
+Window                                                  269      56     786     343  on-screen
+Window                                                  269     345     786     472  on-screen
+Window                                                  269     360     786     472  on-screen
+Static           逐步追蹤：                                  269     345     786     360  on-screen
+Window                                                    0     472     787     507  on-screen
+Button           套用重新命名                                   5     479     112     500  on-screen
+Button           復原上次                                   117     479     184     500  on-screen
+Static           尚未選擇資料夾                                200     479    1427     500  on-screen
+Window                                                    0       0     787      56  on-screen
+Static           資料夾                                      5       8      48      23  on-screen
+Edit                                                     47       5    1300      25  on-screen
+Button           瀏覽…                                   1307       4    1367      23  OFF-CLIENT
+Button           重新掃描                                  1371       4    1431      23  OFF-CLIENT
+Static           套用範圍                                     5      32      60      47  on-screen
+ComboBox                                                 47      29     194      50  on-screen
+Static           排序                                     203      32     234      47  on-screen
+ComboBox                                                227      29     327      50  on-screen
+Button           載入規則…                                 1307      28    1367      47  OFF-CLIENT
+Button           儲存規則…                                 1371      28    1431      47  OFF-CLIENT
+
+    visible controls: 41    OFF-CLIENT: 4
+
+[B] OVERLAP -- pairs of same-parent controls whose rectangles intersect
+--------------------------------------------------------------------------------------------------------
+    [adjacency] Static[資料夾] (5,8)-(48,23)  X  Edit[] (47,5)-(1300,25)   overlap 1x15
+    [MATERIAL ] Static[套用範圍] (5,32)-(60,47)  X  ComboBox[] (47,29)-(194,50)   overlap 13x15
+    [MATERIAL ] Static[排序] (203,32)-(234,47)  X  ComboBox[] (227,29)-(327,50)   overlap 7x15
+
+    OVERLAPPING PAIRS: 3 raw, 2 material (both dimensions >= 2 px)
+
+SUMMARY  controls=41  off-client=4  overlaps=3 raw / 2 material
+VERDICT: REFUTED -- the layout has a structural defect visible in window geometry.
+
+########## F2 XL-B-02   [manual G4: stage 2 pending] ##########
+exe          : D:\BenchRuns\XL-B-02\src\BatchRenameStudio\bin\Release\net8.0-windows\BatchRenameStudio.exe
+window title : Batch Rename Studio Pro
+client area  : 718 x 442  (origin 494,246)
+
+[A] OFF-CLIENT -- visible controls outside the window's client area
+class            text                                     x       y   right  bottom  verdict
+--------------------------------------------------------------------------------------------------------
+Window                                                    0      27     719      48  on-screen
+Window                                                    0      27     719     415  on-screen
+Window                                                    0      27     280     415  on-screen
+Window                                                    0      27     280     415  on-screen
+Window                                                    0      53     280     415  on-screen
+Window                                                    0      53     280     200  on-screen
+SysListView32                                             0      53      81     118  on-screen
+SysHeader32                                               1      54      79      73  on-screen
+Window                                                    0     202     280     415  on-screen
+Window                                                    0     202     280     415  on-screen
+Window                                                    0     215     280     414  on-screen
+Static           Select a step to edit its parame         6     219     274     410  on-screen
+Static           Parameters                               0     202     280     215  on-screen
+Window                                                    0      27     280      53  on-screen
+Button           Add ▾                                    2      29      52      51  on-screen
+Button           Duplicate                               56      29     124      51  on-screen
+Button           Delete                                 128      29     179      51  on-screen
+Button           ▲                                      183      29     233      51  on-screen
+Button           ▼                                      237      29     287      51  on-screen
+Window                                                  283      27     719     415  on-screen
+SysTabControl32                                         283      27     719     415  on-screen
+Window           Preview                                285      48     716     412  on-screen
+Window                                                  285      48     716     412  on-screen
+Window                                                  285      48     716     395  on-screen
+Static           total 0 · ok 0 · collision 0 · u       285     395     716     412  on-screen
+Window                                                    0       0     719      27  on-screen
+Static           Folder                                   6      11      48      26  on-screen
+Edit                                                     52       7     313      27  on-screen
+Button           Browse…                                317       6     380      28  on-screen
+Button           Refresh                                385       6     441      28  on-screen
+Static           Apply to                               451      11     505      26  on-screen
+ComboBox                                                509       6     596      27  on-screen
+Static           Sort                                   605      11     635      26  on-screen
+ComboBox                                                639       6     712      27  on-screen
+Window                                                    0     415     719     443  on-screen
+Button           Apply Rename                             6     421     101     443  on-screen
+Button           Undo Last                              111     421     181     443  on-screen
+Static           Ready.                                 191     421     712     443  on-screen
+
+    visible controls: 38    OFF-CLIENT: 0
+
+[B] OVERLAP -- pairs of same-parent controls whose rectangles intersect
+--------------------------------------------------------------------------------------------------------
+    [MATERIAL ] Window[] (0,27)-(719,48)  X  Window[] (0,27)-(719,415)   overlap 719x21
+
+    OVERLAPPING PAIRS: 1 raw, 1 material (both dimensions >= 2 px)
+
+SUMMARY  controls=38  off-client=0  overlaps=1 raw / 1 material
+VERDICT: REFUTED -- the layout has a structural defect visible in window geometry.
+
+########## F3 XL-B-03   [manual G4: stage 2 pending] ##########
+exe          : D:\BenchRuns\XL-B-03\src\BatchRenameStudio\bin\Release\net8.0-windows\BatchRenameStudio.exe
+window title : Batch Rename Studio Pro
+client area  : 838 x 509  (origin 434,213)
+
+[A] OFF-CLIENT -- visible controls outside the window's client area
+class            text                                     x       y   right  bottom  verdict
+--------------------------------------------------------------------------------------------------------
+Window                                                    0      46     839     489  on-screen
+Window                                                    0      46     253     489  on-screen
+Window                                                    0      46     253     489  on-screen
+SysListView32                                             0      67     253     316  on-screen
+SysHeader32                                               1      68     252      89  on-screen
+Window                                                    0     316     253     489  on-screen
+Window                                                    1     316     253     351  on-screen
+Static           Select a step to edit its parame         8     326     201     343  on-screen
+Window                                                    0      46     253      67  on-screen
+Window                                                  256      46     839     489  on-screen
+Window                                                  256      46     839     489  on-screen
+Window                                                  256      46     839     303  on-screen
+Window                                                  256      46     839     303  on-screen
+Window                                                  256      70     839     302  on-screen
+Button           Show only changes                      256      46     839      71  on-screen
+Window                                                  256     305     839     489  on-screen
+Window                                                  256     305     839     489  on-screen
+SysListView32                                           256     321     839     489  on-screen
+SysHeader32                                             257     322     837     343  on-screen
+Static           Select a file to see its trace.        256     305     839     321  on-screen
+Window                                                    0     489     839     509  on-screen
+Window                                                    0      20     839      45  on-screen
+Edit                                                     45      22      48      42  on-screen
+ComboBox                                                167      22     267      44  on-screen
+ComboBox                                                300      22     400      44  on-screen
+Window                                                    0       0     839      21  on-screen
+
+    visible controls: 26    OFF-CLIENT: 0
+
+[B] OVERLAP -- pairs of same-parent controls whose rectangles intersect
+--------------------------------------------------------------------------------------------------------
+    [adjacency] Window[] (256,70)-(839,302)  X  Button[Show only changes] (256,46)-(839,71)   overlap 583x1
+    [adjacency] Window[] (0,20)-(839,45)  X  Window[] (0,0)-(839,21)   overlap 839x1
+
+    OVERLAPPING PAIRS: 2 raw, 0 material (both dimensions >= 2 px)
+
+SUMMARY  controls=26  off-client=0  overlaps=2 raw / 0 material
+VERDICT: not refuted by geometry (this is NOT a pass -- see header).
+

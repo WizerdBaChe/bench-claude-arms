@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "original": ".gitignore",
+      "proposed": ".gitignore",
+      "status": "unchanged",
+      "reason": ""
+    },
+    {
+      "original": "B.TXT",
+      "proposed": "BB.TXT",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "README",
+      "proposed": "RREADME",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "a.txt",
+      "proposed": "aa.txt",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "console.md",
+      "proposed": "cconsole.md",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "data.tar.gz",
+      "proposed": "ddata.tar.gz",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "photo (1).jpg",
+      "proposed": "pphoto (1).jpg",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "photo (2).jpg",
+      "proposed": "pphoto (2).jpg",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "x.txt",
+      "proposed": "xx.txt",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "報告 2026.docx",
+      "proposed": "報報告 2026.docx",
+      "status": "ok",
+      "reason": ""
+    }
+  ],
+  "summary": {
+    "total": 10,
+    "ok": 9,
+    "collision": 0,
+    "unchanged": 1,
+    "invalid": 0
+  }
+}

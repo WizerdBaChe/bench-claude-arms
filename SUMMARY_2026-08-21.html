@@ -1,0 +1,516 @@
+<title>22 次受控執行</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+
+<style>
+:root{
+  --ground:#F4F6F7; --surface:#FFFFFF; --raised:#EBEFF1;
+  --ink:#12171B; --muted:#586570; --faint:#8A96A0;
+  --rule:#DBE1E5; --rule-firm:#B9C3CA;
+  --signal:#12595E; --signal-soft:#12595E1A;
+  --alert:#A33B1F; --alert-soft:#A33B1F14;
+  --caution:#8A6A15; --caution-soft:#8A6A1514;
+  --sans:"IBM Plex Sans",ui-sans-serif,system-ui,"Segoe UI",sans-serif;
+  --serif:"Source Serif 4","Songti TC",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1114; --surface:#141A1F; --raised:#1B232A;
+    --ink:#E3E9ED; --muted:#8C99A3; --faint:#6B7883;
+    --rule:#242D34; --rule-firm:#38444D;
+    --signal:#48B3B8; --signal-soft:#48B3B822;
+    --alert:#E07A57; --alert-soft:#E07A571C;
+    --caution:#D4A93C; --caution-soft:#D4A93C1C;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1114; --surface:#141A1F; --raised:#1B232A;
+  --ink:#E3E9ED; --muted:#8C99A3; --faint:#6B7883;
+  --rule:#242D34; --rule-firm:#38444D;
+  --signal:#48B3B8; --signal-soft:#48B3B822;
+  --alert:#E07A57; --alert-soft:#E07A571C;
+  --caution:#D4A93C; --caution-soft:#D4A93C1C;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--serif); font-size:17px; line-height:1.72;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1040px; margin:0 auto; padding:0 24px 96px}
+
+/* ---- section indexing gutter ---- */
+.sec{
+  display:grid; grid-template-columns:64px minmax(0,1fr); gap:0 24px;
+  padding-top:52px; margin-top:52px; border-top:1px solid var(--rule);
+}
+.sec > .idx{
+  font-family:var(--mono); font-size:12px; letter-spacing:.08em;
+  color:var(--faint); padding-top:.55em; white-space:nowrap;
+}
+.sec > .body{min-width:0}
+@media (max-width:720px){
+  .sec{grid-template-columns:1fr; gap:0}
+  .sec > .idx{padding-top:0; padding-bottom:8px}
+}
+
+h1,h2,h3{font-family:var(--sans); text-wrap:balance; margin:0}
+h1{font-size:clamp(2.1rem,5.4vw,3.1rem); font-weight:700; letter-spacing:-.02em; line-height:1.12}
+h2{font-size:1.5rem; font-weight:600; letter-spacing:-.01em; margin-bottom:.5em}
+h3{font-size:1.02rem; font-weight:600; margin:2em 0 .5em; color:var(--ink)}
+p{margin:0 0 1.05em; max-width:68ch}
+a{color:var(--signal); text-underline-offset:3px; text-decoration-thickness:1px}
+a:focus-visible,summary:focus-visible{outline:2px solid var(--signal); outline-offset:3px; border-radius:2px}
+strong{font-weight:600}
+code,.m{font-family:var(--mono); font-size:.87em; font-variant-numeric:tabular-nums}
+.num{font-family:var(--mono); font-variant-numeric:tabular-nums; font-weight:500}
+
+/* ---- masthead ---- */
+header.mast{padding:76px 0 0}
+.eyebrow{
+  font-family:var(--mono); font-size:11.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--signal); margin-bottom:22px;
+}
+.thesis{
+  font-size:1.22rem; line-height:1.62; color:var(--muted);
+  max-width:60ch; margin:22px 0 0;
+}
+.spec{
+  display:flex; flex-wrap:wrap; gap:0; margin:40px 0 0;
+  border-top:1px solid var(--rule-firm); border-bottom:1px solid var(--rule);
+}
+.spec div{
+  flex:1 1 150px; padding:14px 18px 15px; border-right:1px solid var(--rule);
+}
+.spec div:last-child{border-right:0}
+.spec dt{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--faint); margin-bottom:5px;
+}
+.spec dd{margin:0; font-family:var(--mono); font-size:1.16rem; font-weight:600; font-variant-numeric:tabular-nums}
+
+/* ---- ratio rail ---- */
+.rail{margin:24px 0 8px; border-top:1px solid var(--rule)}
+.rail-row{
+  display:grid; grid-template-columns:minmax(140px,220px) minmax(0,1fr) 92px;
+  gap:0 18px; align-items:center; padding:11px 0;
+  border-bottom:1px solid var(--rule);
+}
+.rail-row .lab{font-family:var(--sans); font-size:.85rem; font-weight:500; line-height:1.35}
+.rail-row .lab em{display:block; font-style:normal; font-family:var(--mono); font-size:10.5px; color:var(--faint); letter-spacing:.05em}
+.track{position:relative; height:22px; background:var(--raised); border-radius:1px; overflow:hidden}
+.track::after{
+  content:""; position:absolute; left:18.18%; top:-4px; bottom:-4px; width:1px;
+  background:var(--rule-firm);
+}
+.bar{position:absolute; left:0; top:0; bottom:0; background:var(--signal); opacity:.85}
+.bar.under{background:var(--caution)}
+.rail-row .val{
+  text-align:right; font-family:var(--mono); font-variant-numeric:tabular-nums;
+  font-size:.95rem; font-weight:600;
+}
+.rail-row .val small{display:block; font-size:10.5px; font-weight:400; color:var(--faint); letter-spacing:.02em}
+.rail-note{
+  font-family:var(--mono); font-size:11px; color:var(--faint);
+  margin-top:10px; letter-spacing:.03em;
+}
+@media (max-width:640px){
+  .rail-row{grid-template-columns:1fr 76px; gap:4px 14px}
+  .rail-row .track{grid-column:1/-1; order:3}
+  .track::after{top:0; bottom:0}
+}
+
+/* ---- tables ---- */
+.tw{overflow-x:auto; margin:20px 0 6px; border-top:1px solid var(--rule-firm)}
+table{border-collapse:collapse; width:100%; font-family:var(--sans); font-size:.85rem; line-height:1.5}
+th,td{text-align:left; padding:9px 14px 9px 0; border-bottom:1px solid var(--rule); vertical-align:top}
+th{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--faint); font-weight:500; white-space:nowrap; padding-top:11px; padding-bottom:11px;
+}
+td.n,th.n{text-align:right; font-family:var(--mono); font-variant-numeric:tabular-nums; padding-right:16px}
+tbody tr:last-child td{border-bottom:0}
+
+/* ---- state chips ---- */
+.chip{
+  display:inline-block; font-family:var(--mono); font-size:10.5px; font-weight:500;
+  letter-spacing:.07em; padding:2px 7px; border-radius:2px; white-space:nowrap;
+  border:1px solid currentColor;
+}
+.chip.ok{color:var(--signal); background:var(--signal-soft)}
+.chip.bad{color:var(--alert); background:var(--alert-soft)}
+.chip.und{color:var(--caution); background:var(--caution-soft)}
+
+/* ---- callouts ---- */
+.note{
+  border-left:2px solid var(--rule-firm); padding:2px 0 2px 20px; margin:24px 0;
+  color:var(--muted); max-width:64ch;
+}
+.note.key{border-left-color:var(--signal); color:var(--ink)}
+.note.warn{border-left-color:var(--caution); color:var(--ink)}
+.note p:last-child{margin-bottom:0}
+.lede{font-family:var(--sans); font-size:1.06rem; font-weight:500; line-height:1.6}
+
+/* ---- artefact index ---- */
+.files{list-style:none; padding:0; margin:14px 0 0; display:grid; gap:0}
+.files li{
+  display:grid; grid-template-columns:minmax(0,1fr) auto; gap:6px 20px;
+  padding:10px 0; border-bottom:1px solid var(--rule); align-items:baseline;
+}
+.files .path{font-family:var(--mono); font-size:12.5px; word-break:break-all; color:var(--ink)}
+.files .what{font-family:var(--sans); font-size:.8rem; color:var(--muted); text-align:right}
+@media (max-width:640px){
+  .files li{grid-template-columns:1fr}
+  .files .what{text-align:left}
+}
+
+footer{
+  margin-top:64px; padding-top:26px; border-top:1px solid var(--rule);
+  font-family:var(--mono); font-size:11.5px; color:var(--faint); letter-spacing:.03em;
+}
+@media (prefers-reduced-motion:no-preference){
+  .bar{transition:width .6s cubic-bezier(.2,.7,.3,1)}
+}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="eyebrow">bench-claude-arms · 2026-08-19 → 08-21</div>
+  <h1>22 次受控執行</h1>
+  <p class="thesis">
+    在一台真實的開發機上，量測執行通道、委派架構、推理強度與任務規模
+    對 LLM 編碼代理執行成本的影響——並且，量測儀器本身也被當成研究對象。
+  </p>
+  <dl class="spec">
+    <div><dt>任務執行</dt><dd>22</dd></div>
+    <div><dt>總花費</dt><dd>$254.22</dd></div>
+    <div><dt>組別</dt><dd>6</dd></div>
+    <div><dt>儀器缺陷</dt><dd>7</dd></div>
+    <div><dt>被推翻的前提</dt><dd>2</dd></div>
+  </dl>
+</header>
+
+<section class="sec">
+  <div class="idx">§7.2–7.5</div>
+  <div class="body">
+    <h2>四個因子，量到了什麼</h2>
+    <p>
+      全部比較都在<strong>契約層等品質</strong>的前提下進行：22 筆執行的隱藏測試集得分皆為滿分。
+      差分模糊測試另以 13 份獨立實作 × 5,715 個隨機案例驗證為功能等價——
+      但那是 <strong>22 筆中的 13 筆</strong>，全部為小契約：
+      RQ2／RQ3 完整涵蓋、RQ1 只涵蓋 C2 的 1/4、<strong>RQ4 兩組 0/3</strong>
+      （本研究從未建置 XL 的模糊測試工具）。XL 的等品質僅由封存測試集支持。
+      基準線 <span class="m">1.0</span> 是垂直線；長過它代表「更貴」。
+    </p>
+
+    <div class="rail">
+      <div class="rail-row">
+        <div class="lab">通道　Desktop ÷ CLI<em>純新增 token</em></div>
+        <div class="track"><div class="bar" style="width:24.3%"></div></div>
+        <div class="val">1.336<small>p=0.0286</small></div>
+      </div>
+      <div class="rail-row">
+        <div class="lab">通道　Desktop ÷ CLI<em>金錢成本</em></div>
+        <div class="track"><div class="bar" style="width:31.3%"></div></div>
+        <div class="val">1.722<small>完全分離</small></div>
+      </div>
+      <div class="rail-row">
+        <div class="lab">架構　委派 ÷ 獨力（小契約）<em>純新增 token</em></div>
+        <div class="track"><div class="bar" style="width:95.8%"></div></div>
+        <div class="val">5.268<small>p=0.0286</small></div>
+      </div>
+      <div class="rail-row">
+        <div class="lab">架構　委派 ÷ 獨力（小契約）<em>牆鐘時間</em></div>
+        <div class="track"><div class="bar" style="width:41.7%"></div></div>
+        <div class="val">2.292<small>—</small></div>
+      </div>
+      <div class="rail-row">
+        <div class="lab">規模　委派 ÷ 獨力（XL 契約）<em>純新增 token</em></div>
+        <div class="track"><div class="bar" style="width:47.7%"></div></div>
+        <div class="val">2.625<small>1.50× 任務</small></div>
+      </div>
+      <div class="rail-row">
+        <div class="lab">委派對主模型的負擔（小契約）<em>主線純新增 token</em></div>
+        <div class="track"><div class="bar" style="width:21.8%"></div></div>
+        <div class="val">1.200<small>不減反增</small></div>
+      </div>
+      <div class="rail-row">
+        <div class="lab">委派對主模型的負擔（XL 契約）<em>主線純新增 token</em></div>
+        <div class="track"><div class="bar under" style="width:14.9%"></div></div>
+        <div class="val">0.820<small>跨過 1.0</small></div>
+      </div>
+      <div class="rail-row">
+        <div class="lab">峰值脈絡（XL 契約）<em>委派 ÷ 獨力</em></div>
+        <div class="track"><div class="bar under" style="width:16.7%"></div></div>
+        <div class="val">0.918<small>跨過 1.0</small></div>
+      </div>
+    </div>
+    <div class="rail-note">刻度 0 → 5.5；灰線＝1.0 基準；黃色＝低於 1.0</div>
+
+    <h3>推理強度：唯一沒有效果的旋鈕</h3>
+    <p>
+      <span class="m">effort</span> 由 high 降為 medium，thinking token 少了 <span class="num">33%</span>、
+      牆鐘時間短了 <span class="num">14%</span>——但 token 與成本的差異
+      <strong>統計上無法區分</strong>（<span class="m">p=0.3429</span> ／ <span class="m">p=0.8857</span>），
+      總成本僅降 <span class="num">5%</span>。
+    </p>
+
+    <div class="note key">
+      <p class="lede">貫穿三個因子的同一個機制</p>
+      <p>
+        成本差異皆由 <span class="m">cache_read</span> 主導——佔通道差距的 <span class="num">76%</span>、
+        單筆執行成本的 <span class="num">35.7–66.4%</span>（22 筆逐筆全距，每一筆都是最大的單一成本項）——
+        而它的成長正比於 <strong>請求數 × 每次請求的重讀量</strong>。<span class="m">effort</span> 碰不到這一項。
+        因此有效的成本控制是<strong>縮短脈絡或減少回合</strong>，不是調強度、也不是換通道。
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="idx">§5</div>
+  <div class="body">
+    <h2>儀器可信度：7 項缺陷，全部由對照揭發</h2>
+    <p>
+      沒有一項是靠推理發現的。最嚴重的那一項若未被抓到，
+      會讓委派組的 token 消耗被系統性低估 <strong>52%</strong>，並導出方向相反的結論。
+    </p>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th>#</th><th>缺陷</th><th>若未發現的後果</th><th>由誰揭發</th></tr></thead>
+        <tbody>
+          <tr><td class="n">1</td><td>transcript 每次 API 請求寫多筆紀錄</td><td>token 高估 <strong>4.4×</strong></td><td>初次檢視</td></tr>
+          <tr><td class="n">2</td><td>去重取「第一筆」，而有些重複是串流片段</td><td><strong>委派組低估 52%，結論反轉</strong></td><td>CLI 自報正對照</td></tr>
+          <tr><td class="n">3</td><td>子代理 transcript 放在另一個目錄</td><td>委派組被誤判作廢</td><td>CLI 自報正對照</td></tr>
+          <tr><td class="n">4</td><td>交叉核對拿單一模型比全模型總和</td><td>混合模型執行失去意義</td><td>首筆混合模型執行</td></tr>
+          <tr><td class="n">5</td><td>某模型的公告價格是錯的</td><td>全部成本數字錯誤</td><td>由實測成本反解</td></tr>
+          <tr><td class="n">6</td><td>價表漏一個模型 → 靜默回退</td><td>語料總額低估 15%</td><td>事後稽核</td></tr>
+          <tr><td class="n">7</td><td>快取重寫成本重複計算</td><td>高估 <strong>13.5%</strong></td><td>事後稽核</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <p>
+        第 1 列與第 7 列的量級<strong>在 2026-08-21 的全論文對帳中被改過</strong>。
+        原本寫的是「高估 3.7–4.9×」與「高估 19%」——兩者都<strong>追不到任何檔案</strong>。
+        可追的值分別是 <span class="num">4.4×</span>（<span class="m">PROTOCOL</span> §0：
+        68 行中 22 筆 usage 記錄、5 個相異 <span class="m">requestId</span>，來自本語料之外的一個 session）
+        與 <span class="num">13.5%</span>（<span class="m">AUDIT</span> E-2 自己的表：
+        $1,226.82 / $1,080.74 − 1）。兩者都不是任何已發表數字的輸入，<strong>結論未動</strong>。
+        原文在 <span class="m">FINAL_REPORT</span> 與 <span class="m">RESULTS_EXPERIMENT2</span> 中保留並加註，
+        逐筆帳目見 <span class="m">RECONCILIATION_2026-08-21.md</span>。
+      </p>
+    </div>
+
+    <div class="note warn">
+      <p>
+        <strong>第 6 與第 7 項方向相反，幾乎互相抵銷。</strong>
+        只重算其中一項會看到「數字幾乎沒變」，因而誤判原值正確。
+        原本那個數字是<em>碰巧</em>對的，不是<em>算</em>對的——每一項都必須獨立重算。
+      </p>
+    </div>
+
+    <h3>驗收儀器怎麼被證明有區辨力</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>手段</th><th class="n">規模</th><th>結果</th></tr></thead>
+        <tbody>
+          <tr><td>雙邊校準（已知為真／已知為假）</td><td class="n">25 + 55 分</td><td>滿分／10 分與 15 分，缺陷可精確定位</td></tr>
+          <tr><td>差分模糊測試</td><td class="n">74,295 次</td><td>13 份實作 × 5,715 案例，<strong>100.00% 一致</strong></td></tr>
+          <tr><td>參考實作<em>無法確定</em>之輸入上的穩健性</td><td class="n">285 筆</td><td>崩潰 146 ＋ 分歧 139；13 份實作全部乾淨退出</td></tr>
+          <tr><td>突變測試</td><td class="n">18 個突變體</td><td>偵測率 <strong>77.8%</strong>（14/18）；存活盲區 4 處</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note key">
+      <p class="lede">可推廣的方法學觀察（其一）</p>
+      <p>
+        <strong>一群獨立實作，是比作者自身參考實作更強的 oracle。</strong>
+        作者的 C# 參考與 Python oracle 共享同兩處誤讀，同作者對照因此結構性失明；
+        揭發它們的是各組獨立產出的實作。
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="idx">§7.8</div>
+  <div class="body">
+    <h2>G4：把量表移開一個維度，天花板就消失了</h2>
+    <p>
+      契約層的「全數滿分」起初被視為天花板效應。但那是<strong>儀器位置的函數</strong>，不是產物的性質。
+      把尺從核心契約移到 GUI，6 個組別代表中立刻出現 1 個功能性失效——而它在契約層是 <span class="m">55/55</span>。
+    </p>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th>代表</th><th>組別</th><th>人工判定</th><th class="n">畫面外</th><th class="n">實質重疊</th></tr></thead>
+        <tbody>
+          <tr><td>A</td><td>C1　CLI×獨力×high</td><td><span class="chip ok">8/8 通過</span></td><td class="n">0</td><td class="n">0</td></tr>
+          <tr><td>B</td><td>C2　Desktop×獨力×high</td><td><span class="chip ok">8/8 通過</span></td><td class="n">0</td><td class="n">0</td></tr>
+          <tr><td>C</td><td>C3　CLI×委派×high</td><td><span class="chip ok">8/8 通過</span></td><td class="n">0</td><td class="n">0</td></tr>
+          <tr><td>D</td><td>M1　CLI×獨力×medium</td><td><span class="chip ok">8/8 通過</span></td><td class="n">0</td><td class="n">0</td></tr>
+          <tr><td>E</td><td>XL-A　CLI×獨力×high（XL）</td><td><span class="chip ok">12/12 通過</span></td><td class="n">0</td><td class="n">0</td></tr>
+          <tr><td>F</td><td>XL-B　CLI×委派×high（XL）</td><td><span class="chip bad">第 2 項失效</span></td><td class="n"><strong>4</strong></td><td class="n"><strong>2</strong></td></tr>
+          <tr><td>F2</td><td>XL-B-02</td><td><span class="chip und">未完成測試</span></td><td class="n">0</td><td class="n"><strong>1</strong></td></tr>
+          <tr><td>F3</td><td>XL-B-03</td><td><span class="chip ok">2–12 項通過</span></td><td class="n">0</td><td class="n">0</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>F 組的失效是可重現的，不是軼事</h3>
+    <p>
+      <span class="m">MainForm.cs</span> 在面板尚未掛進表單（寬度仍為 <span class="m">Panel</span> 預設值）時，
+      就加入 <span class="m">Anchor = Top | Right</span> 的子控制項。錨定機制記下的右緣距離是<strong>負值</strong>；
+      面板之後被 Dock 成 <span class="num">1180</span> px 寬，四顆按鈕就被推到畫面之外。
+      放大視窗無法補救——錨定維持的是「距右緣的固定距離」。
+    </p>
+    <p>
+      逐字複製其座標的最小重現程式（含安全建構順序的正對照）在同一 runtime 量得
+      <span class="m">btnBrowse x=1960</span>，而面板僅 <span class="num">1180</span> 寬；
+      活體量測則在使用者實際操作的那支執行檔上得到
+      <span class="m">瀏覽… x=1307</span>、client area <span class="num">786</span>。
+    </p>
+
+    <div class="note warn">
+      <p class="lede">預先登記的規則出現了第三個分支</p>
+      <p>
+        階段二的規則只寫了「兩支皆通過 → 單筆偶發」與「任一失敗 → 組別特性」。
+        實際發生的是：XL-B-03 完整通過，而 XL-B-02 <strong>未完成測試</strong>——
+        使用者開啟後判定「沒有改善，還是一樣的畫面」而停止投入，並非第 2 項失敗。
+      </p>
+      <p>
+        記為失敗會誇大問題，記為通過則無觀察支持。
+        因此本研究<strong>兩個結論都不宣稱</strong>，改為據實陳述分佈。
+        把觀察塞進最近的格子，會在紀錄裡製造一個從未被觀察到的事實。
+      </p>
+    </div>
+
+    <div class="note">
+      <p>
+        <strong>必須並列的反向事實：</strong>XL-B-03 正是使用者評為
+        「目前最舒服的，畫面也很原生但乾淨」的那一支。
+        委派組同時產出了全研究<em>最不可用</em>與<em>最好</em>的 GUI。
+        被量到的是<strong>組內離散度</strong>，不是「委派讓 GUI 變差」。
+        以「有無實質版面缺陷」做 3 對 3 比較，Fisher 精確檢定 <span class="m">p=0.4</span>——
+        只能描述，不能宣稱顯著。
+      </p>
+    </div>
+
+    <div class="note key">
+      <p class="lede">可推廣的方法學觀察（其二，與其一反向配對）</p>
+      <p>
+        <strong>自動驗收儀器只為它所量測的那一個維度背書；對其他維度，它的沉默不是保證。</strong>
+        「全數滿分」應被讀作「在這把尺上量不出差異」，而非「沒有差異」。
+        兩者的距離，正好是 XL-B-01 那個永遠打不開資料夾的視窗。
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="idx">§6.3</div>
+  <div class="body">
+    <h2>兩個被實測推翻的前提</h2>
+
+    <h3>脈絡視窗不是 200,000，是 1,000,000</h3>
+    <p>
+      這個數字取自一次較小模型的探測，之後從未對主模型重驗。
+      實測值是 <span class="num">1,000,000</span>：小契約峰值僅用 <span class="num">16.1%</span>、
+      XL 契約 <span class="num">24.4%</span>，要逼出自動壓縮需要約 <strong>6.2×</strong> 的任務。
+      這殺死了原本設計的交叉實驗，換成兩點劑量反應——
+      同時<strong>擴大</strong>了架構結論：脈絡隔離在輕中量規模無用武之地，
+      不是因為任務小，而是因為視窗比假設的大 5 倍。
+    </p>
+    <p>
+      值得注意的細微處：隔離效益在 <strong>24.4%</strong> 用量處就出現了，離耗盡很遠。
+      門檻是<em>分工經濟學</em>（外包的工作量 &gt; 協調成本），不是<em>容量</em>。
+    </p>
+
+    <h3>單一形狀的量測不能外推到整體使用</h3>
+    <p>
+      分析使用者真實語料 <span class="num">321</span> 個 session ／
+      <span class="num">30,347</span> 次請求 ／ <span class="num">$5,550.41</span>：
+      密集 session（無 &gt;5 分鐘間隔）佔數量 <span class="num">61%</span>，卻只佔成本 <span class="num">18%</span>；
+      稀疏的互動式 session 扛走 <strong>81.5%</strong> 的花費。
+    </p>
+    <p>
+      修正後的結論：1 小時快取相對 5 分鐘 TTL 在此使用組合上值 <strong>+$630</strong>——
+      與只看無頭基準測試得到的答案<em>相反</em>（密集執行從不閒置超過 161 秒，5 分鐘快取永不過期，其較便宜的寫入會勝出）。
+      損益平衡點是實測 <span class="num">499</span> 次過期事件當下的脈絡長度得出的（中位數 <span class="num">187,490</span>），
+      不是估的——最初「幾萬」的估計低了 <strong>3.7 倍</strong>，會把結論整個翻轉。
+    </p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="idx">§6</div>
+  <div class="body">
+    <h2>本研究不宣稱什麼</h2>
+    <p>
+      這一節與結果同等重要。研究的價值上限等於它願意說「這個我不知道」的誠實度。
+    </p>
+    <div class="tw">
+      <table>
+        <thead><tr><th>未涵蓋</th><th>原因</th></tr></thead>
+        <tbody>
+          <tr><td>哪一組的 GUI「比較好」</td><td>評分帶主觀性，且每組 <span class="m">n=1</span>；Mann-Whitney 最小可達 <span class="m">p=1.000</span>——連方向都無法宣告</td></tr>
+          <tr><td>XL-B 的失效屬組別特性或單筆偶發</td><td>階段二出現預先登記規則未涵蓋的第三種結果</td></tr>
+          <tr><td>模型<em>會失敗</em>的任務上，各因子是否造成品質差異</td><td>本研究全部落在天花板上，未提出此問題</td></tr>
+          <tr><td>委派的其他論據（平行化、專業分工、失敗隔離）</td><td>未測試</td></tr>
+          <tr><td>損益平衡的任務規模</td><td>只有兩個規模點，兩點不能擬合曲線</td></tr>
+          <tr><td>「文字遮擋」的成因</td><td>各組 DPI 設定與觀察對不上，不提出因果宣稱</td></tr>
+          <tr><td>論文的 docx 轉換是否正確</td><td>本機未安裝 pandoc，未驗證</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      另有一項刻意保留的漏洞：評分器的 4 處盲區中，有一個<strong>從未被檢查的中繼欄位</strong>。
+      <strong>已知而不追溯修補</strong>——在分數發表後改動分母會破壞全部既有比較的可比性，
+      其危害大於留著一個已記錄、且經稽核確認未被利用的漏洞。
+    </p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="idx">附錄</div>
+  <div class="body">
+    <h2>成果檔案</h2>
+    <p>本頁每一項數字都可回溯到下列檔案。</p>
+    <ul class="files">
+      <li><span class="path">PAPER_2026-08-20.md</span><span class="what">完整論文，9 章 + 4 附錄</span></li>
+      <li><span class="path">PROTOCOL_2026-08-20.md</span><span class="what">實驗設計 + 11 條實測驅動的修正</span></li>
+      <li><span class="path">AUDIT_2026-08-20.md</span><span class="what">3 項計算錯誤 + 4 項登記缺漏的完整揭露</span></li>
+      <li><span class="path">RUN_MANIFEST.md</span><span class="what">22 筆執行 + 2 次探測的自動生成清單</span></li>
+      <li><span class="path">RESULTS_G4_GUI_SCREENING_2026-08-21.md</span><span class="what">G4 兩階段結果與影響分析</span></li>
+      <li><span class="path">holdout\G4_SCORESHEET.md</span><span class="what">人工計分表，判定規則事前寫定</span></li>
+      <li><span class="path">holdout\g4_anchor_probe\README.md</span><span class="what">版面探針：門檻依據、雙邊校準、不能判定的事</span></li>
+      <li><span class="path">tools\</span><span class="what">12 支腳本（11 支量測 ＋ 1 支索引檢查），任務無關可復用</span></li>
+      <li><span class="path">holdout\</span><span class="what">oracle、評分器、模糊測試、突變測試</span></li>
+      <li><span class="path">results\</span><span class="what">24 個執行資料夾的原始紀錄</span></li>
+      <li><span class="path">C:\Users\USER\.claude\references\bench-claude-arms-phase-log.md</span><span class="what">階段紀錄，新 session 只需讀這一支</span></li>
+    </ul>
+
+    <div class="note">
+      <p>
+        工具分層是刻意的：<span class="m">tools\</span> 完全與任務無關，換一個研究標的可直接沿用；
+        <span class="m">holdout\</span> 編碼了這一份契約的語意，換題必須重寫。
+        <span class="m">g4_anchor_probe\</span> 屬前者——它不含任何受測程式的專屬邏輯。
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  bench-claude-arms · Phase 1–2 完成 2026-08-21 · 22 筆執行 · $254.22 ·
+  全部通過預先登記的排除稽核
+</footer>
+
+</div>

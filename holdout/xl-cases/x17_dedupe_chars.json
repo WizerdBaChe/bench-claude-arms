@@ -1,0 +1,9 @@
+{
+  "applyTo": "name",
+  "sort": "name",
+  "steps": [
+    {
+      "op": "dedupeChars"
+    }
+  ]
+}

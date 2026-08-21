@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "original": "  spaced  name  .md",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "  spaced  name  ",
+          "after": ""
+        }
+      ],
+      "proposed": ".md",
+      "status": "collision"
+    },
+    {
+      "original": ".gitignore",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": ".gitignore",
+          "after": ""
+        }
+      ],
+      "proposed": "",
+      "status": "invalid"
+    },
+    {
+      "original": "B.TXT",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "B",
+          "after": ""
+        }
+      ],
+      "proposed": ".TXT",
+      "status": "collision"
+    },
+    {
+      "original": "Hello-World_v2.TXT",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "Hello-World_v2",
+          "after": ""
+        }
+      ],
+      "proposed": ".TXT",
+      "status": "collision"
+    },
+    {
+      "original": "IMG_0042.jpeg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "IMG_0042",
+          "after": ""
+        }
+      ],
+      "proposed": ".jpeg",
+      "status": "ok"
+    },
+    {
+      "original": "README",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "README",
+          "after": ""
+        }
+      ],
+      "proposed": "",
+      "status": "invalid"
+    },
+    {
+      "original": "a.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "a",
+          "after": ""
+        }
+      ],
+      "proposed": ".txt",
+      "status": "collision"
+    },
+    {
+      "original": "aabbcc.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "aabbcc",
+          "after": ""
+        }
+      ],
+      "proposed": ".txt",
+      "status": "collision"
+    },
+    {
+      "original": "console.md",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "console",
+          "after": ""
+        }
+      ],
+      "proposed": ".md",
+      "status": "collision"
+    },
+    {
+      "original": "data.tar.gz",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "data.tar",
+          "after": ""
+        }
+      ],
+      "proposed": ".gz",
+      "status": "ok"
+    },
+    {
+      "original": "photo (1).jpg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "photo (1)",
+          "after": "photo"
+        }
+      ],
+      "proposed": "photo.jpg",
+      "status": "collision"
+    },
+    {
+      "original": "photo (2).jpg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "photo (2)",
+          "after": "photo"
+        }
+      ],
+      "proposed": "photo.jpg",
+      "status": "collision"
+    },
+    {
+      "original": "x.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "x",
+          "after": ""
+        }
+      ],
+      "proposed": ".txt",
+      "status": "collision"
+    },
+    {
+      "original": "報告 2026.docx",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "報告 2026",
+          "after": ""
+        }
+      ],
+      "proposed": ".docx",
+      "status": "ok"
+    }
+  ]
+}

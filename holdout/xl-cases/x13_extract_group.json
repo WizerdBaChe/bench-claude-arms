@@ -1,0 +1,11 @@
+{
+  "applyTo": "name",
+  "sort": "name",
+  "steps": [
+    {
+      "op": "extract",
+      "pattern": "([a-zA-Z]+)",
+      "group": 1
+    }
+  ]
+}

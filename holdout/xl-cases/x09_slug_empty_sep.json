@@ -1,0 +1,10 @@
+{
+  "applyTo": "name",
+  "sort": "name",
+  "steps": [
+    {
+      "op": "slug",
+      "separator": ""
+    }
+  ]
+}

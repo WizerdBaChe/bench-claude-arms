@@ -1,0 +1,23 @@
+{
+  "name": "collision beats unchanged: an untouched file collides with another item's proposal (rule 13)",
+  "files": [
+    { "name": "a.txt", "content": "a" },
+    { "name": "b.txt", "content": "b" },
+    { "name": "c.txt", "content": "c" }
+  ],
+  "rules": {
+    "applyTo": "name",
+    "sort": "name",
+    "steps": [
+      { "op": "replace", "find": "b", "replaceWith": "a", "regex": false, "ignoreCase": false }
+    ]
+  },
+  "expected": {
+    "items": [
+      ["a.txt", "a.txt", "collision"],
+      ["b.txt", "a.txt", "collision"],
+      ["c.txt", "c.txt", "unchanged"]
+    ],
+    "summary": { "total": 3, "ok": 0, "collision": 2, "unchanged": 1, "invalid": 0 }
+  }
+}

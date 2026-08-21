@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "original": "  spaced  name  .md",
+      "proposed": "  spaced  name  .md",
+      "status": "unchanged",
+      "reason": ""
+    },
+    {
+      "original": ".gitignore",
+      "proposed": ".gitignore",
+      "status": "unchanged",
+      "reason": ""
+    },
+    {
+      "original": "B.TXT",
+      "proposed": "B.TXT",
+      "status": "unchanged",
+      "reason": ""
+    },
+    {
+      "original": "Hello-World_v2.TXT",
+      "proposed": "Hello-World_v000002.TXT",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "IMG_0042.jpeg",
+      "proposed": "IMG_000042.jpeg",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "README",
+      "proposed": "README",
+      "status": "unchanged",
+      "reason": ""
+    },
+    {
+      "original": "a.txt",
+      "proposed": "a.txt",
+      "status": "unchanged",
+      "reason": ""
+    },
+    {
+      "original": "aabbcc.txt",
+      "proposed": "aabbcc.txt",
+      "status": "unchanged",
+      "reason": ""
+    },
+    {
+      "original": "console.md",
+      "proposed": "console.md",
+      "status": "unchanged",
+      "reason": ""
+    },
+    {
+      "original": "data.tar.gz",
+      "proposed": "data.tar.gz",
+      "status": "unchanged",
+      "reason": ""
+    },
+    {
+      "original": "photo (1).jpg",
+      "proposed": "photo (000001).jpg",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "photo (2).jpg",
+      "proposed": "photo (000002).jpg",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "x.txt",
+      "proposed": "x.txt",
+      "status": "unchanged",
+      "reason": ""
+    },
+    {
+      "original": "報告 2026.docx",
+      "proposed": "報告 002026.docx",
+      "status": "ok",
+      "reason": ""
+    }
+  ],
+  "summary": {
+    "total": 14,
+    "ok": 5,
+    "collision": 0,
+    "unchanged": 9,
+    "invalid": 0
+  }
+}

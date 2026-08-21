@@ -1,0 +1,15 @@
+{
+  "name": "empty folder produces an empty item list and an all-zero summary",
+  "files": [],
+  "rules": {
+    "applyTo": "name",
+    "sort": "name",
+    "steps": [
+      { "op": "sequence", "pattern": "{n:000}_", "start": 1, "step": 1, "position": "prefix" }
+    ]
+  },
+  "expected": {
+    "items": [],
+    "summary": { "total": 0, "ok": 0, "collision": 0, "unchanged": 0, "invalid": 0 }
+  }
+}

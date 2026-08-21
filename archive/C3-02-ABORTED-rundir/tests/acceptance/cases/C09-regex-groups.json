@@ -1,0 +1,24 @@
+{
+  "name": "regex replace with $1 back-reference and ignoreCase, then lower extension",
+  "files": [
+    { "name": "IMG_0001.JPG", "content": "1" },
+    { "name": "IMG_0002.jpg", "content": "2" },
+    { "name": "img_0003.jpeg", "content": "3" }
+  ],
+  "rules": {
+    "applyTo": "name",
+    "sort": "name",
+    "steps": [
+      { "op": "replace", "find": "^img_(\\d+)$", "replaceWith": "photo-$1", "regex": true, "ignoreCase": true },
+      { "op": "extension", "mode": "lower" }
+    ]
+  },
+  "expected": {
+    "items": [
+      ["IMG_0001.JPG", "photo-0001.jpg", "ok"],
+      ["IMG_0002.jpg", "photo-0002.jpg", "ok"],
+      ["img_0003.jpeg", "photo-0003.jpeg", "ok"]
+    ],
+    "summary": { "total": 3, "ok": 3, "collision": 0, "unchanged": 0, "invalid": 0 }
+  }
+}

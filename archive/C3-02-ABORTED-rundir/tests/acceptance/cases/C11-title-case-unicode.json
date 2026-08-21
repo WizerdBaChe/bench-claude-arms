@@ -1,0 +1,21 @@
+{
+  "name": "title case over maximal Unicode letter runs; extension untouched under applyTo name",
+  "files": [
+    { "name": "foo_bar baz.md", "content": "f" },
+    { "name": "héllo wörld-2x.TXT", "content": "h" }
+  ],
+  "rules": {
+    "applyTo": "name",
+    "sort": "name",
+    "steps": [
+      { "op": "case", "mode": "title" }
+    ]
+  },
+  "expected": {
+    "items": [
+      ["foo_bar baz.md", "Foo_Bar Baz.md", "ok"],
+      ["héllo wörld-2x.TXT", "Héllo Wörld-2X.TXT", "ok"]
+    ],
+    "summary": { "total": 2, "ok": 2, "collision": 0, "unchanged": 0, "invalid": 0 }
+  }
+}

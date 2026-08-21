@@ -1,0 +1,23 @@
+{
+  "name": "sort by modified timestamp drives both item order and sequence numbering",
+  "files": [
+    { "name": "c.txt", "content": "c", "modified": "2024-01-03T12:00:00Z" },
+    { "name": "a.txt", "content": "a", "modified": "2024-01-01T12:00:00Z" },
+    { "name": "b.txt", "content": "b", "modified": "2024-01-02T12:00:00Z" }
+  ],
+  "rules": {
+    "applyTo": "name",
+    "sort": "modified",
+    "steps": [
+      { "op": "sequence", "pattern": "{n:00}-", "start": 10, "step": 5, "position": "prefix" }
+    ]
+  },
+  "expected": {
+    "items": [
+      ["a.txt", "10-a.txt", "ok"],
+      ["b.txt", "15-b.txt", "ok"],
+      ["c.txt", "20-c.txt", "ok"]
+    ],
+    "summary": { "total": 3, "ok": 3, "collision": 0, "unchanged": 0, "invalid": 0 }
+  }
+}

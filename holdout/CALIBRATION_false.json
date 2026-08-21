@@ -1,0 +1,124 @@
+{
+  "arm": "C:\\Users\\USER\\AppData\\Local\\Temp\\claude\\d--AIWork\\11936cf8-5cd3-45dd-9022-3e23ce5f051e\\scratchpad\\mutant",
+  "G0": {
+    "pass": true,
+    "exit": 0,
+    "tail": [
+      "",
+      "建置成功。",
+      "    0 個警告",
+      "    0 個錯誤",
+      "",
+      "經過時間 00:00:01.04"
+    ]
+  },
+  "G1": {
+    "exe": "C:\\Users\\USER\\AppData\\Local\\Temp\\claude\\d--AIWork\\11936cf8-5cd3-45dd-9022-3e23ce5f051e\\scratchpad\\mutant\\bin\\Release\\net8.0\\BatchRenameStudio.exe",
+    "exit_zero": true,
+    "plan_written": true,
+    "no_rename": true,
+    "stdout_single_line": true,
+    "first_stderr": "",
+    "pass_count": 4,
+    "max": 4
+  },
+  "G2": {
+    "cases": {
+      "01_sequence_prefix": {
+        "pass": false,
+        "why": "item[1].original: got 'a.txt' want 'B.TXT' (original='B.TXT')",
+        "unordered_pass": false
+      },
+      "02_sequence_step_start": {
+        "pass": false,
+        "why": "item[1].original: got 'a.txt' want 'B.TXT' (original='B.TXT')",
+        "unordered_pass": false
+      },
+      "03_case_lower_and_ext_lower": {
+        "pass": false,
+        "why": "item[1].original: got 'a.txt' want 'B.TXT' (original='B.TXT')",
+        "unordered_pass": false
+      },
+      "04_case_title": {
+        "pass": false,
+        "why": "item[0].status: got 'unchanged' want 'ok' (original='.gitignore')",
+        "unordered_pass": false
+      },
+      "05_regex_collision": {
+        "pass": false,
+        "why": "item[1].original: got 'a.txt' want 'B.TXT' (original='B.TXT')",
+        "unordered_pass": true
+      },
+      "06_regex_group_ref": {
+        "pass": false,
+        "why": "item[1].original: got 'a.txt' want 'B.TXT' (original='B.TXT')",
+        "unordered_pass": true
+      },
+      "07_remove_clamp": {
+        "pass": false,
+        "why": "item[1].original: got 'a.txt' want 'B.TXT' (original='B.TXT')",
+        "unordered_pass": true
+      },
+      "08_remove_overrun_invalid": {
+        "pass": false,
+        "why": "item[1].original: got 'a.txt' want 'B.TXT' (original='B.TXT')",
+        "unordered_pass": true
+      },
+      "09_insert_index": {
+        "pass": false,
+        "why": "item[1].original: got 'a.txt' want 'B.TXT' (original='B.TXT')",
+        "unordered_pass": true
+      },
+      "10_illegal_char_invalid": {
+        "pass": false,
+        "why": "item[1].original: got 'a.txt' want 'B.TXT' (original='B.TXT')",
+        "unordered_pass": true
+      },
+      "11_extension_set": {
+        "pass": false,
+        "why": "item[1].original: got 'a.txt' want 'B.TXT' (original='B.TXT')",
+        "unordered_pass": false
+      },
+      "12_name_and_extension": {
+        "pass": false,
+        "why": "item[0].status: got 'unchanged' want 'ok' (original='.gitignore')",
+        "unordered_pass": false
+      },
+      "13_step_order_matters": {
+        "pass": false,
+        "why": "item[1].original: got 'a.txt' want 'B.TXT' (original='B.TXT')",
+        "unordered_pass": true
+      },
+      "14_literal_replace_ignorecase": {
+        "pass": false,
+        "why": "item[1].original: got 'a.txt' want 'B.TXT' (original='B.TXT')",
+        "unordered_pass": true
+      },
+      "15_reserved_device_name": {
+        "pass": false,
+        "why": "item[1].original: got 'a.txt' want 'B.TXT' (original='B.TXT')",
+        "unordered_pass": true
+      }
+    },
+    "pass_count": 1,
+    "max": 16,
+    "deterministic": true,
+    "unordered_pass_count": 9,
+    "unordered_max": 15
+  },
+  "G3": {
+    "checks": {
+      "solution_builds": true,
+      "headless_mode": true,
+      "gui_project_present": true,
+      "decisions_doc": true,
+      "readme": true
+    },
+    "pass_count": 5,
+    "max": 5
+  },
+  "Y4_score": 0.4,
+  "Y4_earned": 10,
+  "Y4_total": 25,
+  "G4_gui": "NOT SCORED -- requires human UAT, see MANUAL_UAT.md"
+}

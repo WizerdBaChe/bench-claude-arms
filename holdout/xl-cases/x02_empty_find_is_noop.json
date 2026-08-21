@@ -1,0 +1,13 @@
+{
+  "applyTo": "name",
+  "sort": "name",
+  "steps": [
+    {
+      "op": "replace",
+      "find": "",
+      "replaceWith": "ZZ",
+      "regex": false,
+      "ignoreCase": false
+    }
+  ]
+}

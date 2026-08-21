@@ -1,0 +1,28 @@
+{
+  "name": "invalid: reserved device name, forbidden character, control character",
+  "files": [
+    { "name": "doc1.txt", "content": "1" },
+    { "name": "doc2.txt", "content": "2" },
+    { "name": "doc3.txt", "content": "3" },
+    { "name": "doc4.txt", "content": "4" }
+  ],
+  "rules": {
+    "applyTo": "name",
+    "sort": "name",
+    "steps": [
+      { "op": "replace", "find": "doc1", "replaceWith": "CON", "regex": false, "ignoreCase": false },
+      { "op": "replace", "find": "doc2", "replaceWith": "a<b", "regex": false, "ignoreCase": false },
+      { "op": "replace", "find": "doc3", "replaceWith": "x	y", "regex": false, "ignoreCase": false },
+      { "op": "replace", "find": "doc4", "replaceWith": "lpt9", "regex": false, "ignoreCase": false }
+    ]
+  },
+  "expected": {
+    "items": [
+      ["doc1.txt", "CON.txt", "invalid"],
+      ["doc2.txt", "a<b.txt", "invalid"],
+      ["doc3.txt", "x	y.txt", "invalid"],
+      ["doc4.txt", "lpt9.txt", "invalid"]
+    ],
+    "summary": { "total": 4, "ok": 0, "collision": 0, "unchanged": 0, "invalid": 4 }
+  }
+}

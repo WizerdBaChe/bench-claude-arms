@@ -1,0 +1,32 @@
+﻿[
+    {
+        "Arm":  "C1 CLI×獨力×high (小)",
+        "Run":  "PILOT-C1-01",
+        "Exe":  "D:\\BenchRuns\\PILOT-C1-01\\src\\BatchRenameStudio\\bin\\Release\\net8.0-windows\\BatchRenameStudio.exe"
+    },
+    {
+        "Arm":  "C2 Desktop×獨力×high (小)",
+        "Run":  "C2-01",
+        "Exe":  "D:\\BenchRuns\\C2-01\\src\\BatchRenameStudio\\bin\\Release\\net8.0-windows\\BatchRenameStudio.exe"
+    },
+    {
+        "Arm":  "C3 CLI×委派×high (小)",
+        "Run":  "C3-01",
+        "Exe":  "D:\\BenchRuns\\C3-01\\src\\BatchRenameStudio\\bin\\Release\\net8.0-windows\\BatchRenameStudio.exe"
+    },
+    {
+        "Arm":  "M1 CLI×獨力×medium (小)",
+        "Run":  "M1-01",
+        "Exe":  "D:\\BenchRuns\\M1-01\\src\\BatchRenameStudio\\bin\\Release\\net8.0-windows\\BatchRenameStudio.exe"
+    },
+    {
+        "Arm":  "XL-A CLI×獨力×high (XL)",
+        "Run":  "XL-CAL-01",
+        "Exe":  "D:\\BenchRuns\\XL-CAL-01\\src\\BatchRenameStudio\\bin\\Release\\net8.0-windows\\BatchRenameStudio.exe"
+    },
+    {
+        "Arm":  "XL-B CLI×委派×high (XL)",
+        "Run":  "XL-B-01",
+        "Exe":  "D:\\BenchRuns\\XL-B-01\\src\\BatchRenameStudio\\bin\\Release\\net8.0-windows\\BatchRenameStudio.exe"
+    }
+]

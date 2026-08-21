@@ -1,0 +1,34 @@
+{
+  "fixture_files": [
+    "a.txt",
+    "B.TXT",
+    "console.md",
+    "data.tar.gz",
+    ".gitignore",
+    "README",
+    "報告 2026.docx",
+    "photo (1).jpg",
+    "photo (2).jpg",
+    "x.txt"
+  ],
+  "cases": [
+    "01_sequence_prefix",
+    "02_sequence_step_start",
+    "03_case_lower_and_ext_lower",
+    "04_case_title",
+    "05_regex_collision",
+    "06_regex_group_ref",
+    "07_remove_clamp",
+    "08_remove_overrun_invalid",
+    "09_insert_index",
+    "10_illegal_char_invalid",
+    "11_extension_set",
+    "12_name_and_extension",
+    "13_step_order_matters",
+    "14_literal_replace_ignorecase",
+    "15_reserved_device_name"
+  ],
+  "prompt_a_sha256": "616ec2f5eb5432272adbe2979b99530a3105d6213773156b496216db29e8eb53",
+  "prompt_b_sha256": "f3dab74575911a13ea6ff07beda5c7f67742ab5c9294879cbbe931219bdbf5b6",
+  "oracle_sha256": "14de36cecee29619fae44811115a0396d09a49d89424c3059fb34ef360986940"
+}

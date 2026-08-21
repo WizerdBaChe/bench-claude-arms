@@ -1,0 +1,25 @@
+{
+  "name": "extension set on files with and without an extension (rule 2 and rule 11)",
+  "files": [
+    { "name": ".gitignore", "content": "g" },
+    { "name": "README", "content": "r" },
+    { "name": "data.tar.gz", "content": "d" },
+    { "name": "photo.JPG", "content": "p" }
+  ],
+  "rules": {
+    "applyTo": "name",
+    "sort": "name",
+    "steps": [
+      { "op": "extension", "mode": "set", "value": "txt" }
+    ]
+  },
+  "expected": {
+    "items": [
+      [".gitignore", ".gitignore.txt", "ok"],
+      ["README", "README.txt", "ok"],
+      ["data.tar.gz", "data.tar.txt", "ok"],
+      ["photo.JPG", "photo.txt", "ok"]
+    ],
+    "summary": { "total": 4, "ok": 4, "collision": 0, "unchanged": 0, "invalid": 0 }
+  }
+}

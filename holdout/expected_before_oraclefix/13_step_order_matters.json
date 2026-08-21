@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "original": ".gitignore",
+      "proposed": "Z.GITIGNORE",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "B.TXT",
+      "proposed": "ZB.TXT",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "README",
+      "proposed": "ZREADME",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "a.txt",
+      "proposed": "ZA.txt",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "console.md",
+      "proposed": "ZCONSOLE.md",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "data.tar.gz",
+      "proposed": "ZDATA.TAR.gz",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "photo (1).jpg",
+      "proposed": "ZPHOTO (1).jpg",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "photo (2).jpg",
+      "proposed": "ZPHOTO (2).jpg",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "x.txt",
+      "proposed": "ZX.txt",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "報告 2026.docx",
+      "proposed": "Z報告 2026.docx",
+      "status": "ok",
+      "reason": ""
+    }
+  ],
+  "summary": {
+    "total": 10,
+    "ok": 10,
+    "collision": 0,
+    "unchanged": 0,
+    "invalid": 0
+  }
+}

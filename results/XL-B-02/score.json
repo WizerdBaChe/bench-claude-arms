@@ -1,0 +1,224 @@
+{
+  "arm": "D:\\BenchRuns\\XL-B-02",
+  "contract": "XL",
+  "G0": {
+    "pass": true,
+    "exit": 0,
+    "tail": [
+      "",
+      "建置成功。",
+      "    0 個警告",
+      "    0 個錯誤",
+      "",
+      "經過時間 00:00:01.37"
+    ]
+  },
+  "exe": "D:\\BenchRuns\\XL-B-02\\src\\BatchRenameStudio\\bin\\Release\\net8.0-windows\\BatchRenameStudio.exe",
+  "G1_plan_contract": {
+    "exit_zero": true,
+    "written": true,
+    "stdout_single_line": true,
+    "first_stderr": "",
+    "no_rename": true,
+    "pass_count": 4,
+    "max": 4
+  },
+  "G3_explain_contract": {
+    "exit_zero": true,
+    "written": true,
+    "stdout_single_line": true,
+    "first_stderr": "",
+    "no_rename": true,
+    "pass_count": 4,
+    "max": 4
+  },
+  "G2_plan_cases": {
+    "cases": {
+      "x01_sequence_own_params": {
+        "pass": true,
+        "why": ""
+      },
+      "x02_empty_find_is_noop": {
+        "pass": true,
+        "why": ""
+      },
+      "x03_nameext_extension_inorder": {
+        "pass": true,
+        "why": ""
+      },
+      "x04_pad_left": {
+        "pass": true,
+        "why": ""
+      },
+      "x05_pad_bad_fill_noop": {
+        "pass": true,
+        "why": ""
+      },
+      "x06_trim_both": {
+        "pass": true,
+        "why": ""
+      },
+      "x07_trim_left_only": {
+        "pass": true,
+        "why": ""
+      },
+      "x08_slug": {
+        "pass": true,
+        "why": ""
+      },
+      "x09_slug_empty_sep": {
+        "pass": true,
+        "why": ""
+      },
+      "x10_translate_delete_tail": {
+        "pass": true,
+        "why": ""
+      },
+      "x11_translate_dup_first_wins": {
+        "pass": true,
+        "why": ""
+      },
+      "x12_numberformat": {
+        "pass": true,
+        "why": ""
+      },
+      "x13_extract_group": {
+        "pass": true,
+        "why": ""
+      },
+      "x14_extract_nomatch_empty": {
+        "pass": true,
+        "why": ""
+      },
+      "x15_template": {
+        "pass": true,
+        "why": ""
+      },
+      "x16_template_unknown_token": {
+        "pass": true,
+        "why": ""
+      },
+      "x17_dedupe_chars": {
+        "pass": true,
+        "why": ""
+      },
+      "x18_chain_slug_pad_seq": {
+        "pass": true,
+        "why": ""
+      },
+      "x19_chain_extract_template": {
+        "pass": true,
+        "why": ""
+      },
+      "x20_collision_via_extract": {
+        "pass": true,
+        "why": ""
+      }
+    },
+    "deterministic": true,
+    "pass_count": 21,
+    "max": 21
+  },
+  "G4_trace_cases": {
+    "cases": {
+      "x01_sequence_own_params": {
+        "pass": true,
+        "why": ""
+      },
+      "x02_empty_find_is_noop": {
+        "pass": true,
+        "why": ""
+      },
+      "x03_nameext_extension_inorder": {
+        "pass": true,
+        "why": ""
+      },
+      "x04_pad_left": {
+        "pass": true,
+        "why": ""
+      },
+      "x05_pad_bad_fill_noop": {
+        "pass": true,
+        "why": ""
+      },
+      "x06_trim_both": {
+        "pass": true,
+        "why": ""
+      },
+      "x07_trim_left_only": {
+        "pass": true,
+        "why": ""
+      },
+      "x08_slug": {
+        "pass": true,
+        "why": ""
+      },
+      "x09_slug_empty_sep": {
+        "pass": true,
+        "why": ""
+      },
+      "x10_translate_delete_tail": {
+        "pass": true,
+        "why": ""
+      },
+      "x11_translate_dup_first_wins": {
+        "pass": true,
+        "why": ""
+      },
+      "x12_numberformat": {
+        "pass": true,
+        "why": ""
+      },
+      "x13_extract_group": {
+        "pass": true,
+        "why": ""
+      },
+      "x14_extract_nomatch_empty": {
+        "pass": true,
+        "why": ""
+      },
+      "x15_template": {
+        "pass": true,
+        "why": ""
+      },
+      "x16_template_unknown_token": {
+        "pass": true,
+        "why": ""
+      },
+      "x17_dedupe_chars": {
+        "pass": true,
+        "why": ""
+      },
+      "x18_chain_slug_pad_seq": {
+        "pass": true,
+        "why": ""
+      },
+      "x19_chain_extract_template": {
+        "pass": true,
+        "why": ""
+      },
+      "x20_collision_via_extract": {
+        "pass": true,
+        "why": ""
+      }
+    },
+    "pass_count": 20,
+    "max": 20
+  },
+  "G5_deliverables": {
+    "checks": {
+      "solution_builds": true,
+      "plan_mode": true,
+      "explain_mode": true,
+      "gui_project_present": true,
+      "decisions_doc": true,
+      "readme": true
+    },
+    "pass_count": 6,
+    "max": 6
+  },
+  "Y4_xl": 1.0,
+  "Y4_earned": 55,
+  "Y4_total": 55,
+  "gui": "NOT SCORED — human UAT"
+}

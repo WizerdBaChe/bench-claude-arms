@@ -1,0 +1,19 @@
+{
+  "name": "invalid: remove clears the whole name under nameAndExtension",
+  "files": [
+    { "name": "gone.txt", "content": "g" }
+  ],
+  "rules": {
+    "applyTo": "nameAndExtension",
+    "sort": "name",
+    "steps": [
+      { "op": "remove", "from": 0, "count": 100 }
+    ]
+  },
+  "expected": {
+    "items": [
+      ["gone.txt", "", "invalid"]
+    ],
+    "summary": { "total": 1, "ok": 0, "collision": 0, "unchanged": 0, "invalid": 1 }
+  }
+}

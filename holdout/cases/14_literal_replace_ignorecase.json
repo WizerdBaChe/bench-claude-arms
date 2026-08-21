@@ -1,0 +1,13 @@
+{
+  "applyTo": "name",
+  "sort": "name",
+  "steps": [
+    {
+      "op": "replace",
+      "find": "PHOTO",
+      "replaceWith": "img",
+      "regex": false,
+      "ignoreCase": true
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "original": "  spaced  name  .md",
+      "steps": [
+        {
+          "index": 0,
+          "op": "translate",
+          "before": "  spaced  name  ",
+          "after": "  sp1c2d  n1m2  "
+        }
+      ],
+      "proposed": "  sp1c2d  n1m2  .md",
+      "status": "ok"
+    },
+    {
+      "original": ".gitignore",
+      "steps": [
+        {
+          "index": 0,
+          "op": "translate",
+          "before": ".gitignore",
+          "after": ".gtgnr2"
+        }
+      ],
+      "proposed": ".gtgnr2",
+      "status": "ok"
+    },
+    {
+      "original": "B.TXT",
+      "steps": [
+        {
+          "index": 0,
+          "op": "translate",
+          "before": "B",
+          "after": "B"
+        }
+      ],
+      "proposed": "B.TXT",
+      "status": "unchanged"
+    },
+    {
+      "original": "Hello-World_v2.TXT",
+      "steps": [
+        {
+          "index": 0,
+          "op": "translate",
+          "before": "Hello-World_v2",
+          "after": "H2ll-Wrld_v2"
+        }
+      ],
+      "proposed": "H2ll-Wrld_v2.TXT",
+      "status": "ok"
+    },
+    {
+      "original": "IMG_0042.jpeg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "translate",
+          "before": "IMG_0042",
+          "after": "IMG_0042"
+        }
+      ],
+      "proposed": "IMG_0042.jpeg",
+      "status": "unchanged"
+    },
+    {
+      "original": "README",
+      "steps": [
+        {
+          "index": 0,
+          "op": "translate",
+          "before": "README",
+          "after": "README"
+        }
+      ],
+      "proposed": "README",
+      "status": "unchanged"
+    },
+    {
+      "original": "a.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "translate",
+          "before": "a",
+          "after": "1"
+        }
+      ],
+      "proposed": "1.txt",
+      "status": "ok"
+    },
+    {
+      "original": "aabbcc.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "translate",
+          "before": "aabbcc",
+          "after": "11bbcc"
+        }
+      ],
+      "proposed": "11bbcc.txt",
+      "status": "ok"
+    },
+    {
+      "original": "console.md",
+      "steps": [
+        {
+          "index": 0,
+          "op": "translate",
+          "before": "console",
+          "after": "cnsl2"
+        }
+      ],
+      "proposed": "cnsl2.md",
+      "status": "ok"
+    },
+    {
+      "original": "data.tar.gz",
+      "steps": [
+        {
+          "index": 0,
+          "op": "translate",
+          "before": "data.tar",
+          "after": "d1t1.t1r"
+        }
+      ],
+      "proposed": "d1t1.t1r.gz",
+      "status": "ok"
+    },
+    {
+      "original": "photo (1).jpg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "translate",
+          "before": "photo (1)",
+          "after": "pht (1)"
+        }
+      ],
+      "proposed": "pht (1).jpg",
+      "status": "ok"
+    },
+    {
+      "original": "photo (2).jpg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "translate",
+          "before": "photo (2)",
+          "after": "pht (2)"
+        }
+      ],
+      "proposed": "pht (2).jpg",
+      "status": "ok"
+    },
+    {
+      "original": "x.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "translate",
+          "before": "x",
+          "after": "x"
+        }
+      ],
+      "proposed": "x.txt",
+      "status": "unchanged"
+    },
+    {
+      "original": "報告 2026.docx",
+      "steps": [
+        {
+          "index": 0,
+          "op": "translate",
+          "before": "報告 2026",
+          "after": "報告 2026"
+        }
+      ],
+      "proposed": "報告 2026.docx",
+      "status": "unchanged"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "original": "  spaced  name  .md",
+      "proposed": "0001_  spaced  name  _16.md.md",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": ".gitignore",
+      "proposed": "0002_.gitignore_10.",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "B.TXT",
+      "proposed": "0003_B_1.TXT.TXT",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "Hello-World_v2.TXT",
+      "proposed": "0004_Hello-World_v2_14.TXT.TXT",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "IMG_0042.jpeg",
+      "proposed": "0005_IMG_0042_8.jpeg.jpeg",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "README",
+      "proposed": "0006_README_6.",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "a.txt",
+      "proposed": "0007_a_1.txt.txt",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "aabbcc.txt",
+      "proposed": "0008_aabbcc_6.txt.txt",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "console.md",
+      "proposed": "0009_console_7.md.md",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "data.tar.gz",
+      "proposed": "0010_data.tar_8.gz.gz",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "photo (1).jpg",
+      "proposed": "0011_photo (1)_9.jpg.jpg",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "photo (2).jpg",
+      "proposed": "0012_photo (2)_9.jpg.jpg",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "x.txt",
+      "proposed": "0013_x_1.txt.txt",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "報告 2026.docx",
+      "proposed": "0014_報告 2026_7.docx.docx",
+      "status": "ok",
+      "reason": ""
+    }
+  ],
+  "summary": {
+    "total": 14,
+    "ok": 14,
+    "collision": 0,
+    "unchanged": 0,
+    "invalid": 0
+  }
+}

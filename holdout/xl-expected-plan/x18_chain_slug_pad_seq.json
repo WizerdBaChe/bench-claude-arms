@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "original": "  spaced  name  .md",
+      "proposed": "00000spaced-name_000.md",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": ".gitignore",
+      "proposed": "0000000gitignore_003",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "B.TXT",
+      "proposed": "000000000000000b_006.TXT",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "Hello-World_v2.TXT",
+      "proposed": "00hello-world-v2_009.TXT",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "IMG_0042.jpeg",
+      "proposed": "00000000img-0042_012.jpeg",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "README",
+      "proposed": "0000000000readme_015",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "a.txt",
+      "proposed": "000000000000000a_018.txt",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "aabbcc.txt",
+      "proposed": "0000000000aabbcc_021.txt",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "console.md",
+      "proposed": "000000000console_024.md",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "data.tar.gz",
+      "proposed": "00000000data-tar_027.gz",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "photo (1).jpg",
+      "proposed": "000000000photo-1_030.jpg",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "photo (2).jpg",
+      "proposed": "000000000photo-2_033.jpg",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "x.txt",
+      "proposed": "000000000000000x_036.txt",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "報告 2026.docx",
+      "proposed": "0000000000002026_039.docx",
+      "status": "ok",
+      "reason": ""
+    }
+  ],
+  "summary": {
+    "total": 14,
+    "ok": 14,
+    "collision": 0,
+    "unchanged": 0,
+    "invalid": 0
+  }
+}

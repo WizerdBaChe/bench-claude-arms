@@ -1,0 +1,355 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "original": "  spaced  name  .md",
+      "steps": [
+        {
+          "index": 0,
+          "op": "case",
+          "before": "  spaced  name  .md",
+          "after": "  spaced  name  .md"
+        },
+        {
+          "index": 1,
+          "op": "extension",
+          "before": "  spaced  name  .md",
+          "after": "  spaced  name  .MD"
+        },
+        {
+          "index": 2,
+          "op": "case",
+          "before": "  spaced  name  .MD",
+          "after": "  Spaced  Name  .Md"
+        }
+      ],
+      "proposed": "  Spaced  Name  .Md",
+      "status": "ok"
+    },
+    {
+      "original": ".gitignore",
+      "steps": [
+        {
+          "index": 0,
+          "op": "case",
+          "before": ".gitignore",
+          "after": ".gitignore"
+        },
+        {
+          "index": 1,
+          "op": "extension",
+          "before": ".gitignore",
+          "after": ".gitignore"
+        },
+        {
+          "index": 2,
+          "op": "case",
+          "before": ".gitignore",
+          "after": ".Gitignore"
+        }
+      ],
+      "proposed": ".Gitignore",
+      "status": "ok"
+    },
+    {
+      "original": "B.TXT",
+      "steps": [
+        {
+          "index": 0,
+          "op": "case",
+          "before": "B.TXT",
+          "after": "b.txt"
+        },
+        {
+          "index": 1,
+          "op": "extension",
+          "before": "b.txt",
+          "after": "b.TXT"
+        },
+        {
+          "index": 2,
+          "op": "case",
+          "before": "b.TXT",
+          "after": "B.Txt"
+        }
+      ],
+      "proposed": "B.Txt",
+      "status": "ok"
+    },
+    {
+      "original": "Hello-World_v2.TXT",
+      "steps": [
+        {
+          "index": 0,
+          "op": "case",
+          "before": "Hello-World_v2.TXT",
+          "after": "hello-world_v2.txt"
+        },
+        {
+          "index": 1,
+          "op": "extension",
+          "before": "hello-world_v2.txt",
+          "after": "hello-world_v2.TXT"
+        },
+        {
+          "index": 2,
+          "op": "case",
+          "before": "hello-world_v2.TXT",
+          "after": "Hello-World_V2.Txt"
+        }
+      ],
+      "proposed": "Hello-World_V2.Txt",
+      "status": "ok"
+    },
+    {
+      "original": "IMG_0042.jpeg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "case",
+          "before": "IMG_0042.jpeg",
+          "after": "img_0042.jpeg"
+        },
+        {
+          "index": 1,
+          "op": "extension",
+          "before": "img_0042.jpeg",
+          "after": "img_0042.JPEG"
+        },
+        {
+          "index": 2,
+          "op": "case",
+          "before": "img_0042.JPEG",
+          "after": "Img_0042.Jpeg"
+        }
+      ],
+      "proposed": "Img_0042.Jpeg",
+      "status": "ok"
+    },
+    {
+      "original": "README",
+      "steps": [
+        {
+          "index": 0,
+          "op": "case",
+          "before": "README",
+          "after": "readme"
+        },
+        {
+          "index": 1,
+          "op": "extension",
+          "before": "readme",
+          "after": "readme"
+        },
+        {
+          "index": 2,
+          "op": "case",
+          "before": "readme",
+          "after": "Readme"
+        }
+      ],
+      "proposed": "Readme",
+      "status": "ok"
+    },
+    {
+      "original": "a.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "case",
+          "before": "a.txt",
+          "after": "a.txt"
+        },
+        {
+          "index": 1,
+          "op": "extension",
+          "before": "a.txt",
+          "after": "a.TXT"
+        },
+        {
+          "index": 2,
+          "op": "case",
+          "before": "a.TXT",
+          "after": "A.Txt"
+        }
+      ],
+      "proposed": "A.Txt",
+      "status": "ok"
+    },
+    {
+      "original": "aabbcc.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "case",
+          "before": "aabbcc.txt",
+          "after": "aabbcc.txt"
+        },
+        {
+          "index": 1,
+          "op": "extension",
+          "before": "aabbcc.txt",
+          "after": "aabbcc.TXT"
+        },
+        {
+          "index": 2,
+          "op": "case",
+          "before": "aabbcc.TXT",
+          "after": "Aabbcc.Txt"
+        }
+      ],
+      "proposed": "Aabbcc.Txt",
+      "status": "ok"
+    },
+    {
+      "original": "console.md",
+      "steps": [
+        {
+          "index": 0,
+          "op": "case",
+          "before": "console.md",
+          "after": "console.md"
+        },
+        {
+          "index": 1,
+          "op": "extension",
+          "before": "console.md",
+          "after": "console.MD"
+        },
+        {
+          "index": 2,
+          "op": "case",
+          "before": "console.MD",
+          "after": "Console.Md"
+        }
+      ],
+      "proposed": "Console.Md",
+      "status": "ok"
+    },
+    {
+      "original": "data.tar.gz",
+      "steps": [
+        {
+          "index": 0,
+          "op": "case",
+          "before": "data.tar.gz",
+          "after": "data.tar.gz"
+        },
+        {
+          "index": 1,
+          "op": "extension",
+          "before": "data.tar.gz",
+          "after": "data.tar.GZ"
+        },
+        {
+          "index": 2,
+          "op": "case",
+          "before": "data.tar.GZ",
+          "after": "Data.Tar.Gz"
+        }
+      ],
+      "proposed": "Data.Tar.Gz",
+      "status": "ok"
+    },
+    {
+      "original": "photo (1).jpg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "case",
+          "before": "photo (1).jpg",
+          "after": "photo (1).jpg"
+        },
+        {
+          "index": 1,
+          "op": "extension",
+          "before": "photo (1).jpg",
+          "after": "photo (1).JPG"
+        },
+        {
+          "index": 2,
+          "op": "case",
+          "before": "photo (1).JPG",
+          "after": "Photo (1).Jpg"
+        }
+      ],
+      "proposed": "Photo (1).Jpg",
+      "status": "ok"
+    },
+    {
+      "original": "photo (2).jpg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "case",
+          "before": "photo (2).jpg",
+          "after": "photo (2).jpg"
+        },
+        {
+          "index": 1,
+          "op": "extension",
+          "before": "photo (2).jpg",
+          "after": "photo (2).JPG"
+        },
+        {
+          "index": 2,
+          "op": "case",
+          "before": "photo (2).JPG",
+          "after": "Photo (2).Jpg"
+        }
+      ],
+      "proposed": "Photo (2).Jpg",
+      "status": "ok"
+    },
+    {
+      "original": "x.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "case",
+          "before": "x.txt",
+          "after": "x.txt"
+        },
+        {
+          "index": 1,
+          "op": "extension",
+          "before": "x.txt",
+          "after": "x.TXT"
+        },
+        {
+          "index": 2,
+          "op": "case",
+          "before": "x.TXT",
+          "after": "X.Txt"
+        }
+      ],
+      "proposed": "X.Txt",
+      "status": "ok"
+    },
+    {
+      "original": "報告 2026.docx",
+      "steps": [
+        {
+          "index": 0,
+          "op": "case",
+          "before": "報告 2026.docx",
+          "after": "報告 2026.docx"
+        },
+        {
+          "index": 1,
+          "op": "extension",
+          "before": "報告 2026.docx",
+          "after": "報告 2026.DOCX"
+        },
+        {
+          "index": 2,
+          "op": "case",
+          "before": "報告 2026.DOCX",
+          "after": "報告 2026.Docx"
+        }
+      ],
+      "proposed": "報告 2026.Docx",
+      "status": "ok"
+    }
+  ]
+}

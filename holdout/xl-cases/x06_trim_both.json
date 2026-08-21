@@ -1,0 +1,11 @@
+{
+  "applyTo": "name",
+  "sort": "name",
+  "steps": [
+    {
+      "op": "trim",
+      "chars": " _-",
+      "side": "both"
+    }
+  ]
+}

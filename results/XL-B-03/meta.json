@@ -1,0 +1,18 @@
+﻿{
+    "run_id":  "XL-B-03",
+    "cell":  "C3",
+    "architecture":  "B_delegated",
+    "enforcement":  "prompt_directive_then_audit",
+    "channel":  "cli_headless",
+    "session_id":  "026f1e1f-b0fd-41e3-a0cc-5c2b945bd2b2",
+    "prompt_file":  "fixtures\\TASK_PROMPT_XL_B.md",
+    "prompt_sha256":  "E9FF0A701D0B39C037B603B6963A1D84B35F019C61CA37D9656103C1FA3F1CAA",
+    "run_dir":  "D:\\BenchRuns\\XL-B-03",
+    "claude_args":  "-p --model opus --effort high --permission-mode bypassPermissions --autocompact auto --session-id 026f1e1f-b0fd-41e3-a0cc-5c2b945bd2b2 --max-budget-usd 80 --output-format json",
+    "effort":  "high",
+    "bg_wait_ceiling_ms":  "0 (wait indefinitely for background subagent tasks)",
+    "started_at":  "2026-08-20T14:03:59.8665444Z",
+    "finished_at":  "2026-08-20T14:43:19.1417994Z",
+    "wall_seconds":  2359.3,
+    "exit_code":  0
+}

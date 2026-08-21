@@ -1,0 +1,14 @@
+{
+  "applyTo": "name",
+  "sort": "name",
+  "steps": [
+    {
+      "op": "case",
+      "mode": "lower"
+    },
+    {
+      "op": "extension",
+      "mode": "lower"
+    }
+  ]
+}

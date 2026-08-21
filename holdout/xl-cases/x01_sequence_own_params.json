@@ -1,0 +1,20 @@
+{
+  "applyTo": "name",
+  "sort": "name",
+  "steps": [
+    {
+      "op": "sequence",
+      "pattern": "{n:00}",
+      "start": 1,
+      "step": 1,
+      "position": "prefix"
+    },
+    {
+      "op": "sequence",
+      "pattern": "-{n:000}",
+      "start": 5,
+      "step": 10,
+      "position": "suffix"
+    }
+  ]
+}

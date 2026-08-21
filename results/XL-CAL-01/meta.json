@@ -1,0 +1,18 @@
+﻿{
+    "run_id":  "XL-CAL-01",
+    "cell":  "C1",
+    "architecture":  "A_solo",
+    "enforcement":  "prompt_directive_then_audit",
+    "channel":  "cli_headless",
+    "session_id":  "884d8235-25b2-42ba-ad10-5161834ce233",
+    "prompt_file":  "fixtures\\TASK_PROMPT_XL_A.md",
+    "prompt_sha256":  "657ECCEB4C22706F854C623318159A582328F08BF871CCDE173D99888C153184",
+    "run_dir":  "D:\\BenchRuns\\XL-CAL-01",
+    "claude_args":  "-p --model opus --effort high --permission-mode bypassPermissions --autocompact auto --session-id 884d8235-25b2-42ba-ad10-5161834ce233 --max-budget-usd 80 --output-format json",
+    "effort":  "high",
+    "bg_wait_ceiling_ms":  "0 (wait indefinitely for background subagent tasks)",
+    "started_at":  "2026-08-20T10:28:24.3450970Z",
+    "finished_at":  "2026-08-20T11:03:43.1639331Z",
+    "wall_seconds":  2118.8,
+    "exit_code":  0
+}

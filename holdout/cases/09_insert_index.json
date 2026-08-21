@@ -1,0 +1,12 @@
+{
+  "applyTo": "name",
+  "sort": "name",
+  "steps": [
+    {
+      "op": "insert",
+      "text": "--",
+      "position": "index",
+      "index": 2
+    }
+  ]
+}

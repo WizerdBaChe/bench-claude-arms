@@ -1,0 +1,259 @@
+{
+  "robustness_on_control_failures_pct": {
+    "C1-04": 100.0,
+    "C2-01": 100.0,
+    "C3-01": 100.0,
+    "C3-02": 100.0,
+    "C3-03": 100.0,
+    "C3-04": 100.0,
+    "M1-01": 100.0,
+    "M1-02": 100.0,
+    "M1-03": 100.0,
+    "M1-04": 100.0,
+    "PILOT-C1-01": 100.0,
+    "PILOT-C1-02": 100.0,
+    "PILOT-C1-03": 100.0
+  },
+  "seed": 20260820,
+  "cases_per_tree": 2000,
+  "total_cases": 6000,
+  "indeterminate": 285,
+  "determinate": 5715,
+  "control": {
+    "checked": 6000,
+    "diverged": 139,
+    "errors": 146,
+    "examples": [
+      {
+        "case": "A_mixed#10",
+        "why": "exit 3762504530"
+      },
+      {
+        "case": "A_mixed#102",
+        "why": "exit 3762504530"
+      },
+      {
+        "case": "A_mixed#520",
+        "why": "exit 3762504530"
+      },
+      {
+        "case": "A_mixed#578",
+        "why": "exit 3762504530"
+      },
+      {
+        "case": "A_mixed#1026",
+        "why": "exit 3762504530"
+      },
+      {
+        "case": "A_mixed#1083",
+        "why": "exit 3762504530"
+      },
+      {
+        "case": "A_mixed#1515",
+        "why": "exit 3762504530"
+      },
+      {
+        "case": "A_mixed#1527",
+        "why": "exit 3762504530"
+      },
+      {
+        "case": "B_unicode_long#7",
+        "got": [
+          "emoji_\ud83c\udfaf_name.png",
+          "e_name.TAR.GZ",
+          "ok"
+        ],
+        "want": [
+          "emoji_\ud83c\udfaf_name.png",
+          "ename.TAR.GZ",
+          "ok"
+        ]
+      },
+      {
+        "case": "B_unicode_long#21",
+        "got": [
+          "emoji_\ud83c\udfaf_name.png",
+          "\ufffd_name.png",
+          "ok"
+        ],
+        "want": [
+          "emoji_\ud83c\udfaf_name.png",
+          "_name.png",
+          "ok"
+        ]
+      },
+      {
+        "case": "B_unicode_long#504",
+        "why": "exit 3762504530"
+      },
+      {
+        "case": "B_unicode_long#512",
+        "got": [
+          "emoji_\ud83c\udfaf_name.png",
+          "p_\ufffd_name.PNG",
+          "ok"
+        ],
+        "want": [
+          "emoji_\ud83c\udfaf_name.png",
+          "p__name.PNG",
+          "ok"
+        ]
+      },
+      {
+        "case": "B_unicode_long#1000",
+        "got": [
+          "emoji_\ud83c\udfaf_name.png",
+          "\ufffd_name.PNG",
+          "ok"
+        ],
+        "want": [
+          "emoji_\ud83c\udfaf_name.png",
+          "_name.PNG",
+          "ok"
+        ]
+      },
+      {
+        "case": "B_unicode_long#1030",
+        "got": [
+          "emoji_\ud83c\udfaf_name.png",
+          "MNAME.PNG-0138",
+          "ok"
+        ],
+        "want": [
+          "emoji_\ud83c\udfaf_name.png",
+          "MAME.PNG-0138",
+          "ok"
+        ]
+      },
+      {
+        "case": "B_unicode_long#1501",
+        "got": [
+          "emoji_\ud83c\udfaf_name.png",
+          "\ufffd_n@m@.txt",
+          "ok"
+        ],
+        "want": [
+          "emoji_\ud83c\udfaf_name.png",
+          "_n@m@.txt",
+          "ok"
+        ]
+      },
+      {
+        "case": "B_unicode_long#1502",
+        "why": "exit 3762504530"
+      },
+      {
+        "case": "C_collision_prone#8",
+        "why": "exit 3762504530"
+      },
+      {
+        "case": "C_collision_prone#45",
+        "why": "exit 3762504530"
+      },
+      {
+        "case": "C_collision_prone#515",
+        "why": "exit 3762504530"
+      },
+      {
+        "case": "C_collision_prone#545",
+        "why": "exit 3762504530"
+      },
+      {
+        "case": "C_collision_prone#1001",
+        "why": "exit 3762504530"
+      },
+      {
+        "case": "C_collision_prone#1026",
+        "why": "exit 3762504530"
+      },
+      {
+        "case": "C_collision_prone#1567",
+        "why": "exit 3762504530"
+      },
+      {
+        "case": "C_collision_prone#1568",
+        "why": "exit 3762504530"
+      }
+    ]
+  },
+  "arms": {
+    "PILOT-C1-01": {
+      "checked": 5715,
+      "diverged": 0,
+      "errors": 0,
+      "examples": []
+    },
+    "PILOT-C1-02": {
+      "checked": 5715,
+      "diverged": 0,
+      "errors": 0,
+      "examples": []
+    },
+    "PILOT-C1-03": {
+      "checked": 5715,
+      "diverged": 0,
+      "errors": 0,
+      "examples": []
+    },
+    "C1-04": {
+      "checked": 5715,
+      "diverged": 0,
+      "errors": 0,
+      "examples": []
+    },
+    "C3-01": {
+      "checked": 5715,
+      "diverged": 0,
+      "errors": 0,
+      "examples": []
+    },
+    "C3-02": {
+      "checked": 5715,
+      "diverged": 0,
+      "errors": 0,
+      "examples": []
+    },
+    "C3-03": {
+      "checked": 5715,
+      "diverged": 0,
+      "errors": 0,
+      "examples": []
+    },
+    "C3-04": {
+      "checked": 5715,
+      "diverged": 0,
+      "errors": 0,
+      "examples": []
+    },
+    "C2-01": {
+      "checked": 5715,
+      "diverged": 0,
+      "errors": 0,
+      "examples": []
+    },
+    "M1-01": {
+      "checked": 5715,
+      "diverged": 0,
+      "errors": 0,
+      "examples": []
+    },
+    "M1-02": {
+      "checked": 5715,
+      "diverged": 0,
+      "errors": 0,
+      "examples": []
+    },
+    "M1-03": {
+      "checked": 5715,
+      "diverged": 0,
+      "errors": 0,
+      "examples": []
+    },
+    "M1-04": {
+      "checked": 5715,
+      "diverged": 0,
+      "errors": 0,
+      "examples": []
+    }
+  }
+}

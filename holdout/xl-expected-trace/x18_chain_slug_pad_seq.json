@@ -1,0 +1,355 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "original": "  spaced  name  .md",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "  spaced  name  ",
+          "after": "spaced-name"
+        },
+        {
+          "index": 1,
+          "op": "pad",
+          "before": "spaced-name",
+          "after": "00000spaced-name"
+        },
+        {
+          "index": 2,
+          "op": "sequence",
+          "before": "00000spaced-name",
+          "after": "00000spaced-name_000"
+        }
+      ],
+      "proposed": "00000spaced-name_000.md",
+      "status": "ok"
+    },
+    {
+      "original": ".gitignore",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": ".gitignore",
+          "after": "gitignore"
+        },
+        {
+          "index": 1,
+          "op": "pad",
+          "before": "gitignore",
+          "after": "0000000gitignore"
+        },
+        {
+          "index": 2,
+          "op": "sequence",
+          "before": "0000000gitignore",
+          "after": "0000000gitignore_003"
+        }
+      ],
+      "proposed": "0000000gitignore_003",
+      "status": "ok"
+    },
+    {
+      "original": "B.TXT",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "B",
+          "after": "b"
+        },
+        {
+          "index": 1,
+          "op": "pad",
+          "before": "b",
+          "after": "000000000000000b"
+        },
+        {
+          "index": 2,
+          "op": "sequence",
+          "before": "000000000000000b",
+          "after": "000000000000000b_006"
+        }
+      ],
+      "proposed": "000000000000000b_006.TXT",
+      "status": "ok"
+    },
+    {
+      "original": "Hello-World_v2.TXT",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "Hello-World_v2",
+          "after": "hello-world-v2"
+        },
+        {
+          "index": 1,
+          "op": "pad",
+          "before": "hello-world-v2",
+          "after": "00hello-world-v2"
+        },
+        {
+          "index": 2,
+          "op": "sequence",
+          "before": "00hello-world-v2",
+          "after": "00hello-world-v2_009"
+        }
+      ],
+      "proposed": "00hello-world-v2_009.TXT",
+      "status": "ok"
+    },
+    {
+      "original": "IMG_0042.jpeg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "IMG_0042",
+          "after": "img-0042"
+        },
+        {
+          "index": 1,
+          "op": "pad",
+          "before": "img-0042",
+          "after": "00000000img-0042"
+        },
+        {
+          "index": 2,
+          "op": "sequence",
+          "before": "00000000img-0042",
+          "after": "00000000img-0042_012"
+        }
+      ],
+      "proposed": "00000000img-0042_012.jpeg",
+      "status": "ok"
+    },
+    {
+      "original": "README",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "README",
+          "after": "readme"
+        },
+        {
+          "index": 1,
+          "op": "pad",
+          "before": "readme",
+          "after": "0000000000readme"
+        },
+        {
+          "index": 2,
+          "op": "sequence",
+          "before": "0000000000readme",
+          "after": "0000000000readme_015"
+        }
+      ],
+      "proposed": "0000000000readme_015",
+      "status": "ok"
+    },
+    {
+      "original": "a.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "a",
+          "after": "a"
+        },
+        {
+          "index": 1,
+          "op": "pad",
+          "before": "a",
+          "after": "000000000000000a"
+        },
+        {
+          "index": 2,
+          "op": "sequence",
+          "before": "000000000000000a",
+          "after": "000000000000000a_018"
+        }
+      ],
+      "proposed": "000000000000000a_018.txt",
+      "status": "ok"
+    },
+    {
+      "original": "aabbcc.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "aabbcc",
+          "after": "aabbcc"
+        },
+        {
+          "index": 1,
+          "op": "pad",
+          "before": "aabbcc",
+          "after": "0000000000aabbcc"
+        },
+        {
+          "index": 2,
+          "op": "sequence",
+          "before": "0000000000aabbcc",
+          "after": "0000000000aabbcc_021"
+        }
+      ],
+      "proposed": "0000000000aabbcc_021.txt",
+      "status": "ok"
+    },
+    {
+      "original": "console.md",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "console",
+          "after": "console"
+        },
+        {
+          "index": 1,
+          "op": "pad",
+          "before": "console",
+          "after": "000000000console"
+        },
+        {
+          "index": 2,
+          "op": "sequence",
+          "before": "000000000console",
+          "after": "000000000console_024"
+        }
+      ],
+      "proposed": "000000000console_024.md",
+      "status": "ok"
+    },
+    {
+      "original": "data.tar.gz",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "data.tar",
+          "after": "data-tar"
+        },
+        {
+          "index": 1,
+          "op": "pad",
+          "before": "data-tar",
+          "after": "00000000data-tar"
+        },
+        {
+          "index": 2,
+          "op": "sequence",
+          "before": "00000000data-tar",
+          "after": "00000000data-tar_027"
+        }
+      ],
+      "proposed": "00000000data-tar_027.gz",
+      "status": "ok"
+    },
+    {
+      "original": "photo (1).jpg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "photo (1)",
+          "after": "photo-1"
+        },
+        {
+          "index": 1,
+          "op": "pad",
+          "before": "photo-1",
+          "after": "000000000photo-1"
+        },
+        {
+          "index": 2,
+          "op": "sequence",
+          "before": "000000000photo-1",
+          "after": "000000000photo-1_030"
+        }
+      ],
+      "proposed": "000000000photo-1_030.jpg",
+      "status": "ok"
+    },
+    {
+      "original": "photo (2).jpg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "photo (2)",
+          "after": "photo-2"
+        },
+        {
+          "index": 1,
+          "op": "pad",
+          "before": "photo-2",
+          "after": "000000000photo-2"
+        },
+        {
+          "index": 2,
+          "op": "sequence",
+          "before": "000000000photo-2",
+          "after": "000000000photo-2_033"
+        }
+      ],
+      "proposed": "000000000photo-2_033.jpg",
+      "status": "ok"
+    },
+    {
+      "original": "x.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "x",
+          "after": "x"
+        },
+        {
+          "index": 1,
+          "op": "pad",
+          "before": "x",
+          "after": "000000000000000x"
+        },
+        {
+          "index": 2,
+          "op": "sequence",
+          "before": "000000000000000x",
+          "after": "000000000000000x_036"
+        }
+      ],
+      "proposed": "000000000000000x_036.txt",
+      "status": "ok"
+    },
+    {
+      "original": "報告 2026.docx",
+      "steps": [
+        {
+          "index": 0,
+          "op": "slug",
+          "before": "報告 2026",
+          "after": "2026"
+        },
+        {
+          "index": 1,
+          "op": "pad",
+          "before": "2026",
+          "after": "0000000000002026"
+        },
+        {
+          "index": 2,
+          "op": "sequence",
+          "before": "0000000000002026",
+          "after": "0000000000002026_039"
+        }
+      ],
+      "proposed": "0000000000002026_039.docx",
+      "status": "ok"
+    }
+  ]
+}

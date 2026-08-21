@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "original": "  spaced  name  .md",
+      "proposed": ".md",
+      "status": "collision",
+      "reason": ""
+    },
+    {
+      "original": ".gitignore",
+      "proposed": "",
+      "status": "invalid",
+      "reason": ""
+    },
+    {
+      "original": "B.TXT",
+      "proposed": ".TXT",
+      "status": "collision",
+      "reason": ""
+    },
+    {
+      "original": "Hello-World_v2.TXT",
+      "proposed": ".TXT",
+      "status": "collision",
+      "reason": ""
+    },
+    {
+      "original": "IMG_0042.jpeg",
+      "proposed": ".jpeg",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "README",
+      "proposed": "",
+      "status": "invalid",
+      "reason": ""
+    },
+    {
+      "original": "a.txt",
+      "proposed": ".txt",
+      "status": "collision",
+      "reason": ""
+    },
+    {
+      "original": "aabbcc.txt",
+      "proposed": ".txt",
+      "status": "collision",
+      "reason": ""
+    },
+    {
+      "original": "console.md",
+      "proposed": ".md",
+      "status": "collision",
+      "reason": ""
+    },
+    {
+      "original": "data.tar.gz",
+      "proposed": ".gz",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "photo (1).jpg",
+      "proposed": ".jpg",
+      "status": "collision",
+      "reason": ""
+    },
+    {
+      "original": "photo (2).jpg",
+      "proposed": ".jpg",
+      "status": "collision",
+      "reason": ""
+    },
+    {
+      "original": "x.txt",
+      "proposed": ".txt",
+      "status": "collision",
+      "reason": ""
+    },
+    {
+      "original": "報告 2026.docx",
+      "proposed": ".docx",
+      "status": "ok",
+      "reason": ""
+    }
+  ],
+  "summary": {
+    "total": 14,
+    "ok": 3,
+    "collision": 9,
+    "unchanged": 0,
+    "invalid": 2
+  }
+}

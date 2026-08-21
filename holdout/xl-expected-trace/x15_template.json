@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "original": "  spaced  name  .md",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "  spaced  name  ",
+          "after": "0001_  spaced  name  _16.md"
+        }
+      ],
+      "proposed": "0001_  spaced  name  _16.md.md",
+      "status": "ok"
+    },
+    {
+      "original": ".gitignore",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": ".gitignore",
+          "after": "0002_.gitignore_10."
+        }
+      ],
+      "proposed": "0002_.gitignore_10.",
+      "status": "ok"
+    },
+    {
+      "original": "B.TXT",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "B",
+          "after": "0003_B_1.TXT"
+        }
+      ],
+      "proposed": "0003_B_1.TXT.TXT",
+      "status": "ok"
+    },
+    {
+      "original": "Hello-World_v2.TXT",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "Hello-World_v2",
+          "after": "0004_Hello-World_v2_14.TXT"
+        }
+      ],
+      "proposed": "0004_Hello-World_v2_14.TXT.TXT",
+      "status": "ok"
+    },
+    {
+      "original": "IMG_0042.jpeg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "IMG_0042",
+          "after": "0005_IMG_0042_8.jpeg"
+        }
+      ],
+      "proposed": "0005_IMG_0042_8.jpeg.jpeg",
+      "status": "ok"
+    },
+    {
+      "original": "README",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "README",
+          "after": "0006_README_6."
+        }
+      ],
+      "proposed": "0006_README_6.",
+      "status": "ok"
+    },
+    {
+      "original": "a.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "a",
+          "after": "0007_a_1.txt"
+        }
+      ],
+      "proposed": "0007_a_1.txt.txt",
+      "status": "ok"
+    },
+    {
+      "original": "aabbcc.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "aabbcc",
+          "after": "0008_aabbcc_6.txt"
+        }
+      ],
+      "proposed": "0008_aabbcc_6.txt.txt",
+      "status": "ok"
+    },
+    {
+      "original": "console.md",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "console",
+          "after": "0009_console_7.md"
+        }
+      ],
+      "proposed": "0009_console_7.md.md",
+      "status": "ok"
+    },
+    {
+      "original": "data.tar.gz",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "data.tar",
+          "after": "0010_data.tar_8.gz"
+        }
+      ],
+      "proposed": "0010_data.tar_8.gz.gz",
+      "status": "ok"
+    },
+    {
+      "original": "photo (1).jpg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "photo (1)",
+          "after": "0011_photo (1)_9.jpg"
+        }
+      ],
+      "proposed": "0011_photo (1)_9.jpg.jpg",
+      "status": "ok"
+    },
+    {
+      "original": "photo (2).jpg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "photo (2)",
+          "after": "0012_photo (2)_9.jpg"
+        }
+      ],
+      "proposed": "0012_photo (2)_9.jpg.jpg",
+      "status": "ok"
+    },
+    {
+      "original": "x.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "x",
+          "after": "0013_x_1.txt"
+        }
+      ],
+      "proposed": "0013_x_1.txt.txt",
+      "status": "ok"
+    },
+    {
+      "original": "報告 2026.docx",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "報告 2026",
+          "after": "0014_報告 2026_7.docx"
+        }
+      ],
+      "proposed": "0014_報告 2026_7.docx.docx",
+      "status": "ok"
+    }
+  ]
+}

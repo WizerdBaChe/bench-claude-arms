@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "original": "  spaced  name  .md",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "  spaced  name  ",
+          "after": "  spaced  name  -{nope}-01"
+        }
+      ],
+      "proposed": "  spaced  name  -{nope}-01.md",
+      "status": "ok"
+    },
+    {
+      "original": ".gitignore",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": ".gitignore",
+          "after": ".gitignore-{nope}-02"
+        }
+      ],
+      "proposed": ".gitignore-{nope}-02",
+      "status": "ok"
+    },
+    {
+      "original": "B.TXT",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "B",
+          "after": "B-{nope}-03"
+        }
+      ],
+      "proposed": "B-{nope}-03.TXT",
+      "status": "ok"
+    },
+    {
+      "original": "Hello-World_v2.TXT",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "Hello-World_v2",
+          "after": "Hello-World_v2-{nope}-04"
+        }
+      ],
+      "proposed": "Hello-World_v2-{nope}-04.TXT",
+      "status": "ok"
+    },
+    {
+      "original": "IMG_0042.jpeg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "IMG_0042",
+          "after": "IMG_0042-{nope}-05"
+        }
+      ],
+      "proposed": "IMG_0042-{nope}-05.jpeg",
+      "status": "ok"
+    },
+    {
+      "original": "README",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "README",
+          "after": "README-{nope}-06"
+        }
+      ],
+      "proposed": "README-{nope}-06",
+      "status": "ok"
+    },
+    {
+      "original": "a.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "a",
+          "after": "a-{nope}-07"
+        }
+      ],
+      "proposed": "a-{nope}-07.txt",
+      "status": "ok"
+    },
+    {
+      "original": "aabbcc.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "aabbcc",
+          "after": "aabbcc-{nope}-08"
+        }
+      ],
+      "proposed": "aabbcc-{nope}-08.txt",
+      "status": "ok"
+    },
+    {
+      "original": "console.md",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "console",
+          "after": "console-{nope}-09"
+        }
+      ],
+      "proposed": "console-{nope}-09.md",
+      "status": "ok"
+    },
+    {
+      "original": "data.tar.gz",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "data.tar",
+          "after": "data.tar-{nope}-10"
+        }
+      ],
+      "proposed": "data.tar-{nope}-10.gz",
+      "status": "ok"
+    },
+    {
+      "original": "photo (1).jpg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "photo (1)",
+          "after": "photo (1)-{nope}-11"
+        }
+      ],
+      "proposed": "photo (1)-{nope}-11.jpg",
+      "status": "ok"
+    },
+    {
+      "original": "photo (2).jpg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "photo (2)",
+          "after": "photo (2)-{nope}-12"
+        }
+      ],
+      "proposed": "photo (2)-{nope}-12.jpg",
+      "status": "ok"
+    },
+    {
+      "original": "x.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "x",
+          "after": "x-{nope}-13"
+        }
+      ],
+      "proposed": "x-{nope}-13.txt",
+      "status": "ok"
+    },
+    {
+      "original": "報告 2026.docx",
+      "steps": [
+        {
+          "index": 0,
+          "op": "template",
+          "before": "報告 2026",
+          "after": "報告 2026-{nope}-14"
+        }
+      ],
+      "proposed": "報告 2026-{nope}-14.docx",
+      "status": "ok"
+    }
+  ]
+}

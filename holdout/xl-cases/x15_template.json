@@ -1,0 +1,10 @@
+{
+  "applyTo": "name",
+  "sort": "name",
+  "steps": [
+    {
+      "op": "template",
+      "format": "{n:0000}_{name}_{len}.{ext}"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+﻿{
+    "run_id":  "C1-04",
+    "cell":  "C1",
+    "architecture":  "A_solo",
+    "enforcement":  "prompt_directive_then_audit",
+    "channel":  "cli_headless",
+    "session_id":  "a61b110a-cd08-4cbe-91a5-be171931d4c9",
+    "prompt_file":  "fixtures\\TASK_PROMPT_A.md",
+    "prompt_sha256":  "616EC2F5EB5432272ADBE2979B99530A3105D6213773156B496216DB29E8EB53",
+    "run_dir":  "D:\\BenchRuns\\C1-04",
+    "claude_args":  "-p --model opus --effort high --permission-mode bypassPermissions --autocompact auto --session-id a61b110a-cd08-4cbe-91a5-be171931d4c9 --max-budget-usd 60 --output-format json",
+    "bg_wait_ceiling_ms":  "0 (wait indefinitely for background subagent tasks)",
+    "started_at":  "2026-08-19T22:31:10.6981452Z",
+    "finished_at":  "2026-08-19T22:54:32.6355069Z",
+    "wall_seconds":  1401.9,
+    "exit_code":  0
+}

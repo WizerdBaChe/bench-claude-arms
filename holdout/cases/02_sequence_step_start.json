@@ -1,0 +1,13 @@
+{
+  "applyTo": "name",
+  "sort": "name",
+  "steps": [
+    {
+      "op": "sequence",
+      "pattern": "[{n:00}]",
+      "start": 5,
+      "step": 10,
+      "position": "suffix"
+    }
+  ]
+}

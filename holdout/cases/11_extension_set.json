@@ -1,0 +1,11 @@
+{
+  "applyTo": "name",
+  "sort": "name",
+  "steps": [
+    {
+      "op": "extension",
+      "mode": "set",
+      "value": "txt"
+    }
+  ]
+}

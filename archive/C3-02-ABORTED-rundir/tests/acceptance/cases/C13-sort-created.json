@@ -1,0 +1,21 @@
+{
+  "name": "sort by created is independent of modified (reversed timestamps prove which one is used)",
+  "files": [
+    { "name": "p.txt", "content": "p", "created": "2024-03-01T12:00:00Z", "modified": "2024-01-01T12:00:00Z" },
+    { "name": "q.txt", "content": "q", "created": "2024-01-01T12:00:00Z", "modified": "2024-03-01T12:00:00Z" }
+  ],
+  "rules": {
+    "applyTo": "name",
+    "sort": "created",
+    "steps": [
+      { "op": "sequence", "pattern": "{n:0}_", "start": 1, "step": 1, "position": "prefix" }
+    ]
+  },
+  "expected": {
+    "items": [
+      ["q.txt", "1_q.txt", "ok"],
+      ["p.txt", "2_p.txt", "ok"]
+    ],
+    "summary": { "total": 2, "ok": 2, "collision": 0, "unchanged": 0, "invalid": 0 }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "applyTo": "name",
+  "sort": "name",
+  "steps": [
+    {
+      "op": "slug",
+      "separator": "-"
+    },
+    {
+      "op": "pad",
+      "length": 16,
+      "fill": "0",
+      "side": "left"
+    },
+    {
+      "op": "sequence",
+      "pattern": "_{n:000}",
+      "start": 0,
+      "step": 3,
+      "position": "suffix"
+    }
+  ]
+}

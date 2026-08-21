@@ -1,0 +1,15 @@
+﻿{
+    "run_id":  "P0-cli-opus-baseline",
+    "cell":  "C1",
+    "architecture":  "A_solo",
+    "channel":  "cli_headless",
+    "session_id":  "260ff758-f785-47a9-9468-151bc0868e69",
+    "prompt_file":  "fixtures\\BASELINE_PROBE.md",
+    "prompt_sha256":  "0039CEA3C76B4E0AAA7A88E09AA02870322F602769CF928EAB90F88338B21CBB",
+    "run_dir":  "D:\\BenchRuns\\P0-cli-opus-baseline",
+    "claude_args":  "-p --model opus --effort high --permission-mode bypassPermissions --autocompact auto --session-id 260ff758-f785-47a9-9468-151bc0868e69 --max-budget-usd 2 --output-format json --disallowedTools Agent,Workflow",
+    "started_at":  "2026-08-19T18:34:17.6267825Z",
+    "finished_at":  "2026-08-19T18:34:25.8900354Z",
+    "wall_seconds":  8.2,
+    "exit_code":  0
+}

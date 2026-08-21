@@ -1,0 +1,271 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "original": "  spaced  name  .md",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "  spaced  name  ",
+          "after": ""
+        },
+        {
+          "index": 1,
+          "op": "template",
+          "before": "",
+          "after": "N-md"
+        }
+      ],
+      "proposed": "N-md.md",
+      "status": "collision"
+    },
+    {
+      "original": ".gitignore",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": ".gitignore",
+          "after": ""
+        },
+        {
+          "index": 1,
+          "op": "template",
+          "before": "",
+          "after": "N-"
+        }
+      ],
+      "proposed": "N-",
+      "status": "collision"
+    },
+    {
+      "original": "B.TXT",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "B",
+          "after": ""
+        },
+        {
+          "index": 1,
+          "op": "template",
+          "before": "",
+          "after": "N-TXT"
+        }
+      ],
+      "proposed": "N-TXT.TXT",
+      "status": "collision"
+    },
+    {
+      "original": "Hello-World_v2.TXT",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "Hello-World_v2",
+          "after": "2"
+        },
+        {
+          "index": 1,
+          "op": "template",
+          "before": "2",
+          "after": "N2-TXT"
+        }
+      ],
+      "proposed": "N2-TXT.TXT",
+      "status": "ok"
+    },
+    {
+      "original": "IMG_0042.jpeg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "IMG_0042",
+          "after": "0042"
+        },
+        {
+          "index": 1,
+          "op": "template",
+          "before": "0042",
+          "after": "N0042-jpeg"
+        }
+      ],
+      "proposed": "N0042-jpeg.jpeg",
+      "status": "ok"
+    },
+    {
+      "original": "README",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "README",
+          "after": ""
+        },
+        {
+          "index": 1,
+          "op": "template",
+          "before": "",
+          "after": "N-"
+        }
+      ],
+      "proposed": "N-",
+      "status": "collision"
+    },
+    {
+      "original": "a.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "a",
+          "after": ""
+        },
+        {
+          "index": 1,
+          "op": "template",
+          "before": "",
+          "after": "N-txt"
+        }
+      ],
+      "proposed": "N-txt.txt",
+      "status": "collision"
+    },
+    {
+      "original": "aabbcc.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "aabbcc",
+          "after": ""
+        },
+        {
+          "index": 1,
+          "op": "template",
+          "before": "",
+          "after": "N-txt"
+        }
+      ],
+      "proposed": "N-txt.txt",
+      "status": "collision"
+    },
+    {
+      "original": "console.md",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "console",
+          "after": ""
+        },
+        {
+          "index": 1,
+          "op": "template",
+          "before": "",
+          "after": "N-md"
+        }
+      ],
+      "proposed": "N-md.md",
+      "status": "collision"
+    },
+    {
+      "original": "data.tar.gz",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "data.tar",
+          "after": ""
+        },
+        {
+          "index": 1,
+          "op": "template",
+          "before": "",
+          "after": "N-gz"
+        }
+      ],
+      "proposed": "N-gz.gz",
+      "status": "ok"
+    },
+    {
+      "original": "photo (1).jpg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "photo (1)",
+          "after": "1"
+        },
+        {
+          "index": 1,
+          "op": "template",
+          "before": "1",
+          "after": "N1-jpg"
+        }
+      ],
+      "proposed": "N1-jpg.jpg",
+      "status": "ok"
+    },
+    {
+      "original": "photo (2).jpg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "photo (2)",
+          "after": "2"
+        },
+        {
+          "index": 1,
+          "op": "template",
+          "before": "2",
+          "after": "N2-jpg"
+        }
+      ],
+      "proposed": "N2-jpg.jpg",
+      "status": "ok"
+    },
+    {
+      "original": "x.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "x",
+          "after": ""
+        },
+        {
+          "index": 1,
+          "op": "template",
+          "before": "",
+          "after": "N-txt"
+        }
+      ],
+      "proposed": "N-txt.txt",
+      "status": "collision"
+    },
+    {
+      "original": "報告 2026.docx",
+      "steps": [
+        {
+          "index": 0,
+          "op": "extract",
+          "before": "報告 2026",
+          "after": "2026"
+        },
+        {
+          "index": 1,
+          "op": "template",
+          "before": "2026",
+          "after": "N2026-docx"
+        }
+      ],
+      "proposed": "N2026-docx.docx",
+      "status": "ok"
+    }
+  ]
+}

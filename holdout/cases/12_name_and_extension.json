@@ -1,0 +1,10 @@
+{
+  "applyTo": "nameAndExtension",
+  "sort": "name",
+  "steps": [
+    {
+      "op": "case",
+      "mode": "upper"
+    }
+  ]
+}

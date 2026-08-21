@@ -1,0 +1,17 @@
+# Byte fidelity is the whole point of this repository.
+#
+# It holds the raw evidence a published paper cites: 24 run folders of
+# transcripts and CLI self-reports, sealed acceptance fixtures, oracle outputs,
+# and calibration JSON. Several of those are parsed, hashed, or compared
+# byte-for-byte (prompt SHA-256 per run; the differential-fuzz and mutation
+# result files; `tools/paper_data.py` reads values out of them). A line-ending
+# rewrite on checkout or commit would silently alter evidence that a conclusion
+# rests on, and it would do it without failing.
+#
+# So: no end-of-line conversion, in either direction, for anything.
+# This is deliberate and is NOT the usual `* text=auto` default.
+* -text
+
+# Git's own binary detection still applies to these; marking them keeps a
+# diff of a 2 MB transcript from being attempted by accident.
+*.jsonl -diff

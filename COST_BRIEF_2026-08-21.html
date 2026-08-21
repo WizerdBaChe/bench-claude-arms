@@ -1,0 +1,1493 @@
+<title>編碼代理成本帳</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+TC:wght@300;400;500;600&family=Noto+Serif+TC:wght@600;700&display=swap">
+
+<style>
+/* ============================================================
+   TOKENS — light palette on bare :root (complete set)
+   ============================================================ */
+:root {
+  --paper:        #EDEFEC;
+  --surface:      #F7F8F6;
+  --surface-2:    #E4E8E3;
+  --ink:          #12181A;
+  --ink-2:        #3E4A4B;
+  --ink-3:        #5C6A69;
+  --rule:         #C7CFC9;
+  --rule-strong:  #9CA8A3;
+
+  --accent:       #0B6B62;   /* measured & significant */
+  --accent-ink:   #08514A;
+  --accent-soft:  #D6E6E2;
+
+  --caution:      #7E600A;   /* descriptive only */
+  --caution-soft: #EFE7C9;
+
+  --critical:     #93321D;   /* the counterexample */
+  --critical-soft:#F2DED7;
+
+  --bar-out:      #0B6B62;
+  --bar-read:     #93321D;
+  --bar-write:    #7E600A;
+
+  --shadow:       0 1px 0 rgba(18,24,26,.05);
+
+  --f-display: "Noto Serif TC", "Songti TC", "PMingLiU", Georgia, serif;
+  --f-body:    "IBM Plex Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --f-mono:    "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+
+  --measure: 68ch;
+  --wide: 1120px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:        #0D1312;
+    --surface:      #151C1B;
+    --surface-2:    #1D2624;
+    --ink:          #E3E9E5;
+    --ink-2:        #AAB7B3;
+    --ink-3:        #83918D;
+    --rule:         #2B3735;
+    --rule-strong:  #47554F;
+
+    --accent:       #4FC3B1;
+    --accent-ink:   #7FD8C9;
+    --accent-soft:  #10352F;
+
+    --caution:      #D5AC4A;
+    --caution-soft: #372C0F;
+
+    --critical:     #E48A6E;
+    --critical-soft:#3B2019;
+
+    --bar-out:      #4FC3B1;
+    --bar-read:     #E48A6E;
+    --bar-write:    #D5AC4A;
+
+    --shadow:       0 1px 0 rgba(0,0,0,.35);
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper:        #0D1312;
+  --surface:      #151C1B;
+  --surface-2:    #1D2624;
+  --ink:          #E3E9E5;
+  --ink-2:        #AAB7B3;
+  --ink-3:        #83918D;
+  --rule:         #2B3735;
+  --rule-strong:  #47554F;
+
+  --accent:       #4FC3B1;
+  --accent-ink:   #7FD8C9;
+  --accent-soft:  #10352F;
+
+  --caution:      #D5AC4A;
+  --caution-soft: #372C0F;
+
+  --critical:     #E48A6E;
+  --critical-soft:#3B2019;
+
+  --bar-out:      #4FC3B1;
+  --bar-read:     #E48A6E;
+  --bar-write:    #D5AC4A;
+
+  --shadow:       0 1px 0 rgba(0,0,0,.35);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+* { box-sizing: border-box; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.page {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 40px 24px 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+p, ul, ol { margin: 0; }
+strong { font-weight: 600; color: var(--ink); }
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.num { font-family: var(--f-mono); font-variant-numeric: tabular-nums; font-feature-settings: "tnum" 1; }
+
+/* ============================================================
+   MASTHEAD
+   ============================================================ */
+.masthead { padding-bottom: 28px; border-bottom: 2px solid var(--ink); }
+
+.eyebrow {
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin-bottom: 20px;
+}
+.eyebrow span { white-space: nowrap; }
+
+h1 {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: clamp(2.3rem, 6.2vw, 3.7rem);
+  line-height: 1.12;
+  letter-spacing: -.01em;
+  margin: 0 0 18px;
+  text-wrap: balance;
+}
+
+.deck {
+  max-width: var(--measure);
+  font-size: 1.075rem;
+  line-height: 1.72;
+  color: var(--ink-2);
+}
+.deck strong { color: var(--ink); }
+
+/* ---- headline readout strip ---- */
+.readout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  margin-top: 34px;
+}
+.readout > div {
+  background: var(--surface);
+  padding: 16px 16px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.readout .k {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.readout .v {
+  font-family: var(--f-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(1.5rem, 3.6vw, 1.95rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  color: var(--ink);
+}
+.readout .v em { font-style: normal; font-size: .58em; font-weight: 500; color: var(--ink-3); margin-left: 2px; }
+.readout .s { font-size: 12.5px; line-height: 1.5; color: var(--ink-3); }
+
+/* ---- evidence legend ---- */
+.legend {
+  margin-top: 26px;
+  padding: 15px 18px;
+  border: 1px dashed var(--rule-strong);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  align-items: center;
+  font-size: 13px;
+  color: var(--ink-2);
+}
+.legend > .lead {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.legend .item { display: flex; align-items: center; gap: 8px; }
+
+.chip {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+  line-height: 1.6;
+}
+.chip.ok   { color: var(--accent);   background: var(--accent-soft); }
+.chip.desc { color: var(--caution);  background: var(--caution-soft); }
+.chip.none { color: var(--critical); background: var(--critical-soft); }
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+section { padding-top: 62px; }
+
+.sec-head {
+  display: grid;
+  grid-template-columns: 3.4rem 1fr;
+  gap: 0 12px;
+  align-items: baseline;
+  border-top: 1px solid var(--rule);
+  padding-top: 18px;
+  margin-bottom: 26px;
+}
+.sec-head .mark {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  color: var(--accent);
+  padding-top: .35em;
+}
+.sec-head h2 {
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: clamp(1.35rem, 3.4vw, 1.72rem);
+  line-height: 1.32;
+  letter-spacing: -.005em;
+  margin: 0;
+  text-wrap: balance;
+}
+.sec-head .sub {
+  grid-column: 2;
+  font-size: .95rem;
+  color: var(--ink-2);
+  max-width: var(--measure);
+  margin-top: 8px;
+}
+
+.prose { max-width: var(--measure); display: flex; flex-direction: column; gap: 16px; }
+.prose + .prose { margin-top: 16px; }
+.prose ul { padding-left: 1.15em; display: flex; flex-direction: column; gap: 10px; }
+.prose li::marker { color: var(--ink-3); }
+
+h3 {
+  font-family: var(--f-body);
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: .01em;
+  margin: 34px 0 14px;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+h3::before {
+  content: "";
+  width: 14px; height: 2px;
+  background: var(--accent);
+  flex: none;
+}
+
+/* ============================================================
+   TABLES
+   ============================================================ */
+.scroller {
+  overflow-x: auto;
+  margin: 22px 0 10px;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  -webkit-overflow-scrolling: touch;
+}
+table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 13.5px; }
+thead th {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  text-align: right;
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--rule-strong);
+  white-space: nowrap;
+  vertical-align: bottom;
+}
+thead th:first-child { text-align: left; }
+tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--rule);
+  text-align: right;
+  font-family: var(--f-mono);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  color: var(--ink-2);
+}
+tbody td:first-child {
+  text-align: left;
+  font-family: var(--f-body);
+  color: var(--ink);
+  font-weight: 500;
+  white-space: normal;
+  min-width: 168px;
+}
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr:nth-child(even) td { background: var(--surface-2); }
+td .rng { display: block; font-size: 11px; color: var(--ink-3); margin-top: 1px; }
+td .cell-note { display: block; font-family: var(--f-mono); font-size: 10.5px; letter-spacing: .05em; color: var(--ink-3); font-weight: 400; margin-top: 2px; }
+td.hi { color: var(--ink); font-weight: 600; }
+caption {
+  caption-side: bottom;
+  text-align: left;
+  font-size: 12px;
+  color: var(--ink-3);
+  padding: 11px 12px;
+  border-top: 1px solid var(--rule);
+  line-height: 1.6;
+}
+
+/* ============================================================
+   SCALE STRIP — every run shown, per the study's n<=4 rule
+   ============================================================ */
+.strip-wrap { margin: 26px 0 8px; }
+.strip-title {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.strip {
+  display: grid;
+  grid-template-columns: 152px 1fr 78px;
+  gap: 0 14px;
+  align-items: center;
+}
+.strip .lab {
+  grid-column: 1;
+  font-family: var(--f-mono);
+  font-size: 11.5px;
+  color: var(--ink-2);
+  padding: 9px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.strip .lab b { color: var(--ink); font-weight: 600; }
+.track {
+  grid-column: 2;
+  position: relative;
+  height: 48px;
+  border-left: 1px solid var(--rule);
+  border-right: 1px solid var(--rule);
+}
+.track::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(to right,
+    transparent 0, transparent calc(25% - 1px),
+    var(--rule) calc(25% - 1px), var(--rule) 25%);
+}
+.strip.q5 .track::before {
+  background: repeating-linear-gradient(to right,
+    transparent 0, transparent calc(20% - 1px),
+    var(--rule) calc(20% - 1px), var(--rule) 20%);
+}
+
+/* --- run band (top 34px): every execution, dodged only where
+       marks would collide. Vertical offset carries NO meaning. --- */
+.range {
+  position: absolute;
+  top: 17px;
+  height: 3px;
+  margin-top: -1.5px;
+  background: var(--rule-strong);
+}
+.dot {
+  position: absolute;
+  top: 17px;
+  width: 9px; height: 9px;
+  margin: -4.5px 0 0 -4.5px;
+  transform: rotate(45deg);
+  background: var(--paper);
+  border: 1.5px solid var(--accent);
+}
+.dot.up { top: 7px; }
+.dot.dn { top: 27px; }
+
+/* --- mean band (bottom 14px): the mean gets its own region so it
+       never competes with the run marks --- */
+.mguide {
+  position: absolute;
+  top: 2px; bottom: 14px;
+  width: 1px;
+  margin-left: -.5px;
+  background: var(--accent);
+  opacity: .32;
+}
+.meanband {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 14px;
+  border-top: 1px dashed var(--rule-strong);
+}
+.mean {
+  position: absolute;
+  top: 3px;
+  width: 0; height: 0;
+  margin-left: -5px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 7px solid var(--accent);
+}
+.mval {
+  grid-column: 3;
+  text-align: right;
+  font-family: var(--f-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-ink);
+  white-space: nowrap;
+}
+.axis {
+  grid-column: 2;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--f-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 10.5px;
+  color: var(--ink-3);
+  padding-top: 6px;
+  border-top: 1px solid var(--rule-strong);
+  margin-top: 4px;
+}
+.strip-note {
+  grid-column: 2 / -1;
+  font-size: 11.5px;
+  line-height: 1.66;
+  color: var(--ink-3);
+  padding-top: 11px;
+  max-width: 78ch;
+}
+.strip-note b { color: var(--ink-2); font-weight: 600; }
+
+/* ============================================================
+   STACKED COST BARS
+   ============================================================ */
+.stack { display: flex; flex-direction: column; gap: 18px; margin: 24px 0 6px; }
+.stack-row { display: grid; grid-template-columns: 176px 1fr; gap: 0 16px; align-items: center; }
+.stack-row .lab { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.stack-row .lab b { display: block; color: var(--ink); font-weight: 600; font-size: 12px; }
+.bar { display: flex; height: 30px; align-items: stretch; position: relative; }
+.bar .seg { position: relative; }
+.bar .seg span {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--f-mono); font-variant-numeric: tabular-nums;
+  font-size: 10.5px; font-weight: 600; color: var(--paper);
+  letter-spacing: .02em;
+}
+.seg.out   { background: var(--bar-out); }
+.seg.read  { background: var(--bar-read); }
+.seg.write { background: var(--bar-write); }
+.bar .total {
+  font-family: var(--f-mono); font-variant-numeric: tabular-nums;
+  font-size: 13px; font-weight: 600; color: var(--ink);
+  align-self: center; padding-left: 12px; white-space: nowrap;
+}
+.stack-key { display: flex; flex-wrap: wrap; gap: 8px 20px; font-family: var(--f-mono); font-size: 11px; color: var(--ink-2); margin-top: 8px; }
+.stack-key i { display: inline-block; width: 11px; height: 11px; margin-right: 6px; vertical-align: -1px; }
+
+/* ============================================================
+   CALLOUTS
+   ============================================================ */
+.note {
+  border-left: 3px solid var(--accent);
+  background: var(--surface);
+  padding: 18px 22px;
+  margin: 26px 0;
+  max-width: var(--measure);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: var(--shadow);
+}
+.note.warn     { border-left-color: var(--caution); }
+.note.danger   { border-left-color: var(--critical); }
+.note .nh {
+  font-family: var(--f-mono);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.note.warn .nh   { color: var(--caution); }
+.note.danger .nh { color: var(--critical); }
+.note p { font-size: .94rem; line-height: 1.72; color: var(--ink-2); }
+.note p strong { color: var(--ink); }
+
+.wide-note { max-width: none; }
+
+/* ---- recommendation cards ---- */
+.recs { display: flex; flex-direction: column; gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 24px; }
+.rec { background: var(--surface); padding: 20px 22px; display: grid; grid-template-columns: 1fr; gap: 10px; }
+.rec .rh { display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; }
+.rec .rt { font-weight: 600; font-size: 1rem; color: var(--ink); }
+.rec p { font-size: .92rem; line-height: 1.72; color: var(--ink-2); max-width: 74ch; }
+.rec .basis {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  color: var(--ink-3);
+  border-top: 1px dotted var(--rule-strong);
+  padding-top: 9px;
+  line-height: 1.6;
+}
+
+/* ---- limits list ---- */
+.limits { display: grid; grid-template-columns: repeat(auto-fit, minmax(268px, 1fr)); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 22px; }
+.limits div { background: var(--surface); padding: 16px 18px; }
+.limits h4 { margin: 0 0 6px; font-size: .9rem; font-weight: 600; color: var(--ink); }
+.limits p { font-size: .85rem; line-height: 1.68; color: var(--ink-2); }
+
+/* ---- provenance ---- */
+.prov { margin-top: 66px; border-top: 2px solid var(--ink); padding-top: 22px; }
+.prov h2 {
+  font-family: var(--f-mono); font-size: 11px; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3);
+  margin: 0 0 16px;
+}
+.prov ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 9px 26px; }
+.prov li { font-family: var(--f-mono); font-size: 11.5px; color: var(--ink-2); line-height: 1.62; overflow-wrap: anywhere; }
+.prov li b { color: var(--ink); font-weight: 600; }
+.prov .foot { margin-top: 24px; font-size: 12.5px; color: var(--ink-3); line-height: 1.7; max-width: 88ch; font-family: var(--f-body); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 760px) {
+  .page { padding: 28px 16px 72px; }
+  .sec-head { grid-template-columns: 1fr; gap: 6px; }
+  .sec-head .mark { padding-top: 0; }
+  .sec-head .sub { grid-column: 1; }
+  .strip { grid-template-columns: 1fr 72px; gap: 2px 12px; }
+  .strip .lab { grid-column: 1 / -1; padding: 10px 0 2px; }
+  .strip .track { grid-column: 1; }
+  .strip .mval { grid-column: 2; }
+  .axis { grid-column: 1; }
+  .stack-row { grid-template-columns: 1fr; gap: 6px 0; }
+  .bar .total { padding-left: 0; padding-top: 6px; }
+  h3 { margin-top: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+</style>
+
+<div class="page">
+
+<!-- ==========================================================
+     MASTHEAD
+     ========================================================== -->
+<header class="masthead">
+  <div class="eyebrow">
+    <span>bench-claude-arms</span>
+    <span>受控量測 (controlled measurement)</span>
+    <span>22 筆任務執行 · 6 組</span>
+    <span>2026-08-21</span>
+  </div>
+
+  <h1>編碼代理成本帳</h1>
+
+  <p class="deck">
+    這份研究把同一個任務跑了 22 次，變動三件事：<strong>執行通道 (execution channel)</strong>、
+    <strong>委派架構 (delegation architecture)</strong>、<strong>推理強度 (reasoning effort)</strong>。
+    論文給的是比值；這一頁給的是<strong>帳單</strong>——一次執行實際花掉多少錢、多少 token、多少分鐘，
+    以及在這些數字裡，哪一顆旋鈕真的有用。
+  </p>
+
+  <div class="readout">
+    <div>
+      <div class="k">全研究花費</div>
+      <div class="v">$253.39</div>
+      <div class="s">22 筆任務執行；另 2 筆儀器探針 $0.83，合計 $254.22</div>
+    </div>
+    <div>
+      <div class="k">一次執行（CLI 獨力）</div>
+      <div class="v">$6.98</div>
+      <div class="s">$6.37–$8.17，n=4；這是全研究最便宜的組態</div>
+    </div>
+    <div>
+      <div class="k">一次執行耗時</div>
+      <div class="v">21.2 <em>分</em></div>
+      <div class="s">同上組；全研究單筆區間 15.9–56.4 分</div>
+    </div>
+    <div>
+      <div class="k">最貴的一次</div>
+      <div class="v">$18.34</div>
+      <div class="s">C3-01，CLI×委派×high；最便宜 $5.37（M1-04）</div>
+    </div>
+    <div>
+      <div class="k">計費 token 總量</div>
+      <div class="v">278 <em>M</em></div>
+      <div class="s">其中 <b>95.8%</b> 是 cache_read——重送既有脈絡</div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <span class="lead">本頁的證據標記</span>
+    <span class="item"><span class="chip ok">已量測 p=0.0286</span> n=4、完全分離、可宣告顯著</span>
+    <span class="item"><span class="chip desc">僅描述</span> 觀察為真，但樣本量不足以宣告顯著</span>
+    <span class="item"><span class="chip none">未量測</span> 沒有任何儀器指向這個維度</span>
+  </div>
+</header>
+
+<!-- ==========================================================
+     §1 ABSOLUTE CONSUMPTION
+     ========================================================== -->
+<section>
+  <div class="sec-head">
+    <div class="mark">§1</div>
+    <h2>一次執行的絕對消耗</h2>
+    <p class="sub">
+      六個組別、每筆執行的原始紀錄 (<span class="num">results/*/record.json</span>) 逐筆彙總。
+      平均值旁一律附全距；<span class="num">n≤4</span> 時本研究要求顯示全部個別資料點，下方的刻度帶即為此而畫。
+    </p>
+  </div>
+
+  <div class="scroller">
+    <table>
+      <thead>
+        <tr>
+          <th>組別</th>
+          <th>n</th>
+          <th>成本 USD</th>
+          <th>純新增 token<br>Y1b</th>
+          <th>牆鐘時間<br>分鐘</th>
+          <th>請求數<br>Y6</th>
+          <th>峰值脈絡<br>Y2b</th>
+          <th>thinking<br>Y1d</th>
+          <th>基準線 T0</th>
+          <th>組別總花費</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>C1　CLI × 獨力 × high<span class="cell-note">小契約</span></td>
+          <td>4</td>
+          <td class="hi">6.98<span class="rng">6.37–8.17</span></td>
+          <td class="hi">234,102<span class="rng">211,349–263,442</span></td>
+          <td class="hi">21.2<span class="rng">20.2–23.4</span></td>
+          <td>56.2<span class="rng">48–65</span></td>
+          <td>161,393<span class="rng">149,185–174,974</span></td>
+          <td>28,321<span class="rng">23,722–35,854</span></td>
+          <td>49,383</td>
+          <td>$27.92</td>
+        </tr>
+        <tr>
+          <td>C2　Desktop × 獨力 × high<span class="cell-note">小契約</span></td>
+          <td>4</td>
+          <td class="hi">12.02<span class="rng">9.06–18.20</span></td>
+          <td class="hi">312,668<span class="rng">278,959–378,185</span></td>
+          <td class="hi">27.8<span class="rng">22.8–36.9</span></td>
+          <td>87.0<span class="rng">60–135</span></td>
+          <td>221,831<span class="rng">202,379–260,570</span></td>
+          <td>45,645<span class="rng">33,561–56,351</span></td>
+          <td>67,736</td>
+          <td>$48.06</td>
+        </tr>
+        <tr>
+          <td>C3　CLI × 委派 × high<span class="cell-note">小契約</span></td>
+          <td>4</td>
+          <td class="hi">16.52<span class="rng">13.98–18.34</span></td>
+          <td class="hi">1,233,318<span class="rng">934,104–1,654,454</span></td>
+          <td class="hi">48.6<span class="rng">38.9–56.4</span></td>
+          <td>184.5<span class="rng">163–203；子代理 105–167</span></td>
+          <td>184,566<span class="rng">177,216–192,794</span></td>
+          <td>110,244<span class="rng">92,196–156,126</span></td>
+          <td>49,494</td>
+          <td>$66.10</td>
+        </tr>
+        <tr>
+          <td>M1　CLI × 獨力 × <b>medium</b><span class="cell-note">小契約 · 強度消融</span></td>
+          <td>4</td>
+          <td class="hi">6.60<span class="rng">5.37–7.48</span></td>
+          <td class="hi">216,772<span class="rng">197,865–230,842</span></td>
+          <td class="hi">18.2<span class="rng">15.9–19.9</span></td>
+          <td>60.5<span class="rng">43–70</span></td>
+          <td>155,165<span class="rng">143,027–172,104</span></td>
+          <td>19,002<span class="rng">13,836–21,894</span></td>
+          <td>49,383</td>
+          <td>$26.39</td>
+        </tr>
+        <tr>
+          <td>XL-A　CLI × 獨力 × high<span class="cell-note">XL 契約（1.50× 規模）</span></td>
+          <td>3</td>
+          <td class="hi">12.34<span class="rng">10.60–13.54</span></td>
+          <td class="hi">350,194<span class="rng">290,581–407,586</span></td>
+          <td class="hi">31.3<span class="rng">26.1–35.3</span></td>
+          <td>89.0<span class="rng">80–100</span></td>
+          <td>222,448<span class="rng">194,936–244,255</span></td>
+          <td>50,721<span class="rng">41,150–62,425</span></td>
+          <td>50,327</td>
+          <td>$37.03</td>
+        </tr>
+        <tr>
+          <td>XL-B　CLI × 委派 × high<span class="cell-note">XL 契約（1.50× 規模）</span></td>
+          <td>3</td>
+          <td class="hi">15.96<span class="rng">15.67–16.39</span></td>
+          <td class="hi">919,283<span class="rng">839,934–1,016,754</span></td>
+          <td class="hi">41.9<span class="rng">39.3–46.2</span></td>
+          <td>206.0<span class="rng">173–229；子代理 127–168</span></td>
+          <td>204,106<span class="rng">194,306–217,557</span></td>
+          <td>109,232<span class="rng">86,803–142,238</span></td>
+          <td>50,465</td>
+          <td>$47.89</td>
+        </tr>
+      </tbody>
+      <caption>
+        數值為各組平均，括號內為全距。成本來源：CLI 組為 <span class="num">cli_self_report</span>（自報帳），
+        Desktop 組無自報帳，為 <span class="num">derived_from_validated_price_table</span>（以已驗證價表推導）。
+        全部 22 筆通過預先登記的排除稽核，無一作廢。
+      </caption>
+    </table>
+  </div>
+
+  <div class="strip-wrap">
+    <div class="strip-title">
+      <span>單筆執行成本 · 每一點為一次執行</span>
+      <span>◇ 每筆執行　▲ 該組平均（獨立下帶）</span>
+    </div>
+    <div class="strip q5">
+      <div class="lab"><b>C1</b> CLI×獨力×high</div>
+      <div class="track">
+        <div class="range" style="left:9.13%;width:12.02%"></div>
+        <div class="dot" style="left:21.15%"></div><div class="dot" style="left:9.13%"></div>
+        <div class="dot up" style="left:11.25%"></div><div class="dot dn" style="left:11.25%"></div>
+        <div class="mguide" style="left:13.20%"></div>
+        <div class="meanband"><div class="mean" style="left:13.20%"></div></div>
+      </div>
+      <div class="mval">$6.98</div>
+
+      <div class="lab"><b>M1</b> CLI×獨力×medium</div>
+      <div class="track">
+        <div class="range" style="left:2.44%;width:15.27%"></div>
+        <div class="dot" style="left:10.22%"></div><div class="dot up" style="left:13.42%"></div>
+        <div class="dot" style="left:16.53%"></div><div class="dot" style="left:2.44%"></div>
+        <div class="mguide" style="left:10.65%"></div>
+        <div class="meanband"><div class="mean" style="left:10.65%"></div></div>
+      </div>
+      <div class="mval">$6.60</div>
+
+      <div class="lab"><b>C2</b> Desktop×獨力×high</div>
+      <div class="track">
+        <div class="range" style="left:27.09%;width:60.90%"></div>
+        <div class="dot" style="left:87.99%"></div><div class="dot" style="left:27.09%"></div>
+        <div class="dot up" style="left:27.46%"></div><div class="dot" style="left:44.53%"></div>
+        <div class="mguide" style="left:46.77%"></div>
+        <div class="meanband"><div class="mean" style="left:46.77%"></div></div>
+      </div>
+      <div class="mval">$12.02</div>
+
+      <div class="lab"><b>XL-A</b> 獨力 · XL 契約</div>
+      <div class="track">
+        <div class="range" style="left:37.32%;width:19.64%"></div>
+        <div class="dot" style="left:37.32%"></div><div class="dot" style="left:56.96%"></div>
+        <div class="dot" style="left:52.57%"></div>
+        <div class="mguide" style="left:48.95%"></div>
+        <div class="meanband"><div class="mean" style="left:48.95%"></div></div>
+      </div>
+      <div class="mval">$12.34</div>
+
+      <div class="lab"><b>XL-B</b> 委派 · XL 契約</div>
+      <div class="track">
+        <div class="range" style="left:71.14%;width:4.79%"></div>
+        <div class="dot up" style="left:72.21%"></div><div class="dot" style="left:71.14%"></div>
+        <div class="dot" style="left:75.93%"></div>
+        <div class="mguide" style="left:73.09%"></div>
+        <div class="meanband"><div class="mean" style="left:73.09%"></div></div>
+      </div>
+      <div class="mval">$15.96</div>
+
+      <div class="lab"><b>C3</b> CLI×委派×high</div>
+      <div class="track">
+        <div class="range" style="left:59.87%;width:29.08%"></div>
+        <div class="dot up" style="left:88.95%"></div><div class="dot" style="left:70.10%"></div>
+        <div class="dot" style="left:88.41%"></div><div class="dot" style="left:59.87%"></div>
+        <div class="mguide" style="left:76.83%"></div>
+        <div class="meanband"><div class="mean" style="left:76.83%"></div></div>
+      </div>
+      <div class="mval">$16.52</div>
+
+      <div class="axis"><span>$5</span><span>$8</span><span>$11</span><span>$14</span><span>$17</span><span>$20</span></div>
+    </div>
+  </div>
+
+  <div class="strip-wrap">
+    <div class="strip-title">
+      <span>單筆執行牆鐘時間 (wall-clock)</span>
+      <span>◇ 每筆執行　▲ 該組平均（獨立下帶）</span>
+    </div>
+    <div class="strip">
+      <div class="lab"><b>M1</b> CLI×獨力×medium</div>
+      <div class="track">
+        <div class="range" style="left:8.23%;width:8.31%"></div>
+        <div class="dot" style="left:8.23%"></div><div class="dot" style="left:15.81%"></div>
+        <div class="dot up" style="left:16.54%"></div><div class="dot up" style="left:10.93%"></div>
+        <div class="mguide" style="left:12.88%"></div>
+        <div class="meanband"><div class="mean" style="left:12.88%"></div></div>
+      </div>
+      <div class="mval">18.2 分</div>
+
+      <div class="lab"><b>C1</b> CLI×獨力×high</div>
+      <div class="track">
+        <div class="range" style="left:17.15%;width:6.53%"></div>
+        <div class="dot" style="left:23.68%"></div><div class="dot dn" style="left:18.60%"></div>
+        <div class="dot" style="left:17.15%"></div><div class="dot up" style="left:17.20%"></div>
+        <div class="mguide" style="left:19.16%"></div>
+        <div class="meanband"><div class="mean" style="left:19.16%"></div></div>
+      </div>
+      <div class="mval">21.2 分</div>
+
+      <div class="lab"><b>C2</b> Desktop×獨力×high</div>
+      <div class="track">
+        <div class="range" style="left:22.59%;width:29.33%"></div>
+        <div class="dot" style="left:51.92%"></div><div class="dot" style="left:22.59%"></div>
+        <div class="dot up" style="left:29.07%"></div><div class="dot" style="left:28.35%"></div>
+        <div class="mguide" style="left:32.98%"></div>
+        <div class="meanband"><div class="mean" style="left:32.98%"></div></div>
+      </div>
+      <div class="mval">27.8 分</div>
+
+      <div class="lab"><b>XL-A</b> 獨力 · XL 契約</div>
+      <div class="track">
+        <div class="range" style="left:29.44%;width:19.13%"></div>
+        <div class="dot" style="left:29.44%"></div><div class="dot" style="left:42.85%"></div>
+        <div class="dot" style="left:48.57%"></div>
+        <div class="mguide" style="left:40.29%"></div>
+        <div class="meanband"><div class="mean" style="left:40.29%"></div></div>
+      </div>
+      <div class="mval">31.3 分</div>
+
+      <div class="lab"><b>XL-B</b> 委派 · XL 契約</div>
+      <div class="track">
+        <div class="range" style="left:56.92%;width:14.34%"></div>
+        <div class="dot up" style="left:58.80%"></div><div class="dot" style="left:71.26%"></div>
+        <div class="dot" style="left:56.92%"></div>
+        <div class="mguide" style="left:62.33%"></div>
+        <div class="meanband"><div class="mean" style="left:62.33%"></div></div>
+      </div>
+      <div class="mval">41.9 分</div>
+
+      <div class="lab"><b>C3</b> CLI×委派×high</div>
+      <div class="track">
+        <div class="range" style="left:56.05%;width:36.42%"></div>
+        <div class="dot" style="left:76.64%"></div><div class="dot up" style="left:79.73%"></div>
+        <div class="dot" style="left:92.47%"></div><div class="dot" style="left:56.05%"></div>
+        <div class="mguide" style="left:76.22%"></div>
+        <div class="meanband"><div class="mean" style="left:76.22%"></div></div>
+      </div>
+      <div class="mval">48.6 分</div>
+
+      <div class="axis"><span>12 分</span><span>24 分</span><span>36 分</span><span>48 分</span><span>60 分</span></div>
+      <div class="strip-note">
+        <b>兩張圖的兩項作圖宣告。</b>
+        <b>① 軸不從 0 起</b>（成本軸起於 $5、時間軸起於 12 分）——點圖以<b>位置</b>編碼，
+        不像長條圖以長度編碼，因此沒有零基線義務，軸應起在最能顯示分佈之處（Cleveland dot plot 慣例）。
+        比較兩點的<b>距離</b>仍然正確，但不可把「離左緣多遠」讀成倍率。
+        <b>② 部分點被縱向錯開</b>（成本圖 22 點中的 6 點、時間圖 22 點中的 7 點）——
+        當兩筆執行的值近到標記會互相蓋住時，其中一筆上移或下移一格。
+        <b>縱向位置不帶任何意義，只是為了讓 22 筆全部數得出來</b>；
+        橫向位置未經任何調整，全部為 <span class="num">record.json</span> 的實際值。
+        無斷軸、無壓縮、無對數變換——本頁沒有使用任何失真手段。
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <div class="nh">讀這張圖的一件事</div>
+    <p>
+      C2（Desktop）的四點橫跨 <span class="num">$9.06</span> 到 <span class="num">$18.20</span>——
+      同一份逐位元相同的 prompt、同一個模型與強度，成本變異係數 (CV) 達 <strong>35.8%</strong>，
+      而 C1 只有 <strong>11.6%</strong>。
+      <strong>可預測性本身也是一個成本屬性</strong>：估算 Desktop 的預算，誤差是 CLI 的三倍。
+    </p>
+  </div>
+</section>
+
+<!-- ==========================================================
+     §2 RATIOS
+     ========================================================== -->
+<section>
+  <div class="sec-head">
+    <div class="mark">§2</div>
+    <h2>比值與可宣告的顯著性</h2>
+    <p class="sub">
+      以下比值與 p 值直接引自論文 §7，未重新推導。檢定為<strong>精確 Mann-Whitney U（完全列舉）</strong>；
+      <span class="num">n=4</span> 時雙尾最小可達 <span class="num">p=0.0286</span>，
+      <span class="num">n=3</span> 時 <span class="num">p_min=0.100</span>——<strong>後者在組合上不可能達到顯著</strong>。
+    </p>
+  </div>
+
+  <div class="scroller">
+    <table>
+      <thead>
+        <tr>
+          <th>比較</th><th>指標</th><th>基準</th><th>對照</th><th>比值</th><th>精確 p</th><th>判定</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>RQ1　通道　C1 → C2<span class="cell-note">n=4</span></td>
+          <td>純新增 token</td><td>234,102</td><td>312,668</td><td class="hi">1.336×</td><td class="hi">0.0286</td>
+          <td><span class="chip ok">顯著 · 完全分離</span></td>
+        </tr>
+        <tr>
+          <td></td><td>成本</td><td>$6.98</td><td>$12.02</td><td class="hi">1.722×</td><td>0.0286</td>
+          <td><span class="chip desc">Holm 校正後不宣告</span></td>
+        </tr>
+        <tr>
+          <td></td><td>牆鐘時間</td><td>1,272 s</td><td>1,670 s</td><td>1.313×</td><td>0.0571</td>
+          <td><span class="chip desc">僅描述</span></td>
+        </tr>
+        <tr>
+          <td></td><td>請求數</td><td>56.2</td><td>87.0</td><td>1.547×</td><td>0.2000</td>
+          <td><span class="chip desc">僅描述</span></td>
+        </tr>
+        <tr>
+          <td>RQ2　架構　C1 → C3<span class="cell-note">n=4 · 小契約</span></td>
+          <td>純新增 token</td><td>234,102</td><td>1,233,318</td><td class="hi">5.268×</td><td class="hi">0.0286</td>
+          <td><span class="chip ok">顯著 · 完全分離</span></td>
+        </tr>
+        <tr>
+          <td></td><td>成本</td><td>$6.98</td><td>$16.52</td><td class="hi">2.368×</td><td>0.0286</td>
+          <td><span class="chip ok">完全分離</span></td>
+        </tr>
+        <tr>
+          <td></td><td>牆鐘時間</td><td>1,272 s</td><td>2,915 s</td><td>2.292×</td><td>0.0286</td>
+          <td><span class="chip ok">完全分離</span></td>
+        </tr>
+        <tr>
+          <td></td><td><b>主線</b>純新增 token</td><td>234,102</td><td>280,909</td><td class="hi">1.200×</td><td>—</td>
+          <td><span class="chip desc">委派更高，未減輕</span></td>
+        </tr>
+        <tr>
+          <td>RQ3　強度　C1 → M1<span class="cell-note">n=4 · high → medium</span></td>
+          <td>純新增 token</td><td>234,102</td><td>216,772</td><td>0.926×</td><td class="hi">0.3429</td>
+          <td><span class="chip none">無法區分</span></td>
+        </tr>
+        <tr>
+          <td></td><td>成本</td><td>$6.98</td><td>$6.60</td><td>0.945×</td><td class="hi">0.8857</td>
+          <td><span class="chip none">無法區分</span></td>
+        </tr>
+        <tr>
+          <td></td><td>thinking token</td><td>28,321</td><td>19,002</td><td class="hi">0.671×</td><td>0.0286</td>
+          <td><span class="chip ok">完全分離</span></td>
+        </tr>
+        <tr>
+          <td></td><td>請求數</td><td>56.2</td><td>60.5</td><td>1.076×</td><td>0.5714</td>
+          <td><span class="chip desc">回合數反而增加</span></td>
+        </tr>
+        <tr>
+          <td>RQ4　規模　XL-A → XL-B<span class="cell-note">n=3 · 1.50× 規模</span></td>
+          <td>純新增 token</td><td>350,194</td><td>919,283</td><td class="hi">2.625×</td><td>—</td>
+          <td><span class="chip desc">n=3，不可宣告顯著</span></td>
+        </tr>
+        <tr>
+          <td></td><td>峰值脈絡</td><td>222,448</td><td>204,106</td><td class="hi">0.918×</td><td>—</td>
+          <td><span class="chip desc">跨過 1.0</span></td>
+        </tr>
+        <tr>
+          <td></td><td><b>主線</b>純新增 token</td><td>350,194</td><td>287,144</td><td class="hi">0.820×</td><td>—</td>
+          <td><span class="chip desc">跨過 1.0</span></td>
+        </tr>
+      </tbody>
+      <caption>
+        次要指標依 Holm–Bonferroni 校正（<span class="num">α/5 = 0.01</span>）並套用其停止規則，全部不得宣告顯著，僅描述性呈現。
+        C1 同時作為三組比較的共同錨點細格，三組比較因此<strong>不完全獨立</strong>。
+      </caption>
+    </table>
+  </div>
+
+  <h3>委派的代價隨規模單調下降——但只有兩個規模點</h3>
+  <div class="prose">
+    <p>
+      任務放大 <span class="num">1.50×</span>（以獨力組純新增 token 定義規模）後，委派對獨力的 token 比值由
+      <span class="num">5.268</span> 降至 <span class="num">2.625</span>，成本比值由 <span class="num">2.368</span> 降至
+      <span class="num">1.293</span>。兩項指標<strong>跨過 1.0</strong>：小契約上委派使主模型負擔加重（主線 1.200×、峰值 1.144×），
+      XL 契約上使其減輕（0.820× / 0.918×）——脈絡隔離機制在此規模首次真正作用。
+    </p>
+    <p>
+      線性外推得比值到 <span class="num">1.0</span> 約在 <span class="num">1.80×</span> 規模處。
+      <strong>兩點可擬合無限多條曲線；在取得第三個規模點之前，這個數字不得作為損益平衡點引用。</strong>
+    </p>
+  </div>
+</section>
+
+<!-- ==========================================================
+     §3 MECHANISM
+     ========================================================== -->
+<section>
+  <div class="sec-head">
+    <div class="mark">§3</div>
+    <h2>錢花在哪：<span class="num">cache_read</span> 支配一切三個因子</h2>
+    <p class="sub">
+      三個因子的成本差異指向同一個支配項。它佔通道差額的 <b>76%</b>、佔單次執行成本的
+      <b>35.7%–66.4%</b>（22 筆逐筆全距；組均值 38.0%–55.8%，<strong>每一筆都是最大的單一成本項</strong>），
+      而且<strong>對 effort 完全不敏感</strong>。
+    </p>
+  </div>
+
+  <div class="note wide-note">
+    <div class="nh">一個直接從紀錄算出來的數字</div>
+    <p>
+      22 筆執行合計計費 <span class="num">278,084,251</span> tokens，其中純新增（input + cache_write + output）只有
+      <span class="num">11,795,870</span>。
+      <strong>剩下的 <span class="num">266,288,381</span>、也就是 95.8%，是把已經送過的脈絡再送一次。</strong>
+      這不是譬喻，這就是帳單的組成。
+    </p>
+  </div>
+
+  <h3>同樣的三筆錢，換通道與換強度動的不是同一塊</h3>
+
+  <div class="stack">
+    <div class="stack-row">
+      <div class="lab"><b>C1　CLI × high</b>基準</div>
+      <div class="bar">
+        <div class="seg out"   style="width:19.06%"><span>2.48</span></div>
+        <div class="seg read"  style="width:24.25%"><span>3.15</span></div>
+        <div class="seg write" style="width:10.38%"><span>1.35</span></div>
+        <div class="total">$6.98</div>
+      </div>
+    </div>
+    <div class="stack-row">
+      <div class="lab"><b>M1　CLI × medium</b>只有 output 變短</div>
+      <div class="bar">
+        <div class="seg out"   style="width:15.65%"><span>2.04</span></div>
+        <div class="seg read"  style="width:24.69%"><span>3.21</span></div>
+        <div class="seg write" style="width:10.41%"><span>1.35</span></div>
+        <div class="total">$6.60</div>
+      </div>
+    </div>
+    <div class="stack-row">
+      <div class="lab"><b>C2　Desktop × high</b>cache_read 幾乎翻倍</div>
+      <div class="bar">
+        <div class="seg out"   style="width:24.73%"><span>3.22</span></div>
+        <div class="seg read"  style="width:53.55%"><span>6.96</span></div>
+        <div class="seg write" style="width:14.15%"><span>1.84</span></div>
+        <div class="total">$12.02</div>
+      </div>
+    </div>
+  </div>
+  <div class="stack-key">
+    <span><i style="background:var(--bar-out)"></i>output @$25/M</span>
+    <span><i style="background:var(--bar-read)"></i>cache_read @$0.50/M</span>
+    <span><i style="background:var(--bar-write)"></i>cache_write @$10/M</span>
+    <span>單位：每次執行的美元；橫軸共用同一刻度</span>
+  </div>
+
+  <div class="prose" style="margin-top:26px">
+    <p>
+      <strong>降低 effort 只削到最左邊那一段。</strong> thinking token 少了 33%、時間短了 14%（兩者皆完全分離），
+      但 <span class="num">cache_read</span> 不但沒降，還微幅上升 <span class="num">+$0.058</span>——
+      因為降低強度使回合數增加 8%。總成本只降 <span class="num">$0.381</span>（5%），
+      <span class="num">p=0.8857</span>。
+    </p>
+    <p>
+      <strong>換通道則是把中間那一段吹大。</strong> 兩通道的工具面 (tool surface) 差異
+      （CLI 可見 2 個 MCP 伺服器、Desktop 約 10 個）造成基準線脈絡 T0 相差
+      <span class="num">18,353</span> tokens（+37.2%）——但這個固定差額只解釋了 cache_read 差距的 <strong>21%</strong>。
+      其餘 79% 來自複利：Desktop 發出 <span class="num">1.55×</span> 的請求，每次又攜帶
+      <span class="num">1.43×</span> 的重讀量（每次請求平均 cache_read <span class="num">160,020</span> 對
+      <span class="num">112,065</span>），而 cache_read 總量是兩者的<strong>乘積</strong>。
+    </p>
+  </div>
+
+  <div class="note">
+    <div class="nh">成長律</div>
+    <p>
+      <span class="num">cache_read ∝ 請求數 × 每次請求的重讀量</span>。
+      委派之所以貴 5.27 倍，也是同一條式子：子代理各自攜帶自身脈絡，請求數成長
+      <span class="num">3.28×</span>（C3 平均 184.5 次請求，其中 139 次來自子代理），重讀量隨之爆增。
+      <strong>有效的節約手段是縮短脈絡或減少回合，不是調推理強度、也不是換通道。</strong>
+    </p>
+  </div>
+</section>
+
+<!-- ==========================================================
+     §4 WHAT TO CHANGE
+     ========================================================== -->
+<section>
+  <div class="sec-head">
+    <div class="mark">§4</div>
+    <h2>該改什麼</h2>
+    <p class="sub">只列資料支持得住的四條。每條附上它建立在哪個量測上，以及它在哪裡失效。</p>
+  </div>
+
+  <div class="recs">
+
+    <div class="rec">
+      <div class="rh"><span class="rt">1　省錢就去縮短脈絡、減少回合</span><span class="chip ok">已量測</span></div>
+      <p>
+        這是唯一動到成本主體的旋鈕。cache_read 佔全研究計費 token 的 95.8%、佔單次執行成本的
+        <span class="num">35.7%–66.4%</span>（組均值 38.0%–55.8%；Desktop 組最高，
+        <span class="num">$6.96 / $12.02 ≈ 58%</span>），而且它<strong>對推理強度完全免疫</strong>。
+        具體做法：更早收斂脈絡、把長檔案換成摘要、把多回合的探索改成一次到位的指令。
+      </p>
+      <div class="basis">依據：論文 §7.6 成本拆解、§8.1 成長律；本頁 §3 的 278M / 11.8M 為 record.json 逐筆加總。</div>
+    </div>
+
+    <div class="rec">
+      <div class="rh"><span class="rt">2　effort 不是省錢旋鈕，別拿它當成本槓桿</span><span class="chip none">統計上無法區分</span></div>
+      <p>
+        high → medium 讓 thinking token 少 33%、時間短 14%，看起來像節省，但那兩個量不是帳單。
+        <strong>總成本只降 5%，且 <span class="num">p=0.8857</span>——四筆 high 與四筆 medium 的成本完全交錯</strong>
+        （high <span class="num">[6.37, 6.69, 6.69, 8.17]</span>，medium <span class="num">[6.53, 7.01, 7.48, 5.37]</span>）。
+        誠實的標題是「effort 不是有效的節約旋鈕」，不是「降 effort 省 33%」。
+      </p>
+      <div class="basis">依據：論文 §7.4（p=0.3429 於 token、p=0.8857 於成本）、§7.6 強度拆解。</div>
+    </div>
+
+    <div class="rec">
+      <div class="rh"><span class="rt">3　輕中量任務不要為了「省主脈絡」而委派</span><span class="chip ok">已量測 p=0.0286</span></div>
+      <p>
+        小契約上委派要付 <strong>5.27× 的 token、2.37× 的成本、2.29× 的時間</strong>，
+        而且<strong>主模型自己的負擔反而上升 20%</strong>——子代理消耗的 682K–1,475K 是淨增加，不是轉移。
+        脈絡隔離要到 <span class="num">1.50×</span> 規模才開始真的作用（主線 0.820×、峰值 0.918×）。
+        委派的其他論據（平行化、專業分工、失敗隔離）<strong>本研究未測試</strong>，不受此結論影響。
+      </p>
+      <div class="basis">依據：論文 §7.3、§7.5、§8.2。1.80× 損益平衡點為兩點外推，不可引用。</div>
+    </div>
+
+    <div class="rec">
+      <div class="rh"><span class="rt">4　不要拿單一使用形態的量測外推整體用量</span><span class="chip ok">已量測</span></div>
+      <p>
+        只看本研究的 headless 跑批，1 小時 prompt cache 看起來是浪費——那些執行的請求間隔<strong>從未超過 161 秒</strong>，
+        快取根本不會過期。但在使用者本機的真實語料上（<span class="num">341</span> 個 session 檔、成功解析
+        <span class="num">316</span> 個、<span class="num">30,347</span> 次請求）結論反過來：
+        稀疏 (sparse) session 只佔 <span class="num">38.9%</span> 的數量，卻承載 <strong>82.1% 的花費</strong>，
+        而稀疏正是 1 小時 TTL 唯一能發揮作用的地方。
+        實測 499 次過期事件當下的脈絡中位數為 <span class="num">187,490</span> tokens——
+        作者原先憑印象估的是 5 萬，<strong>差了 3.7 倍</strong>。
+      </p>
+      <p>
+        逐項重算後：1 小時 TTL 相對 5 分鐘 TTL <strong>值 +$630.11</strong>。
+      </p>
+      <div class="basis">
+        依據：RESULTS_T0-2-3-4 §T0-4，數字經 AUDIT §1 修正（語料總成本 $4,828.22 → $5,550.41；5m 額外重寫 $1,002.19 → $1,080.74；淨額 +$622.17 → +$630.11）。
+        82.1% 的分母為修正前的 $4,828.22，形態別拆分未隨價表修正重算。
+      </div>
+    </div>
+
+  </div>
+
+  <div class="note warn">
+    <div class="nh">兩個方向相反的錯誤會互相掩護</div>
+    <p>
+      上面那個 <span class="num">+$630</span> 有一段值得記住的來歷：原本算出的
+      <span class="num">+$622</span> 建立在<strong>兩個方向相反、量級相近的錯誤</strong>上
+      （價表漏了 Fable 5 使成本低估 15%；快取重寫成本重複計算使其高估 13.5%），幾乎完全抵銷。
+      <strong>若當時只重算其中一項，會看到數字「幾乎沒變」而誤判原值是對的。</strong>
+      必須逐項獨立重算——這是本研究最實用的一條方法學教訓。
+    </p>
+  </div>
+</section>
+
+<!-- ==========================================================
+     §5 THE BOUNDARY OF "EQUAL QUALITY"
+     ========================================================== -->
+<section>
+  <div class="sec-head">
+    <div class="mark">§5</div>
+    <h2>「等品質」只在契約層成立</h2>
+    <p class="sub">
+      成本比較有意義的前提是各組交付品質相同。這個前提在<strong>契約層 (contract layer)</strong> 有強證據；
+      在 <strong>GUI 層</strong>它<strong>不成立，而且已經有反例</strong>。這兩件事必須一起讀。
+    </p>
+  </div>
+
+  <h3>契約層：強等價，且是實測不是假設</h3>
+  <div class="prose">
+    <p>
+      全部 22 筆執行在<strong>開跑前即封存的隱藏測試集</strong>上都是滿分
+      （小契約 25/25、XL 契約 55/55）。滿分本身不足以支撐「品質相同」，
+      因此另以<strong>差分模糊測試 (differential fuzzing)</strong> 驗證：
+      <strong>13 份獨立實作 × 5,715 個確定域隨機案例 = 74,295 次比對，零分歧、零錯誤、100.00% 一致。</strong>
+      <strong>母體是 22 筆中的 13 筆</strong>，全部為小契約——RQ2／RQ3 完整涵蓋、
+      RQ1 只涵蓋 C2 的 1/4、<strong>RQ4 兩組 0/3</strong>（從未建置 XL 的模糊測試工具）；
+      XL 的等品質僅由封存測試集（55/55）支持。
+      另在 285 個<strong>參考實作無法給出確定答案</strong>的輸入上（崩潰 146 筆、輸出與規格分歧 139 筆），
+      13 份實作全部乾淨退出。
+    </p>
+  </div>
+
+  <div class="note danger">
+    <div class="nh">GUI 層：一個滿分的反例</div>
+    <p>
+      <strong>XL-B-01 在隱藏測試集上取得 55/55，同時交付了一個連資料夾都無法載入的 GUI。</strong>
+      根因已靜態定位並實測重現：<span class="num">MainForm.cs</span> 在面板尚未掛進表單時就加入
+      <span class="num">Anchor = Top | Right</span> 的子控制項，錨定機制記下負的右緣距離；
+      面板之後被 Dock 成 1180 px 寬時，「瀏覽」「重新整理」等四顆按鈕被推到面板之外
+      （量得 <span class="num">x = 1960 / 2056</span>，而面板僅 1180 寬）。放大視窗無法補救，
+      路徑輸入框也沒有 <span class="num">KeyDown</span>／<span class="num">TextChanged</span> 處理常式。
+      <strong>程式正常啟動、正常結束，只是永遠無法被操作。</strong>
+    </p>
+    <p>
+      評分器沒有算錯——它量的是 headless 核心契約，而核心邏輯確實正確；缺陷完全落在 GUI 組裝層，
+      該層<strong>從來不在它的量程之內</strong>。
+      實務推論：<strong>滿分不是可交付的證據。</strong>
+    </p>
+  </div>
+
+  <h3>而這一段<b>不能</b>被讀成「委派產出比較差的 GUI」</h3>
+  <div class="prose">
+    <p>
+      G4 人工篩檢在 6 個組別代表中找到 1 個功能性失效（即上述 XL-B-01），其餘 5 個通過全部適用項目。
+      階段二補測 XL-B 另兩筆的結果是：
+    </p>
+    <ul>
+      <li><strong>XL-B-03 第 2–12 項全部通過</strong>，而且是使用者評為<strong>「目前最舒服的，畫面也很原生但乾淨」</strong>的那一支。</li>
+      <li><strong>XL-B-02 未完成測試</strong>——使用者開啟後判定「沒有改善，還是一樣的畫面」而停止投入，並非第 2 項失敗。</li>
+    </ul>
+    <p>
+      預先登記的判定規則只寫了兩支分支（皆通過 → 單筆偶發；任一失敗 → 組別特性），
+      現實給出第三種。本研究因此<strong>兩個結論都不宣稱</strong>，改為據實陳述分佈。
+    </p>
+    <p>
+      <strong>委派組同時產出了全研究最不可用的 GUI 與最好的 GUI。</strong>
+      被量到的不是組間差異，而是<strong>組內離散度 (within-arm dispersion)</strong>：
+      同一組、同一份 prompt、同一個模型與強度，交付品質在一個未被量測的維度上橫跨了整個範圍。
+    </p>
+  </div>
+
+  <div class="note warn">
+    <div class="nh">這個比較的強度，與 §1–§3 完全不同等級</div>
+    <p>
+      以「有無實質版面缺陷」做 3 對 3 比較，XL-B 為 <span class="num">2/3</span>、XL-A 為 <span class="num">0/3</span>，
+      Fisher 精確檢定 <span class="num">p=0.4</span>；本研究已登記的 <span class="num">n=3</span> 下界
+      （<span class="num">p_min=0.100</span>）同樣適用。
+      <strong>此分佈只能描述，不能宣稱統計顯著，也不可與 §1–§3 那些 n=4、p=0.0286 的成本結論並列閱讀。</strong>
+      各組的版面與體感評語（文字遮擋、配色、操作引導）每筆 <span class="num">n=1</span> 且帶主觀性，
+      依事前聲明<strong>不得</strong>據以排序，故不進入任何比較。
+    </p>
+  </div>
+</section>
+
+<!-- ==========================================================
+     §6 INSTRUMENT CREDIBILITY
+     ========================================================== -->
+<section>
+  <div class="sec-head">
+    <div class="mark">§6</div>
+    <h2>這些數字憑什麼可信</h2>
+    <p class="sub">
+      量測研究的結論強度上限等於其儀器可信度。本研究的儀器在過程中揭發了<strong>自身的 7 項缺陷</strong>——
+      全部由對照機制揭發，<strong>無一由推理發現</strong>。
+    </p>
+  </div>
+
+  <div class="scroller">
+    <table>
+      <thead>
+        <tr><th>對照層</th><th>對照物</th><th>結果</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>token 計數</td>
+          <td style="text-align:left;white-space:normal">CLI 自報用量（正對照）</td>
+          <td style="text-align:left;white-space:normal">獨力組逐筆 <b>delta = 0.00%</b>；委派組 0.36%–12.73%（子代理 transcript 未完整落盤，token 總量一律改採自報值）</td>
+        </tr>
+        <tr>
+          <td>成本</td>
+          <td style="text-align:left;white-space:normal">CLI 自報 <span class="num">total_cost_usd</span></td>
+          <td style="text-align:left;white-space:normal">官方價表對某模型的單價經反解證明<b>不可能成立</b>，據此修正為實測值</td>
+        </tr>
+        <tr>
+          <td>評分器（正向）</td>
+          <td style="text-align:left;white-space:normal">已知為真的參考實作</td>
+          <td style="text-align:left;white-space:normal">小契約 <b>Y4 = 1.0</b>、XL <b>1.0</b>——能給分</td>
+        </tr>
+        <tr>
+          <td>評分器（負向）</td>
+          <td style="text-align:left;white-space:normal">植入單點缺陷的突變體</td>
+          <td style="text-align:left;white-space:normal">小契約 <b>0.4</b>、XL <b>0.2727</b>——能扣分。<b>單邊校準會讓「全部拒絕」的壞閘門拿滿分</b></td>
+        </tr>
+        <tr>
+          <td>契約語意</td>
+          <td style="text-align:left;white-space:normal">13 份獨立實作的一致性</td>
+          <td style="text-align:left;white-space:normal"><b>100.00%</b>（5,715 案 × 13 份），並反過來揭發<b>參考 oracle 自身的兩項缺陷</b></td>
+        </tr>
+        <tr>
+          <td>測試套件</td>
+          <td style="text-align:left;white-space:normal">系統性突變測試</td>
+          <td style="text-align:left;white-space:normal">21 個突變體，19 個可編譯，殺掉 14 → 原始 <b>73.7%</b>；扣除 1 個語意等價者後 <b>77.8%</b>（14/18）</td>
+        </tr>
+      </tbody>
+      <caption>
+        7 項缺陷中最嚴重者（逐請求去重「保留第一筆」抓到串流部分計數）若未被發現，
+        將使<strong>委派架構的 token 消耗被低估 52%，並導致方向相反的結論</strong>。它由 CLI 自報正對照揭發。
+      </caption>
+    </table>
+  </div>
+
+  <div class="prose">
+    <p>
+      兩條相互配對的方法學收穫值得單獨記下。第一條：
+      <strong>一群獨立實作，是比作者自身參考實作更強的 oracle。</strong>
+      首輪掃描中全部受測實作分歧於完全相同的案例集合、輸出完全一致、一致率數值完全相同——
+      多位獨立作者同時犯下同一錯誤的機率，遠低於「作者的兩份自有實作共享同一誤讀」。逐案重現後確認：錯的是 oracle。
+    </p>
+    <p>
+      第二條是它的反向配對，由 §5 的 GUI 反例給出：
+      <strong>自動驗收儀器只為它所量測的那一個維度背書；對其他每一個維度，它的沉默不是保證。</strong>
+    </p>
+    <p>
+      還有一條關於量尺的紀律：突變測試找到評分器有一個<strong>從未被檢查的中繼欄位</strong>
+      （<span class="num">schemaVersion</span>），本研究<strong>刻意不追溯修補</strong>——
+      新增檢查會使滿分由 25 變 26，所有已發表 Y4 的分母改變、可比性破壞。
+      <strong>看到資料之後才改動量尺，是比留著一個已記錄且經稽核確認未被利用的漏洞更嚴重的問題。</strong>
+    </p>
+  </div>
+
+  <div class="note wide-note">
+    <div class="nh">這條教訓，落在了本研究自己的論文上</div>
+    <p>
+      本頁的絕對值是從 <span class="num">results\*\record.json</span> 重新彙總的。過程中撞到三處
+      <strong>論文行文與磁碟原始檔不符</strong>：模糊測試的乘積仍停在 9 份實作時期的舊值
+      （<span class="num">51,435</span>，13 份實作應為 <span class="num">74,295</span>）；
+      crosscheck 全距漏掉最大的一筆（C3-04 為 <span class="num">12.73%</span>，行文只寫到 3.17%）；
+      §7.1 的合計列含儀器探針而各細格列不含（<span class="num">$253.39</span> 對
+      <span class="num">$254.22</span>）。
+    </p>
+    <p>
+      真正值得記下的是<strong>它們為什麼沒有被查證工具攔下</strong>。
+      <span class="num">tools\paper_data.py</span> 的職責是「論文引用的每個數字都要對應到磁碟上的檔案」，
+      但它當時只檢查<strong>欄位與檔案存在</strong>，從不比對散文與內容。
+      三處全部落在那道縫隙裡；而且三處都是<strong>讀者</strong>發現的，不是工具發現的
+      （其中模糊測試的乘積由兩條獨立路徑在同一天各自撞到）。
+    </p>
+    <p>
+      <strong>接著做的一輪全論文對帳，又找出十三處。</strong>
+      重算論文約 <span class="num">220</span> 個引用值後：其中兩處是已知未修的
+      （<span class="num">cache_read</span> 佔比區間、單次執行請求數區間），
+      另外十處落在前一輪掃描<strong>沒有掃的形狀</strong>上——比值、平均值、$p$ 值、計數、名詞。
+      本頁上面那些被改過的數字（35.7%–66.4%、13.5%、285 筆的拆解、四處盲區、每次請求的重讀量）
+      就是這一輪的產物。另有<strong>三個數字追不到任何檔案</strong>，已在論文中標為 UNVERIFIED
+      而不是刪掉。逐筆帳目見 <span class="num">RECONCILIATION_2026-08-21.md</span>。
+      <strong>十六處合計，沒有任何一項改動到結論或任一組的量測值。</strong>
+    </p>
+    <p>
+      這正是 §8.5 第 6 點——<strong>自動驗收儀器只為它所量測的那一個維度背書，
+      對其他每一個維度它的沉默不是保證</strong>——掉在本研究自己的論文上。
+      XL-B-01 那個 55/55 卻打不開資料夾的 GUI 是這句話的第一個實例；這十六處引用值是第二個。
+      <span class="num">paper_data.py</span> 已於 2026-08-21 改成<strong>掃描</strong>而非人工挑選
+      （逐筆全距、標明加總對象的總計、四組比較的比值與精確 $p$、成本項佔比、
+      並直接讀論文重乘每個 <span class="num">A × B = C</span>），
+      但它仍然只能印出磁碟上的真值、<strong>不能證明論文引用了它們</strong>——那一步還是人做的。
+    </p>
+  </div>
+</section>
+
+<!-- ==========================================================
+     §7 LIMITS
+     ========================================================== -->
+<section>
+  <div class="sec-head">
+    <div class="mark">§7</div>
+    <h2>這些數字不涵蓋什麼</h2>
+    <p class="sub">寫在這裡的每一條，都是引用上面任何一個數字時必須一起帶走的條件。</p>
+  </div>
+
+  <div class="limits">
+    <div>
+      <h4>單一任務標的</h4>
+      <p>一個 C# WinForms 批次改名工具，綠地起步、零外部網路。結果<strong>不可外推至「所有任務」</strong>；研究、除錯、重構的成本結構可能完全不同。</p>
+    </div>
+    <div>
+      <h4>單一機器與設定</h4>
+      <p>單一 Windows 11 工作站，含使用者自訂規則層、鉤子層與 MCP 組態，<strong>刻意未移除</strong>（目標是生態效度）。換一組 MCP，通道差異的量級就會改變。</p>
+    </div>
+    <div>
+      <h4>單一模型層級</h4>
+      <p>僅測 Claude Opus 5 主線、CLI 2.1.233。委派組的子代理由環境路由至較廉價模型，該路由本身未受控。</p>
+    </div>
+    <div>
+      <h4>三組比較不完全獨立</h4>
+      <p>C1 同時作為通道、架構、強度三組比較的共同錨點細格，跑一次用於多處。此設計節省成本，但代價寫在這裡。</p>
+    </div>
+    <div>
+      <h4>Desktop 沒有自報帳</h4>
+      <p>C2 的成本無法 crosscheck，是<strong>以已驗證價表推導的值</strong>。兩通道的時間量測工具也不同（CLI 外部碼錶 vs Desktop transcript 首尾差）。</p>
+    </div>
+    <div>
+      <h4>規模只有兩個點</h4>
+      <p>RQ4 只有 <span class="num">1.00×</span> 與 <span class="num">1.50×</span>，不足以擬合曲線或宣告損益平衡點。</p>
+    </div>
+    <div>
+      <h4>評分器有已知盲區</h4>
+      <p>四處：兩個恰好落在邊界值的條件、一個控制字元檢查，一個未檢查的中繼欄位。已稽核確認無任何受測組利用，但漏洞是真的。</p>
+    </div>
+    <div>
+      <h4>語料成本的最脆弱一環</h4>
+      <p>Fable 5 的單價為<strong>外部刊載值，未經本機成本回報交叉驗證</strong>（Opus 已驗證至 0.00%、Sonnet 由實測反解）。若該價有誤，$5,550.41 需重算。</p>
+    </div>
+    <div>
+      <h4>天花板效應</h4>
+      <p>22 筆全數滿分，所以本研究<strong>無從得知</strong>在「模型會失敗」的任務上，通道、架構或強度是否會產生品質差異。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================
+     PROVENANCE
+     ========================================================== -->
+<footer class="prov">
+  <h2>數字的出處</h2>
+  <ul>
+    <li><b>絕對值（§1）</b> results/*/record.json 共 22 筆逐筆彙總；分組依 RUN_MANIFEST.md（依 prompt 檔名與契約分類）</li>
+    <li><b>比值與 p 值（§2）</b> PAPER_2026-08-20.md §7.2–§7.5，直接引用，未重新推導</li>
+    <li><b>成本拆解（§3）</b> PAPER_2026-08-20.md §7.6、§8.1；278M / 11.8M 為 record.json 的 Y1a、Y1b 加總</li>
+    <li><b>快取經濟學（§4-4）</b> RESULTS_T0-2-3-4_2026-08-20.md §T0-4，數字經 AUDIT_2026-08-20.md §1 修正</li>
+    <li><b>GUI 層（§5）</b> RESULTS_G4_GUI_SCREENING_2026-08-21.md；重現探針 holdout/g4_anchor_probe/</li>
+    <li><b>儀器（§6）</b> holdout/FUZZ_RESULT.json、MUTATION_RESULT.json、CALIBRATION_*.json；缺陷清單 PAPER §5.5</li>
+    <li><b>查證工具</b> tools/paper_data.py — 逐項印出引用數字與其來源檔案</li>
+    <li><b>儀器探針</b> P0-cli-opus-baseline、P0-cli-opus-baseline-agents 為冷啟動基準線探針，<b>不計入任何組別樣本</b></li>
+  </ul>
+  <p class="foot">
+    本頁遵循論文附錄 D 的證據原則：<b>凡無法指向檔案的數字，不寫入本頁。</b>
+    絕對值一律由 <span class="num">results\*\record.json</span> 逐筆彙總；比值與 p 值一律引自論文，未重新推導。
+    彙總過程中發現的三處、以及隨後全論文對帳找出的十三處論文引用值出入，
+    <b>均已於 2026-08-21 在論文中更正</b>（三個追不到檔案者標為 UNVERIFIED），本頁與論文一致；
+    來歷記於 §6 末，逐筆帳目見 <span class="num">RECONCILIATION_2026-08-21.md</span>
+    （<span class="num">RUN_MANIFEST.md</span>、<span class="num">AUDIT_2026-08-20.md</span>、
+    <span class="num">results\</span>、<span class="num">holdout\</span> 為權威來源，本來就都是對的，未更動）。
+    另有兩處以磁碟值為準而未見於論文者：語料 session 計數（341 檔／成功解析 316）、
+    突變偵測率的原始值 73.7%（14/19）與扣除語意等價突變體後的 77.8%（14/18）——後者為可辯護值，本頁採用。
+  </p>
+</footer>
+
+</div>

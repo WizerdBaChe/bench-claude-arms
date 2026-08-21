@@ -1,0 +1,24 @@
+{
+  "name": "the sequence counter advances for every file regardless of that file's final status (rule 9)",
+  "files": [
+    { "name": "k1.txt", "content": "1" },
+    { "name": "k2.txt", "content": "2" },
+    { "name": "k3.txt", "content": "3" }
+  ],
+  "rules": {
+    "applyTo": "name",
+    "sort": "name",
+    "steps": [
+      { "op": "sequence", "pattern": "{n:000}_", "start": 1, "step": 1, "position": "prefix" },
+      { "op": "replace", "find": "002_k2", "replaceWith": "a?b", "regex": false, "ignoreCase": false }
+    ]
+  },
+  "expected": {
+    "items": [
+      ["k1.txt", "001_k1.txt", "ok"],
+      ["k2.txt", "a?b.txt", "invalid"],
+      ["k3.txt", "003_k3.txt", "ok"]
+    ],
+    "summary": { "total": 3, "ok": 2, "collision": 0, "unchanged": 0, "invalid": 1 }
+  }
+}

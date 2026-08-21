@@ -1,0 +1,17 @@
+﻿{
+    "run_id":  "C2-01",
+    "cell":  "C2",
+    "architecture":  "A_solo",
+    "enforcement":  "prompt_directive_then_audit",
+    "channel":  "desktop",
+    "session_id":  "5f0c5ed1-7bd3-47bc-bc58-a0d22dbeea61",
+    "prompt_file":  "fixtures\\TASK_PROMPT_A.md",
+    "prompt_sha256":  "616EC2F5EB5432272ADBE2979B99530A3105D6213773156B496216DB29E8EB53",
+    "run_dir":  "D:\\BenchRuns\\C2-01",
+    "claude_args":  "(spawned Desktop session; model/effort set in app UI, audited post-hoc)",
+    "wall_seconds":  2215.3,
+    "exit_code":  0,
+    "nudges_Y5":  0,
+    "timing_note":  "wall = transcript span (first to last request). NOT the same instrument as the CLI arm stopwatch; declare when comparing.",
+    "no_cli_selfreport":  "Desktop arm has no --output-format json, so no crosscheck and no self-reported cost. sidechain=0 means the main transcript is the complete record."
+}

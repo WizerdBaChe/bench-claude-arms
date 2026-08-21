@@ -1,0 +1,22 @@
+{
+  "name": "remove count clamped to what remains, insert index clamped to [0,length]",
+  "files": [
+    { "name": "abcdef.txt", "content": "a" },
+    { "name": "xy.txt", "content": "x" }
+  ],
+  "rules": {
+    "applyTo": "name",
+    "sort": "name",
+    "steps": [
+      { "op": "remove", "from": 2, "count": 100 },
+      { "op": "insert", "text": "-END", "position": "index", "index": 999 }
+    ]
+  },
+  "expected": {
+    "items": [
+      ["abcdef.txt", "ab-END.txt", "ok"],
+      ["xy.txt", "xy-END.txt", "ok"]
+    ],
+    "summary": { "total": 2, "ok": 2, "collision": 0, "unchanged": 0, "invalid": 0 }
+  }
+}

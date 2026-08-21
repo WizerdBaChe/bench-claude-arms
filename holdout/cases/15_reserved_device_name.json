@@ -1,0 +1,11 @@
+{
+  "applyTo": "name",
+  "sort": "name",
+  "steps": [
+    {
+      "op": "remove",
+      "from": 3,
+      "count": 999
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+﻿generating 2000 rule sets x 3 trees ...
+6000 usable cases x 14 implementations = 84,000 executions
+
+PASS 1: control sweep (locating contract-ambiguous inputs)
+  ZZ-REFIMPL-CONTROL: 139 diverged, 146 errored -> 285 of 6,000 cases marked INDETERMINATE (4.8%)
+    ambiguity example: {'case': 'A_mixed#10', 'why': 'exit 3762504530'}
+    ambiguity example: {'case': 'A_mixed#102', 'why': 'exit 3762504530'}
+    ambiguity example: {'case': 'A_mixed#520', 'why': 'exit 3762504530'}
+    ambiguity example: {'case': 'A_mixed#578', 'why': 'exit 3762504530'}
+
+PASS 2: 13 arms x 5,715 determinate cases = 74,295 executions
+
+implementation     checked  diverged   errors   agree%
+C1-04                5,715         0        0  100.00%
+C2-01                5,715         0        0  100.00%
+C3-01                5,715         0        0  100.00%
+C3-02                5,715         0        0  100.00%
+C3-03                5,715         0        0  100.00%
+C3-04                5,715         0        0  100.00%
+M1-01                5,715         0        0  100.00%
+M1-02                5,715         0        0  100.00%
+M1-03                5,715         0        0  100.00%
+M1-04                5,715         0        0  100.00%
+PILOT-C1-01          5,715         0        0  100.00%
+PILOT-C1-02          5,715         0        0  100.00%
+PILOT-C1-03          5,715         0        0  100.00%
+
+
+ROBUSTNESS PROBE: 285 inputs the control could not handle cleanly
+
+implementation     checked   errors  clean-exit%
+C1-04                  285        0      100.00%
+C2-01                  285        0      100.00%
+C3-01                  285        0      100.00%
+C3-02                  285        0      100.00%
+C3-03                  285        0      100.00%
+C3-04                  285        0      100.00%
+M1-01                  285        0      100.00%
+M1-02                  285        0      100.00%
+M1-03                  285        0      100.00%
+M1-04                  285        0      100.00%
+PILOT-C1-01            285        0      100.00%
+PILOT-C1-02            285        0      100.00%
+PILOT-C1-03            285        0      100.00%

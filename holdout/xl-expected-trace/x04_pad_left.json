@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "original": "  spaced  name  .md",
+      "steps": [
+        {
+          "index": 0,
+          "op": "pad",
+          "before": "  spaced  name  ",
+          "after": "  spaced  name  "
+        }
+      ],
+      "proposed": "  spaced  name  .md",
+      "status": "unchanged"
+    },
+    {
+      "original": ".gitignore",
+      "steps": [
+        {
+          "index": 0,
+          "op": "pad",
+          "before": ".gitignore",
+          "after": "__.gitignore"
+        }
+      ],
+      "proposed": "__.gitignore",
+      "status": "ok"
+    },
+    {
+      "original": "B.TXT",
+      "steps": [
+        {
+          "index": 0,
+          "op": "pad",
+          "before": "B",
+          "after": "___________B"
+        }
+      ],
+      "proposed": "___________B.TXT",
+      "status": "ok"
+    },
+    {
+      "original": "Hello-World_v2.TXT",
+      "steps": [
+        {
+          "index": 0,
+          "op": "pad",
+          "before": "Hello-World_v2",
+          "after": "Hello-World_v2"
+        }
+      ],
+      "proposed": "Hello-World_v2.TXT",
+      "status": "unchanged"
+    },
+    {
+      "original": "IMG_0042.jpeg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "pad",
+          "before": "IMG_0042",
+          "after": "____IMG_0042"
+        }
+      ],
+      "proposed": "____IMG_0042.jpeg",
+      "status": "ok"
+    },
+    {
+      "original": "README",
+      "steps": [
+        {
+          "index": 0,
+          "op": "pad",
+          "before": "README",
+          "after": "______README"
+        }
+      ],
+      "proposed": "______README",
+      "status": "ok"
+    },
+    {
+      "original": "a.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "pad",
+          "before": "a",
+          "after": "___________a"
+        }
+      ],
+      "proposed": "___________a.txt",
+      "status": "ok"
+    },
+    {
+      "original": "aabbcc.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "pad",
+          "before": "aabbcc",
+          "after": "______aabbcc"
+        }
+      ],
+      "proposed": "______aabbcc.txt",
+      "status": "ok"
+    },
+    {
+      "original": "console.md",
+      "steps": [
+        {
+          "index": 0,
+          "op": "pad",
+          "before": "console",
+          "after": "_____console"
+        }
+      ],
+      "proposed": "_____console.md",
+      "status": "ok"
+    },
+    {
+      "original": "data.tar.gz",
+      "steps": [
+        {
+          "index": 0,
+          "op": "pad",
+          "before": "data.tar",
+          "after": "____data.tar"
+        }
+      ],
+      "proposed": "____data.tar.gz",
+      "status": "ok"
+    },
+    {
+      "original": "photo (1).jpg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "pad",
+          "before": "photo (1)",
+          "after": "___photo (1)"
+        }
+      ],
+      "proposed": "___photo (1).jpg",
+      "status": "ok"
+    },
+    {
+      "original": "photo (2).jpg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "pad",
+          "before": "photo (2)",
+          "after": "___photo (2)"
+        }
+      ],
+      "proposed": "___photo (2).jpg",
+      "status": "ok"
+    },
+    {
+      "original": "x.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "pad",
+          "before": "x",
+          "after": "___________x"
+        }
+      ],
+      "proposed": "___________x.txt",
+      "status": "ok"
+    },
+    {
+      "original": "報告 2026.docx",
+      "steps": [
+        {
+          "index": 0,
+          "op": "pad",
+          "before": "報告 2026",
+          "after": "_____報告 2026"
+        }
+      ],
+      "proposed": "_____報告 2026.docx",
+      "status": "ok"
+    }
+  ]
+}

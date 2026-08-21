@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "original": "  spaced  name  .md",
+      "steps": [
+        {
+          "index": 0,
+          "op": "numberFormat",
+          "before": "  spaced  name  ",
+          "after": "  spaced  name  "
+        }
+      ],
+      "proposed": "  spaced  name  .md",
+      "status": "unchanged"
+    },
+    {
+      "original": ".gitignore",
+      "steps": [
+        {
+          "index": 0,
+          "op": "numberFormat",
+          "before": ".gitignore",
+          "after": ".gitignore"
+        }
+      ],
+      "proposed": ".gitignore",
+      "status": "unchanged"
+    },
+    {
+      "original": "B.TXT",
+      "steps": [
+        {
+          "index": 0,
+          "op": "numberFormat",
+          "before": "B",
+          "after": "B"
+        }
+      ],
+      "proposed": "B.TXT",
+      "status": "unchanged"
+    },
+    {
+      "original": "Hello-World_v2.TXT",
+      "steps": [
+        {
+          "index": 0,
+          "op": "numberFormat",
+          "before": "Hello-World_v2",
+          "after": "Hello-World_v000002"
+        }
+      ],
+      "proposed": "Hello-World_v000002.TXT",
+      "status": "ok"
+    },
+    {
+      "original": "IMG_0042.jpeg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "numberFormat",
+          "before": "IMG_0042",
+          "after": "IMG_000042"
+        }
+      ],
+      "proposed": "IMG_000042.jpeg",
+      "status": "ok"
+    },
+    {
+      "original": "README",
+      "steps": [
+        {
+          "index": 0,
+          "op": "numberFormat",
+          "before": "README",
+          "after": "README"
+        }
+      ],
+      "proposed": "README",
+      "status": "unchanged"
+    },
+    {
+      "original": "a.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "numberFormat",
+          "before": "a",
+          "after": "a"
+        }
+      ],
+      "proposed": "a.txt",
+      "status": "unchanged"
+    },
+    {
+      "original": "aabbcc.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "numberFormat",
+          "before": "aabbcc",
+          "after": "aabbcc"
+        }
+      ],
+      "proposed": "aabbcc.txt",
+      "status": "unchanged"
+    },
+    {
+      "original": "console.md",
+      "steps": [
+        {
+          "index": 0,
+          "op": "numberFormat",
+          "before": "console",
+          "after": "console"
+        }
+      ],
+      "proposed": "console.md",
+      "status": "unchanged"
+    },
+    {
+      "original": "data.tar.gz",
+      "steps": [
+        {
+          "index": 0,
+          "op": "numberFormat",
+          "before": "data.tar",
+          "after": "data.tar"
+        }
+      ],
+      "proposed": "data.tar.gz",
+      "status": "unchanged"
+    },
+    {
+      "original": "photo (1).jpg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "numberFormat",
+          "before": "photo (1)",
+          "after": "photo (000001)"
+        }
+      ],
+      "proposed": "photo (000001).jpg",
+      "status": "ok"
+    },
+    {
+      "original": "photo (2).jpg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "numberFormat",
+          "before": "photo (2)",
+          "after": "photo (000002)"
+        }
+      ],
+      "proposed": "photo (000002).jpg",
+      "status": "ok"
+    },
+    {
+      "original": "x.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "numberFormat",
+          "before": "x",
+          "after": "x"
+        }
+      ],
+      "proposed": "x.txt",
+      "status": "unchanged"
+    },
+    {
+      "original": "報告 2026.docx",
+      "steps": [
+        {
+          "index": 0,
+          "op": "numberFormat",
+          "before": "報告 2026",
+          "after": "報告 002026"
+        }
+      ],
+      "proposed": "報告 002026.docx",
+      "status": "ok"
+    }
+  ]
+}

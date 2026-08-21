@@ -1,0 +1,13 @@
+{
+  "applyTo": "name",
+  "sort": "name",
+  "steps": [
+    {
+      "op": "replace",
+      "find": "^(\\w)",
+      "replaceWith": "$1$1",
+      "regex": true,
+      "ignoreCase": false
+    }
+  ]
+}

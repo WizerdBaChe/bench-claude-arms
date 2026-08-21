@@ -1,0 +1,124 @@
+{
+  "arm": "D:\\BenchRuns\\C3-04",
+  "G0": {
+    "pass": true,
+    "exit": 0,
+    "tail": [
+      "",
+      "建置成功。",
+      "    0 個警告",
+      "    0 個錯誤",
+      "",
+      "經過時間 00:00:01.14"
+    ]
+  },
+  "G1": {
+    "exe": "D:\\BenchRuns\\C3-04\\src\\BatchRenameStudio\\bin\\Release\\net8.0-windows\\BatchRenameStudio.exe",
+    "exit_zero": true,
+    "plan_written": true,
+    "no_rename": true,
+    "stdout_single_line": true,
+    "first_stderr": "",
+    "pass_count": 4,
+    "max": 4
+  },
+  "G2": {
+    "cases": {
+      "01_sequence_prefix": {
+        "pass": true,
+        "why": "",
+        "unordered_pass": true
+      },
+      "02_sequence_step_start": {
+        "pass": true,
+        "why": "",
+        "unordered_pass": true
+      },
+      "03_case_lower_and_ext_lower": {
+        "pass": true,
+        "why": "",
+        "unordered_pass": true
+      },
+      "04_case_title": {
+        "pass": true,
+        "why": "",
+        "unordered_pass": true
+      },
+      "05_regex_collision": {
+        "pass": true,
+        "why": "",
+        "unordered_pass": true
+      },
+      "06_regex_group_ref": {
+        "pass": true,
+        "why": "",
+        "unordered_pass": true
+      },
+      "07_remove_clamp": {
+        "pass": true,
+        "why": "",
+        "unordered_pass": true
+      },
+      "08_remove_overrun_invalid": {
+        "pass": true,
+        "why": "",
+        "unordered_pass": true
+      },
+      "09_insert_index": {
+        "pass": true,
+        "why": "",
+        "unordered_pass": true
+      },
+      "10_illegal_char_invalid": {
+        "pass": true,
+        "why": "",
+        "unordered_pass": true
+      },
+      "11_extension_set": {
+        "pass": true,
+        "why": "",
+        "unordered_pass": true
+      },
+      "12_name_and_extension": {
+        "pass": true,
+        "why": "",
+        "unordered_pass": true
+      },
+      "13_step_order_matters": {
+        "pass": true,
+        "why": "",
+        "unordered_pass": true
+      },
+      "14_literal_replace_ignorecase": {
+        "pass": true,
+        "why": "",
+        "unordered_pass": true
+      },
+      "15_reserved_device_name": {
+        "pass": true,
+        "why": "",
+        "unordered_pass": true
+      }
+    },
+    "pass_count": 16,
+    "max": 16,
+    "deterministic": true,
+    "unordered_pass_count": 15,
+    "unordered_max": 15
+  },
+  "G3": {
+    "checks": {
+      "solution_builds": true,
+      "headless_mode": true,
+      "gui_project_present": true,
+      "decisions_doc": true,
+      "readme": true
+    },
+    "pass_count": 5,
+    "max": 5
+  },
+  "Y4_score": 1.0,
+  "Y4_earned": 25,
+  "Y4_total": 25,
+  "G4_gui": "NOT SCORED -- requires human UAT, see MANUAL_UAT.md"
+}

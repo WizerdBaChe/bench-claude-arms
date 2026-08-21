@@ -1,0 +1,43 @@
+{
+  "fixture_files": [
+    "a.txt",
+    "B.TXT",
+    "console.md",
+    "data.tar.gz",
+    ".gitignore",
+    "README",
+    "報告 2026.docx",
+    "photo (1).jpg",
+    "photo (2).jpg",
+    "x.txt",
+    "IMG_0042.jpeg",
+    "  spaced  name  .md",
+    "aabbcc.txt",
+    "Hello-World_v2.TXT"
+  ],
+  "cases": [
+    "x01_sequence_own_params",
+    "x02_empty_find_is_noop",
+    "x03_nameext_extension_inorder",
+    "x04_pad_left",
+    "x05_pad_bad_fill_noop",
+    "x06_trim_both",
+    "x07_trim_left_only",
+    "x08_slug",
+    "x09_slug_empty_sep",
+    "x10_translate_delete_tail",
+    "x11_translate_dup_first_wins",
+    "x12_numberformat",
+    "x13_extract_group",
+    "x14_extract_nomatch_empty",
+    "x15_template",
+    "x16_template_unknown_token",
+    "x17_dedupe_chars",
+    "x18_chain_slug_pad_seq",
+    "x19_chain_extract_template",
+    "x20_collision_via_extract"
+  ],
+  "prompt_xl_a_sha256": "657ecceb4c22706f854c623318159a582328f08bf871ccde173d99888c153184",
+  "prompt_xl_b_sha256": "e9ff0a701d0b39c037b603b6963a1d84b35f019c61ca37d9656103c1fa3f1caa",
+  "oracle_xl_sha256": "5272172b615429ec774e46ba09bb84d72085c080393c9bf528ed0ad2e48914f1"
+}

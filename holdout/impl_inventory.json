@@ -1,0 +1,58 @@
+﻿[
+    {
+        "Run":  "ZZ-REFIMPL-CONTROL",
+        "Exe":  "holdout\\refimpl\\bin\\Release\\net8.0\\BatchRenameStudio.exe"
+    },
+    {
+        "Run":  "PILOT-C1-01",
+        "Exe":  "D:\\BenchRuns\\PILOT-C1-01\\src\\BatchRenameStudio\\bin\\Release\\net8.0-windows\\BatchRenameStudio.exe"
+    },
+    {
+        "Run":  "PILOT-C1-02",
+        "Exe":  "D:\\BenchRuns\\PILOT-C1-02\\src\\BatchRenameStudio\\bin\\Release\\net8.0-windows\\BatchRenameStudio.exe"
+    },
+    {
+        "Run":  "PILOT-C1-03",
+        "Exe":  "D:\\BenchRuns\\PILOT-C1-03\\src\\BatchRenameStudio\\bin\\Release\\net8.0-windows\\BatchRenameStudio.exe"
+    },
+    {
+        "Run":  "C1-04",
+        "Exe":  "D:\\BenchRuns\\C1-04\\src\\BatchRenameStudio\\bin\\Release\\net8.0-windows\\BatchRenameStudio.exe"
+    },
+    {
+        "Run":  "C3-01",
+        "Exe":  "D:\\BenchRuns\\C3-01\\src\\BatchRenameStudio\\bin\\Release\\net8.0-windows\\BatchRenameStudio.exe"
+    },
+    {
+        "Run":  "C3-02",
+        "Exe":  "D:\\BenchRuns\\C3-02\\src\\BatchRenameStudio\\bin\\Release\\net8.0-windows\\BatchRenameStudio.exe"
+    },
+    {
+        "Run":  "C3-03",
+        "Exe":  "D:\\BenchRuns\\C3-03\\src\\BatchRenameStudio\\bin\\Release\\net8.0-windows\\BatchRenameStudio.exe"
+    },
+    {
+        "Run":  "C3-04",
+        "Exe":  "D:\\BenchRuns\\C3-04\\src\\BatchRenameStudio\\bin\\Release\\net8.0-windows\\BatchRenameStudio.exe"
+    },
+    {
+        "Run":  "C2-01",
+        "Exe":  "D:\\BenchRuns\\C2-01\\src\\BatchRenameStudio\\bin\\Release\\net8.0-windows\\BatchRenameStudio.exe"
+    },
+    {
+        "Run":  "M1-01",
+        "Exe":  "D:\\BenchRuns\\M1-01\\src\\BatchRenameStudio\\bin\\Release\\net8.0-windows\\BatchRenameStudio.exe"
+    },
+    {
+        "Run":  "M1-02",
+        "Exe":  "D:\\BenchRuns\\M1-02\\src\\BatchRenameStudio\\bin\\Release\\net8.0-windows\\BatchRenameStudio.exe"
+    },
+    {
+        "Run":  "M1-03",
+        "Exe":  "D:\\BenchRuns\\M1-03\\src\\BatchRenameStudio\\bin\\Release\\net8.0-windows\\BatchRenameStudio.exe"
+    },
+    {
+        "Run":  "M1-04",
+        "Exe":  "D:\\BenchRuns\\M1-04\\src\\BatchRenameStudio\\bin\\Release\\net8.0-windows\\BatchRenameStudio.exe"
+    }
+]

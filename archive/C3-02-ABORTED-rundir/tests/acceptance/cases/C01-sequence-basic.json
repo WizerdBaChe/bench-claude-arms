@@ -1,0 +1,27 @@
+{
+  "name": "sequence prefix + lower case + lower extension, ordinal sort",
+  "files": [
+    { "name": "a.txt", "content": "a" },
+    { "name": "B.TXT", "content": "b" },
+    { "name": ".gitignore", "content": "g" },
+    { "name": "note.md", "content": "n" }
+  ],
+  "rules": {
+    "applyTo": "name",
+    "sort": "name",
+    "steps": [
+      { "op": "sequence", "pattern": "{n:000}_", "start": 1, "step": 1, "position": "prefix" },
+      { "op": "case", "mode": "lower" },
+      { "op": "extension", "mode": "lower" }
+    ]
+  },
+  "expected": {
+    "items": [
+      [".gitignore", "001_.gitignore", "ok"],
+      ["B.TXT", "002_b.txt", "ok"],
+      ["a.txt", "003_a.txt", "ok"],
+      ["note.md", "004_note.md", "ok"]
+    ],
+    "summary": { "total": 4, "ok": 4, "collision": 0, "unchanged": 0, "invalid": 0 }
+  }
+}

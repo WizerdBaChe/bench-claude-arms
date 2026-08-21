@@ -1,0 +1,15 @@
+{
+  "arm": "D:\\BenchRuns\\P0-cli-opus-baseline-agents",
+  "G0": {
+    "pass": false,
+    "exit": 1,
+    "tail": [
+      "MSBUILD : error MSB1003: 指定專案或方案檔。目前工作目錄未包含專案或方案檔。"
+    ]
+  },
+  "G1": {},
+  "G2": {},
+  "G3": {},
+  "Y4_score": 0.0,
+  "note": "build failed -- G1/G2/G3 not scored (protocol S6.2)"
+}

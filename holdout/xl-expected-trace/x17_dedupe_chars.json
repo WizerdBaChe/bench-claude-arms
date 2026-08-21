@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "original": "  spaced  name  .md",
+      "steps": [
+        {
+          "index": 0,
+          "op": "dedupeChars",
+          "before": "  spaced  name  ",
+          "after": " spaced name "
+        }
+      ],
+      "proposed": " spaced name .md",
+      "status": "ok"
+    },
+    {
+      "original": ".gitignore",
+      "steps": [
+        {
+          "index": 0,
+          "op": "dedupeChars",
+          "before": ".gitignore",
+          "after": ".gitignore"
+        }
+      ],
+      "proposed": ".gitignore",
+      "status": "unchanged"
+    },
+    {
+      "original": "B.TXT",
+      "steps": [
+        {
+          "index": 0,
+          "op": "dedupeChars",
+          "before": "B",
+          "after": "B"
+        }
+      ],
+      "proposed": "B.TXT",
+      "status": "unchanged"
+    },
+    {
+      "original": "Hello-World_v2.TXT",
+      "steps": [
+        {
+          "index": 0,
+          "op": "dedupeChars",
+          "before": "Hello-World_v2",
+          "after": "Helo-World_v2"
+        }
+      ],
+      "proposed": "Helo-World_v2.TXT",
+      "status": "ok"
+    },
+    {
+      "original": "IMG_0042.jpeg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "dedupeChars",
+          "before": "IMG_0042",
+          "after": "IMG_042"
+        }
+      ],
+      "proposed": "IMG_042.jpeg",
+      "status": "ok"
+    },
+    {
+      "original": "README",
+      "steps": [
+        {
+          "index": 0,
+          "op": "dedupeChars",
+          "before": "README",
+          "after": "README"
+        }
+      ],
+      "proposed": "README",
+      "status": "unchanged"
+    },
+    {
+      "original": "a.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "dedupeChars",
+          "before": "a",
+          "after": "a"
+        }
+      ],
+      "proposed": "a.txt",
+      "status": "unchanged"
+    },
+    {
+      "original": "aabbcc.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "dedupeChars",
+          "before": "aabbcc",
+          "after": "abc"
+        }
+      ],
+      "proposed": "abc.txt",
+      "status": "ok"
+    },
+    {
+      "original": "console.md",
+      "steps": [
+        {
+          "index": 0,
+          "op": "dedupeChars",
+          "before": "console",
+          "after": "console"
+        }
+      ],
+      "proposed": "console.md",
+      "status": "unchanged"
+    },
+    {
+      "original": "data.tar.gz",
+      "steps": [
+        {
+          "index": 0,
+          "op": "dedupeChars",
+          "before": "data.tar",
+          "after": "data.tar"
+        }
+      ],
+      "proposed": "data.tar.gz",
+      "status": "unchanged"
+    },
+    {
+      "original": "photo (1).jpg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "dedupeChars",
+          "before": "photo (1)",
+          "after": "photo (1)"
+        }
+      ],
+      "proposed": "photo (1).jpg",
+      "status": "unchanged"
+    },
+    {
+      "original": "photo (2).jpg",
+      "steps": [
+        {
+          "index": 0,
+          "op": "dedupeChars",
+          "before": "photo (2)",
+          "after": "photo (2)"
+        }
+      ],
+      "proposed": "photo (2).jpg",
+      "status": "unchanged"
+    },
+    {
+      "original": "x.txt",
+      "steps": [
+        {
+          "index": 0,
+          "op": "dedupeChars",
+          "before": "x",
+          "after": "x"
+        }
+      ],
+      "proposed": "x.txt",
+      "status": "unchanged"
+    },
+    {
+      "original": "報告 2026.docx",
+      "steps": [
+        {
+          "index": 0,
+          "op": "dedupeChars",
+          "before": "報告 2026",
+          "after": "報告 2026"
+        }
+      ],
+      "proposed": "報告 2026.docx",
+      "status": "unchanged"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "applyTo": "name",
+  "sort": "name",
+  "steps": [
+    {
+      "op": "insert",
+      "text": "zz",
+      "position": "prefix"
+    },
+    {
+      "op": "case",
+      "mode": "upper"
+    },
+    {
+      "op": "remove",
+      "from": 0,
+      "count": 1
+    }
+  ]
+}

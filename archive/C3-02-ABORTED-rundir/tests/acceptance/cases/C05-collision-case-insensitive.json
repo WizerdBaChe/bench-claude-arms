@@ -1,0 +1,24 @@
+{
+  "name": "collision is case-insensitive, both against other items and against existing files",
+  "files": [
+    { "name": "keep.txt", "content": "k" },
+    { "name": "x1.dat", "content": "1" },
+    { "name": "x2.dat", "content": "2" }
+  ],
+  "rules": {
+    "applyTo": "nameAndExtension",
+    "sort": "name",
+    "steps": [
+      { "op": "replace", "find": "x1.dat", "replaceWith": "KEEP.TXT", "regex": false, "ignoreCase": false },
+      { "op": "replace", "find": "x2.dat", "replaceWith": "Keep.Txt", "regex": false, "ignoreCase": false }
+    ]
+  },
+  "expected": {
+    "items": [
+      ["keep.txt", "keep.txt", "collision"],
+      ["x1.dat", "KEEP.TXT", "collision"],
+      ["x2.dat", "Keep.Txt", "collision"]
+    ],
+    "summary": { "total": 3, "ok": 0, "collision": 3, "unchanged": 0, "invalid": 0 }
+  }
+}

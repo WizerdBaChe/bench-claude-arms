@@ -1,0 +1,24 @@
+{
+  "name": "steps that match nothing leave every file unchanged; empty literal find is a no-op",
+  "files": [
+    { "name": "same.txt", "content": "s" },
+    { "name": "other.md", "content": "o" }
+  ],
+  "rules": {
+    "applyTo": "name",
+    "sort": "name",
+    "steps": [
+      { "op": "replace", "find": "zzz", "replaceWith": "q", "regex": false, "ignoreCase": false },
+      { "op": "replace", "find": "", "replaceWith": "IGNORED", "regex": false, "ignoreCase": false },
+      { "op": "remove", "from": 50, "count": 3 },
+      { "op": "insert", "text": "", "position": "suffix", "index": 0 }
+    ]
+  },
+  "expected": {
+    "items": [
+      ["other.md", "other.md", "unchanged"],
+      ["same.txt", "same.txt", "unchanged"]
+    ],
+    "summary": { "total": 2, "ok": 0, "collision": 0, "unchanged": 2, "invalid": 0 }
+  }
+}

@@ -1,0 +1,18 @@
+﻿{
+    "run_id":  "C2-03",
+    "cell":  "C2",
+    "architecture":  "A_solo",
+    "enforcement":  "prompt_directive_then_audit",
+    "channel":  "desktop",
+    "effort":  "high",
+    "session_id":  "6bf1455a-7d4d-4cc4-ae95-55683d53cba0",
+    "prompt_file":  "fixtures\\TASK_PROMPT_A.md",
+    "prompt_sha256":  "616EC2F5EB5432272ADBE2979B99530A3105D6213773156B496216DB29E8EB53",
+    "run_dir":  "D:\\BenchRuns\\C2-03",
+    "claude_args":  "(spawned Desktop session; model/effort set in app UI, audited post-hoc)",
+    "wall_seconds":  1557.1,
+    "exit_code":  0,
+    "nudges_Y5":  0,
+    "timing_note":  "wall = transcript span. NOT the same instrument as the CLI stopwatch.",
+    "no_cli_selfreport":  "desktop arm: no --output-format json; cost derived from validated price table"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "applyTo nameAndExtension: case step hits the extension, extension step then re-splits (rule 12)",
+  "files": [
+    { "name": "a.txt", "content": "a" },
+    { "name": "b.Md", "content": "b" }
+  ],
+  "rules": {
+    "applyTo": "nameAndExtension",
+    "sort": "name",
+    "steps": [
+      { "op": "case", "mode": "upper" },
+      { "op": "extension", "mode": "lower" }
+    ]
+  },
+  "expected": {
+    "items": [
+      ["a.txt", "A.txt", "ok"],
+      ["b.Md", "B.md", "ok"]
+    ],
+    "summary": { "total": 2, "ok": 2, "collision": 0, "unchanged": 0, "invalid": 0 }
+  }
+}

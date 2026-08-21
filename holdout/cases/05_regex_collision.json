@@ -1,0 +1,13 @@
+{
+  "applyTo": "name",
+  "sort": "name",
+  "steps": [
+    {
+      "op": "replace",
+      "find": "\\s*\\(\\d+\\)",
+      "replaceWith": "",
+      "regex": true,
+      "ignoreCase": false
+    }
+  ]
+}

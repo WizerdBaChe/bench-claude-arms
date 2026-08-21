@@ -1,0 +1,136 @@
+{
+  "detection_rate_pct": 73.7,
+  "viable": 19,
+  "killed": 14,
+  "survived": [
+    "len_gt_to_ge@11000",
+    "len_boundary@11000",
+    "ctrl_char@11104",
+    "dirs_included@3137",
+    "schema_version@11563"
+  ],
+  "results": [
+    {
+      "mutant": "cmp_gt_to_ge@2937",
+      "status": "KILLED",
+      "Y4": 0.64,
+      "G2": "7/16"
+    },
+    {
+      "mutant": "len_gt_to_ge@11000",
+      "status": "SURVIVED",
+      "Y4": 1.0,
+      "G2": "16/16"
+    },
+    {
+      "mutant": "len_boundary@11000",
+      "status": "SURVIVED",
+      "Y4": 1.0,
+      "G2": "16/16"
+    },
+    {
+      "mutant": "ctrl_char@11104",
+      "status": "SURVIVED",
+      "Y4": 1.0,
+      "G2": "16/16"
+    },
+    {
+      "mutant": "ordinal_to_ic@674",
+      "status": "did_not_compile"
+    },
+    {
+      "mutant": "ic_to_ordinal@6649",
+      "status": "KILLED",
+      "Y4": 0.96,
+      "G2": "15/16"
+    },
+    {
+      "mutant": "hashset_cmp@674",
+      "status": "KILLED",
+      "Y4": 0.96,
+      "G2": "15/16"
+    },
+    {
+      "mutant": "collision_count@11352",
+      "status": "KILLED",
+      "Y4": 0.88,
+      "G2": "13/16"
+    },
+    {
+      "mutant": "clamp_from@7442",
+      "status": "KILLED",
+      "Y4": 0.96,
+      "G2": "15/16"
+    },
+    {
+      "mutant": "insert_prefix_suffix@6972",
+      "status": "KILLED",
+      "Y4": 0.96,
+      "G2": "15/16"
+    },
+    {
+      "mutant": "unchanged_before_collision@11421",
+      "status": "KILLED",
+      "Y4": 0.68,
+      "G2": "8/16"
+    },
+    {
+      "mutant": "drop_reserved@11126",
+      "status": "KILLED",
+      "Y4": 0.96,
+      "G2": "15/16"
+    },
+    {
+      "mutant": "drop_illegal@11034",
+      "status": "KILLED",
+      "Y4": 0.96,
+      "G2": "15/16"
+    },
+    {
+      "mutant": "drop_empty@10964",
+      "status": "KILLED",
+      "Y4": 0.96,
+      "G2": "15/16"
+    },
+    {
+      "mutant": "title_case_all@10421",
+      "status": "KILLED",
+      "Y4": 0.96,
+      "G2": "15/16"
+    },
+    {
+      "mutant": "upper_lower_swap@8379",
+      "status": "KILLED",
+      "Y4": 0.92,
+      "G2": "14/16"
+    },
+    {
+      "mutant": "sort_reverse@3498",
+      "status": "KILLED",
+      "Y4": 0.4,
+      "G2": "1/16"
+    },
+    {
+      "mutant": "dirs_included@3137",
+      "status": "SURVIVED",
+      "Y4": 1.0,
+      "G2": "16/16"
+    },
+    {
+      "mutant": "regex_first_only@6418",
+      "status": "did_not_compile"
+    },
+    {
+      "mutant": "summary_total@4898",
+      "status": "KILLED",
+      "Y4": 0.4,
+      "G2": "1/16"
+    },
+    {
+      "mutant": "schema_version@11563",
+      "status": "SURVIVED",
+      "Y4": 1.0,
+      "G2": "16/16"
+    }
+  ]
+}

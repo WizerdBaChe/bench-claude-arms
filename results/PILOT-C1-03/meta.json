@@ -1,0 +1,16 @@
+﻿{
+    "run_id":  "PILOT-C1-03",
+    "cell":  "C1",
+    "architecture":  "A_solo",
+    "enforcement":  "prompt_directive_then_audit",
+    "channel":  "cli_headless",
+    "session_id":  "9c3c3274-983f-40da-8a2d-b090460b28f9",
+    "prompt_file":  "fixtures\\TASK_PROMPT_A.md",
+    "prompt_sha256":  "616EC2F5EB5432272ADBE2979B99530A3105D6213773156B496216DB29E8EB53",
+    "run_dir":  "D:\\BenchRuns\\PILOT-C1-03",
+    "claude_args":  "-p --model opus --effort high --permission-mode bypassPermissions --autocompact auto --session-id 9c3c3274-983f-40da-8a2d-b090460b28f9 --max-budget-usd 25 --output-format json",
+    "started_at":  "2026-08-19T19:23:22.4816438Z",
+    "finished_at":  "2026-08-19T19:43:37.9514771Z",
+    "wall_seconds":  1215.5,
+    "exit_code":  0
+}

@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "original": ".gitignore",
+      "proposed": "tignore",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "B.TXT",
+      "proposed": ".TXT",
+      "status": "collision",
+      "reason": ""
+    },
+    {
+      "original": "README",
+      "proposed": "DME",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "a.txt",
+      "proposed": ".txt",
+      "status": "collision",
+      "reason": ""
+    },
+    {
+      "original": "console.md",
+      "proposed": "sole.md",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "data.tar.gz",
+      "proposed": "a.tar.gz",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "photo (1).jpg",
+      "proposed": "to (1).jpg",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "photo (2).jpg",
+      "proposed": "to (2).jpg",
+      "status": "ok",
+      "reason": ""
+    },
+    {
+      "original": "x.txt",
+      "proposed": ".txt",
+      "status": "collision",
+      "reason": ""
+    },
+    {
+      "original": "報告 2026.docx",
+      "proposed": "2026.docx",
+      "status": "ok",
+      "reason": ""
+    }
+  ],
+  "summary": {
+    "total": 10,
+    "ok": 7,
+    "collision": 3,
+    "unchanged": 0,
+    "invalid": 0
+  }
+}

@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <!-- Exe (console subsystem), not WinExe: cmd.exe/PowerShell do not wait for a
+         subsystem-2 (WinExe) process, so $LASTEXITCODE and stdout are never
+         observed by the shell. GUI mode calls FreeConsole() instead (see
+         Cli/ConsoleBridge.cs and docs/SPEC-ENGINE.md §0, §8). -->
+    <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>BatchRenameStudio</AssemblyName>
+    <RootNamespace>BatchRenameStudio</RootNamespace>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <InvariantGlobalization>false</InvariantGlobalization>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,15 @@
+{
+  "applyTo": "name",
+  "sort": "name",
+  "steps": [
+    {
+      "op": "extract",
+      "pattern": "[0-9]+",
+      "group": 0
+    },
+    {
+      "op": "template",
+      "format": "N{name}-{ext}"
+    }
+  ]
+}

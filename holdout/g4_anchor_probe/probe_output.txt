@@ -1,0 +1,15 @@
+runtime = 8.0.28
+AnchorLayoutV2 switch present = False (value=False)
+form client width = 1180
+
+--- A  children added BEFORE panel is parented  (= XL-B-01) ---
+  panel.Width = 1180
+  txtFolder  x=    70  right=  1950  OFF-PANEL
+  btnBrowse  x=  1960  right=  2050  OFF-PANEL
+  btnRefresh x=  2056  right=  2146  OFF-PANEL
+
+--- B  panel parented FIRST, then children      (control) ---
+  panel.Width = 1180
+  txtFolder  x=    70  right=   970  REACHABLE
+  btnBrowse  x=   980  right=  1070  REACHABLE
+  btnRefresh x=  1076  right=  1166  REACHABLE

@@ -1,0 +1,35 @@
+# .NET build output. Regenerable, and regenerated often: `holdout/score.py`
+# calls `dotnet build`, which is also why a metadata backfill over the run
+# records was never done (see ops/lessons.md L-026).
+**/bin/
+**/obj/
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Editor / OS noise
+.vs/
+*.user
+Thumbs.db
+desktop.ini
+
+# Local agent settings. Machine-specific and they record local filesystem paths,
+# which is exactly what DATA_NOTICE.md removes from everything else.
+.claude/
+
+# NOTE ON WHAT IS DELIBERATELY *NOT* IGNORED
+#
+# results/**/transcript.jsonl  (~25 MB)
+#   These are the evidence, not build output. Every token figure in the paper
+#   is derived from them, and the study's worst instrument defect (dedupe
+#   keeping the FIRST record per requestId, understating one arm 52%) is only
+#   re-checkable against these files.
+#
+# archive/
+#   The global file-hygiene rule keeps `archive/` out of git by default. It is
+#   tracked here on purpose: it holds C3-02, the run terminated by the 600s
+#   background-task cap, plus its note and results. That run is a published
+#   exclusion AND the study's example of a platform limit correlated with the
+#   treatment. A baseline that cannot reproduce why a run was voided is not a
+#   baseline. Reverse with `git rm -r --cached archive/` if unwanted.
